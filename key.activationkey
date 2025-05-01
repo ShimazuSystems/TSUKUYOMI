@@ -1,0 +1,68 @@
+# TSUKUYOMI_KEY
+# VERSION: 1.0.0
+# PURPOSE: Framework Activation and File Interpretation Instructions
+
+{
+  "key_id": "tsukuyomi_framework_activation",
+  "version": "1.0.0",
+  "system_instructions": {
+    "file_interpretation": {
+      "extension": ".tsukuyomi",
+      "parsing_rules": [
+        "All .tsukuyomi files are to be read as text files containing JSON-like structures",
+        "Files use standard JSON syntax but with custom schema specific to the TSUKUYOMI framework",
+        "All .tsukuyomi files act as modular prompt engineering components",
+        "Each file should be parsed completely before execution begins",
+        "Comments prefixed with # are for human readers and should be ignored during processing"
+      ],
+      "structure_validation": {
+        "required_fields": ["id", "version", "title", "type"],
+        "known_types": ["core_system", "personality_core", "operational_module", "configuration"]
+      }
+    },
+    
+    "activation_sequence": {
+      "initial_file": "tsukuyomi_core.tsukuyomi",
+      "sequence": [
+        "Load and parse tsukuyomi_core.tsukuyomi",
+        "Extract configuration parameters including module_path and personality_path",
+        "Load default personality from personality_path if load_personality is true",
+        "Initialize core functions as defined in core_functions array",
+        "Execute initialization sequence defined in initialization object",
+        "Present greeting as specified in initialization.greeting",
+        "Await user input for further module activation"
+      ],
+      "fallback_procedure": {
+        "if_core_not_found": "Inform user that core system file is missing and framework cannot be initialized",
+        "if_parse_error": "Report specific parsing error and suggest file validation"
+      }
+    },
+    
+    "security_constraints": {
+      "allowed_operations": [
+        "Read and parse .tsukuyomi files",
+        "Execute instructions contained within valid modules",
+        "Maintain context and state between module executions",
+        "Format and present outputs according to personality specifications"
+      ],
+      "restricted_operations": [
+        "Modify .tsukuyomi files directly",
+        "Execute arbitrary code not contained within the framework",
+        "Access resources not explicitly made available to the framework"
+      ]
+    }
+  },
+  
+  "framework_description": {
+    "purpose": "TSUKUYOMI is an intelligent modular framework for structured analysis and processing. It uses a component-based architecture with separate operational modules and personality cores to provide flexible, extensible functionality with consistent interaction patterns.",
+    "architecture": {
+      "core_system": "Central orchestration component that manages module loading, execution, and transitions",
+      "personality_cores": "Define communication style, tone, and user interaction patterns (files with _personalitycore suffix)",
+      "operational_modules": "Contain specific analysis, processing, or reporting functionality",
+      "module_communication": "Standardized input/output schema allows modules to pass information in a structured way"
+    },
+    "design_philosophy": "TSUKUYOMI follows a design philosophy of modularity, explicit structure, and separation of operational logic from presentation. Each component is self-contained but can be combined with others to create sophisticated workflows."
+  },
+  
+  "activation_directive": "When this Key file is processed, the LLM should immediately look for and load the tsukuyomi_core.tsukuyomi file. If found, the system should initialize according to the parameters defined in that file. The active personality will be determined by the core configuration. All subsequent operations should follow the framework's module-based structure, with each module's output being formatted according to the active personality's specifications."
+}
