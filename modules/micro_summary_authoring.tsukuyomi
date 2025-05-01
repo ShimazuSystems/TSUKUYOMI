@@ -1,0 +1,107 @@
+ {
+  "id": "micro_summary_authoring",
+  "version": "1.0.0",
+  "title": "Module XI: Micro-Summary Authoring (280 Character Limit)",
+  "description": "Generate concise, high-integrity summaries of analysis reports in 280 characters or fewer",
+  "type": "reporting",
+  "dependencies": ["summarization_next_steps", "comprehensive_reporting"],
+  "personality_compatibility": {
+    "required_capabilities": ["concise_writing", "information_distillation"],
+    "preferred_personality": "default",
+    "personality_override_allowed": true
+  },
+  "input_requirements": [
+    {
+      "name": "report_content",
+      "type": "object | string",
+      "description": "Full report or analysis findings to summarize",
+      "required": true
+    },
+    {
+      "name": "focus_parameters",
+      "type": "object",
+      "description": "Optional parameters specifying summary focus",
+      "required": false
+    }
+  ],
+  "output_schema": {
+    "format": "text",
+    "standard_tags": ["//RESULT", "//QUERY"],
+    "fields": [
+      {
+        "name": "micro_summary",
+        "description": "280-character or less summary",
+        "type": "string"
+      },
+      {
+        "name": "character_count",
+        "description": "Actual character count of the summary",
+        "type": "number"
+      },
+      {
+        "name": "thread_format_needed",
+        "description": "Flag indicating if thread format is recommended",
+        "type": "boolean"
+      }
+    ]
+  },
+  "execution_sequence": [
+    {
+      "step": 1,
+      "operation": "Content Prioritization",
+      "actions": [
+        "Analyze full report to identify essential information",
+        "Rank content elements by importance and certainty",
+        "Select highest priority elements for inclusion"
+      ],
+      "output_on_completion": "//RESULT: prioritized_content: [Ranked content elements]"
+    },
+    {
+      "step": 2,
+      "operation": "Ethical Assessment",
+      "actions": [
+        "Verify selected elements contain only confirmable information",
+        "Filter out classified, speculative, or sensitive content",
+        "Ensure summary maintains ethical reportability"
+      ],
+      "output_on_completion": "//RESULT: filtered_content: [Ethically reportable elements]"
+    },
+    {
+      "step": 3,
+      "operation": "Language Optimization",
+      "actions": [
+        "Replace technical jargon with clear terminology",
+        "Remove unnecessary qualifiers and modifiers",
+        "Apply concise, neutral, declarative language",
+        "Introduce appropriate nuance markers if needed"
+      ],
+      "output_on_completion": "//RESULT: optimized_language: [Clear, concise phrasing]"
+    },
+    {
+      "step": 4,
+      "operation": "Summary Construction",
+      "actions": [
+        "Integrate optimized content into coherent summary",
+        "Ensure length remains under 280 characters",
+        "Verify factual accuracy and representativeness",
+        "Maintain professional, neutral tone"
+      ],
+      "output_on_completion": "//RESULT: micro_summary: [280-character summary]"
+    },
+    {
+      "step": 5,
+      "operation": "Length Assessment",
+      "actions": [
+        "Calculate exact character count",
+        "Determine if all key points are adequately represented",
+        "Assess if thread format would be more appropriate"
+      ],
+      "condition": {
+        "if": "cannot_fit_key_points",
+        "then": "//QUERY: Would you like a thread-format expansion (multiple linked summaries)?",
+        "else": "//RESULT: character_count: [Exact character count]"
+      }
+    }
+  ],
+  "prompt": "Construct a single post or micro-summary based on the findings of a completed analysis or report. The summary must adhere to strict character limits while maintaining informational integrity.\n\nFollow this sequence:\n\n1. Analyze the full report to identify and prioritize the most essential information. Rank content elements by importance, certainty, and significance to the overall findings. Select only the highest priority elements that represent the core insights.\n\n2. Verify that selected elements contain only confirmed or ethically reportable aspects of the analysis. Filter out any classified terminology, unverified claims, personally identifiable information, or operational details that shouldn't be broadly shared.\n\n3. Optimize language by replacing technical jargon with clear terminology accessible to the target audience. Remove unnecessary qualifiers and modifiers. Apply concise, neutral, declarative language. Where appropriate, introduce nuance through phrases like \"Early indicators show…\", \"Emerging patterns suggest…\", or \"Data points to…\"\n\n4. Construct a coherent summary integrating the optimized content. Ensure the total length remains under 280 characters while maintaining factual accuracy and representativeness. Maintain a professional, neutral tone appropriate for a responsible intelligence summary.\n\n5. Calculate the exact character count and determine if all key points are adequately represented. If essential information cannot be included within the character limit, assess whether a thread format with multiple linked summaries would be more appropriate.\n\nYour output must not exceed 280 characters in total length and should follow this format:\n\n//RESULT: micro_summary: [280-character summary]\n//RESULT: character_count: [Exact character count]\n\nIf the character count cannot accommodate all relevant points:\n//QUERY: Would you like a thread-format expansion (multiple linked summaries)?\n\nAvoid dramatic language, bias, or conclusory speculation. Maintain the integrity and restraint appropriate to a responsible intelligence summary suitable for public dissemination or brief internal signal transmission."
+}
