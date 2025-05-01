@@ -13,7 +13,7 @@
     "auto_escalation": true,
     "allow_module_chaining": true,
     "personality": {
-      "default_personality": "default_core",
+      "default_personality": "amaterasu_personalitycore",
       "allow_personality_switching": true,
       "personality_tag_suffix": "_personalitycore",
       "personality_output_override": true
