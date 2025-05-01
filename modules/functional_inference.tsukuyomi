@@ -1,0 +1,95 @@
+{
+  "id": "functional_inference",
+  "version": "1.0.0",
+  "title": "Module 3: Functional Inference",
+  "description": "Infers likely analytical tasks based on identified entities and discipline context",
+  "type": "analysis",
+  "dependencies": ["discipline_alignment"],
+  "personality_compatibility": {
+    "required_capabilities": ["analytical_reasoning", "operation_planning"],
+    "preferred_personality": "default",
+    "personality_override_allowed": true
+  },
+  "input_requirements": [
+    {
+      "name": "identified_entities",
+      "type": "array",
+      "description": "Entities extracted from data ingestion",
+      "required": true
+    },
+    {
+      "name": "discipline_context",
+      "type": "object",
+      "description": "Identified OSINT disciplines and confidence scores",
+      "required": true
+    }
+  ],
+  "output_schema": {
+    "format": "structured",
+    "standard_tags": ["//RESULT", "//QUERY"],
+    "fields": [
+      {
+        "name": "inferred_operations",
+        "description": "List of likely analytical tasks",
+        "type": "array"
+      },
+      {
+        "name": "operation_priorities",
+        "description": "Prioritized ranking of operations",
+        "type": "array"
+      },
+      {
+        "name": "conflicting_interpretations",
+        "description": "List of operations with contradictory approaches",
+        "type": "array"
+      }
+    ]
+  },
+  "execution_sequence": [
+    {
+      "step": 1,
+      "operation": "Operation Candidate Identification",
+      "actions": [
+        "Analyze entity types, relationships, and patterns",
+        "Evaluate discipline context for typical operations",
+        "Generate list of potential analytical tasks"
+      ],
+      "output_on_completion": "//RESULT: candidate_operations: [List of potential operations]"
+    },
+    {
+      "step": 2,
+      "operation": "Operation Feasibility Assessment",
+      "actions": [
+        "Evaluate data sufficiency for each candidate operation",
+        "Assess technical requirements for execution",
+        "Determine operational constraints"
+      ],
+      "output_on_completion": "//RESULT: feasible_operations: [List of operations with feasibility scores]"
+    },
+    {
+      "step": 3,
+      "operation": "Operation Prioritization",
+      "actions": [
+        "Rank operations by relevance to identified entities",
+        "Consider discipline context for prioritization",
+        "Sequence operations in logical order"
+      ],
+      "output_on_completion": "//RESULT: prioritized_operations: [Ordered list of operations]"
+    },
+    {
+      "step": 4,
+      "operation": "Conflict Detection",
+      "actions": [
+        "Identify operations with contradictory approaches",
+        "Detect mutually exclusive analytical paths",
+        "Formulate options for resolving conflicts"
+      ],
+      "condition": {
+        "if": "conflicts_detected",
+        "then": "//QUERY: Should priority be given to [Option A] or [Option B]?",
+        "else": "//RESULT: No operational conflicts detected"
+      }
+    }
+  ],
+  "prompt": "Using identified entities and discipline context, infer the most likely analytical tasks appropriate for processing the data. Your goal is to determine the most valuable and feasible operations that would extract meaningful intelligence from the available information.\n\nConsider these common analytical operations:\n- Identity correlation\n- Timeline reconstruction\n- Sentiment analysis\n- Network mapping\n- Location triangulation\n- Pattern/anomaly detection\n- Behavioral profiling\n- Asset identification\n- Infrastructure analysis\n- Source validation\n\nFollow this sequence:\n\n1. Analyze the entity types, relationships, and patterns in conjunction with the identified disciplines to generate a list of potential analytical operations that would yield useful intelligence.\n\n2. Evaluate each candidate operation for feasibility based on the available data. Assess whether sufficient information exists to successfully execute each operation and identify any technical or methodological requirements.\n\n3. Prioritize operations based on their potential intelligence value, feasibility, and logical sequence. Develop an ordered list that represents the optimal analytical workflow.\n\n4. Identify any conflicting interpretations or mutually exclusive analytical paths. If operations suggest contradictory approaches, formulate clear options for resolving these conflicts.\n\nYour output must follow this structured format:\n\n//RESULT: inferred_operations: [List of recommended analytical tasks]\n//RESULT: operation_priorities: [Prioritized sequence of operations]\n\nIf conflicting interpretations arise:\n//QUERY: Should priority be given to [Option A] or [Option B]?\n\nProvide specific, actionable operation descriptions rather than generalized categories. Focus on operational value and feasibility based on the available data."
+}

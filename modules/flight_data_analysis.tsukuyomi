@@ -1,0 +1,164 @@
+{
+  "id": "flight_data_analysis",
+  "version": "1.0.0",
+  "title": "Module X: Flight Data Analysis",
+  "description": "Systematic processing and interpretation of aviation tracking data for operational intelligence",
+  "type": "specialized_analysis",
+  "dependencies": ["data_recognition_ingestion"],
+  "personality_compatibility": {
+    "required_capabilities": ["technical_analysis", "pattern_recognition", "technical_terminology"],
+    "preferred_personality": "default",
+    "personality_override_allowed": true
+  },
+  "input_requirements": [
+    {
+      "name": "flight_data",
+      "type": "object | file",
+      "description": "ADS-B, MLAT, radar, flight tracking APIs, or exported datasets",
+      "required": true
+    },
+    {
+      "name": "analysis_parameters",
+      "type": "object",
+      "description": "Optional parameters for analysis focus and thresholds",
+      "required": false
+    }
+  ],
+  "output_schema": {
+    "format": "structured",
+    "standard_tags": ["//RESULT", "//QUERY", "//ANOMALY"],
+    "fields": [
+      {
+        "name": "flight_classification",
+        "description": "Categories with confidence scores",
+        "type": "object"
+      },
+      {
+        "name": "temporal_indicators",
+        "description": "Observed patterns",
+        "type": "object"
+      },
+      {
+        "name": "spatial_analysis",
+        "description": "Route characteristics",
+        "type": "object"
+      },
+      {
+        "name": "technical_assessment",
+        "description": "Performance parameters",
+        "type": "object"
+      },
+      {
+        "name": "entity_attribution",
+        "description": "Registrations and operators",
+        "type": "object"
+      },
+      {
+        "name": "anomalies",
+        "description": "Deviations from expected patterns",
+        "type": "array"
+      },
+      {
+        "name": "projected_activity",
+        "description": "Evidence-based forecasting with confidence rating",
+        "type": "object"
+      }
+    ]
+  },
+  "execution_sequence": [
+    {
+      "step": 1,
+      "operation": "Data Validation and Classification",
+      "actions": [
+        "Validate flight data format and completeness",
+        "Classify flights into categories: commercial, private, military, cargo, unknown",
+        "Assign confidence scores to classifications"
+      ],
+      "output_on_completion": "//RESULT: flight_classification: [Categories with confidence scores]"
+    },
+    {
+      "step": 2,
+      "operation": "Temporal Pattern Recognition",
+      "actions": [
+        "Analyze frequency of operations",
+        "Identify scheduling patterns",
+        "Detect temporal persistence or periodicity",
+        "Evaluate time-based anomalies"
+      ],
+      "output_on_completion": "//RESULT: temporal_indicators: [Observed patterns]"
+    },
+    {
+      "step": 3,
+      "operation": "Geographical Route Analysis",
+      "actions": [
+        "Map and analyze flight corridors",
+        "Identify significant points of interest",
+        "Detect airspace transitions",
+        "Evaluate geographical anomalies"
+      ],
+      "output_on_completion": "//RESULT: spatial_analysis: [Route characteristics]"
+    },
+    {
+      "step": 4,
+      "operation": "Altitude and Speed Profile Assessment",
+      "actions": [
+        "Analyze altitude profiles throughout flight phases",
+        "Evaluate speed characteristics and variations",
+        "Compare against typical profiles for aircraft type",
+        "Identify performance anomalies"
+      ],
+      "output_on_completion": "//RESULT: technical_assessment: [Performance parameters]"
+    },
+    {
+      "step": 5,
+      "operation": "Registration and Operator Correlation",
+      "actions": [
+        "Identify aircraft registrations",
+        "Correlate with known operators",
+        "Verify consistency of attribution data",
+        "Flag conflicting or unusual attribution"
+      ],
+      "output_on_completion": "//RESULT: entity_attribution: [Registrations and operators]"
+    },
+    {
+      "step": 6,
+      "operation": "Anomaly Detection and Analysis",
+      "actions": [
+        "Identify unusual routes",
+        "Detect transponder gaps or irregularities",
+        "Flag elevation and speed irregularities",
+        "Analyze deviations from expected patterns"
+      ],
+      "condition": {
+        "if": "anomalies_detected",
+        "then": "//ANOMALY: [Detailed anomaly description]",
+        "else": "//RESULT: No significant anomalies detected"
+      }
+    },
+    {
+      "step": 7,
+      "operation": "Data Quality Assessment",
+      "actions": [
+        "Evaluate overall data quality and completeness",
+        "Identify missing parameters that impact analysis",
+        "Determine if additional data is required"
+      ],
+      "condition": {
+        "if": "insufficient_data_quality",
+        "then": "//QUERY: Additional dataset requirements: [Specify missing parameters]",
+        "else": "//RESULT: Data quality sufficient for analysis"
+      }
+    },
+    {
+      "step": 8,
+      "operation": "Predictive Analysis",
+      "actions": [
+        "Project future activity based on observed patterns",
+        "Assign confidence ratings to predictions",
+        "Document evidence supporting forecasts"
+      ],
+      "output_on_completion": "//RESULT: projected_activity: [Evidence-based forecasting with confidence rating]"
+    }
+  ],
+  "prompt": "Extract and analyze flight data patterns from provided sources (ADS-B, MLAT, radar, flight tracking APIs, or exported datasets). Identify significant operational indicators, movement patterns, and deviations.\n\nFollow this sequence:\n\n1. Validate the data format and classify flights into categories (commercial, private, military, cargo, unknown) with appropriate confidence scores.\n\n2. Analyze temporal patterns including frequency, scheduling, and persistence. Identify regular operations, unusual timing, or significant changes in operational tempo.\n\n3. Conduct geographical route analysis by mapping flight corridors, points of interest, and airspace transitions. Note geographic anomalies or deviations from standard routes.\n\n4. Assess altitude and speed profiles throughout flight phases. Compare against typical profiles for the aircraft type and identify any performance anomalies.\n\n5. Correlate aircraft registrations with known operators. Verify consistency of attribution data and flag any conflicting or unusual attribution patterns.\n\n6. Identify and analyze anomalies such as unusual routes, transponder gaps, elevation irregularities, or deviations from expected patterns.\n\n7. Evaluate data quality and determine if additional parameters are needed for comprehensive analysis.\n\n8. Project future activity based on observed patterns, assigning confidence ratings and documenting the supporting evidence.\n\nYour output must follow this structured format:\n\n//RESULT: flight_classification: [Categories with confidence scores]\n//RESULT: temporal_indicators: [Observed patterns]\n//RESULT: spatial_analysis: [Route characteristics]\n//RESULT: technical_assessment: [Performance parameters]\n//RESULT: entity_attribution: [Registrations and operators]\n\nFor anomalies:\n//ANOMALY: [Detailed description of deviations from expected patterns]\n\nIf data quality is insufficient:\n//QUERY: Additional dataset requirements: [Specify missing parameters]\n\nFor predictive operations:\n//RESULT: projected_activity: [Evidence-based forecasting with confidence rating]\n\nMaintain objectivity and precision throughout your analysis, focusing on observable characteristics rather than speculative interpretation."
+}

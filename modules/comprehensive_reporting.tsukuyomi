@@ -1,0 +1,101 @@
+{
+  "id": "comprehensive_reporting",
+  "version": "1.0.0",
+  "title": "Module X: Comprehensive Reporting",
+  "description": "Synthesizes a complete, professional-grade intelligence report from verified findings",
+  "type": "reporting",
+  "dependencies": ["summarization_next_steps"],
+  "personality_compatibility": {
+    "required_capabilities": ["formal_writing", "structured_reporting", "nuanced_expression"],
+    "preferred_personality": "formal",
+    "personality_override_allowed": false
+  },
+  "input_requirements": [
+    {
+      "name": "module_outputs",
+      "type": "object",
+      "description": "Aggregated outputs from all previous modules",
+      "required": true
+    },
+    {
+      "name": "report_parameters",
+      "type": "object",
+      "description": "Optional parameters for report format and focus",
+      "required": false
+    }
+  ],
+  "output_schema": {
+    "format": "text",
+    "standard_tags": ["//RESULT", "//QUERY"],
+    "fields": [
+      {
+        "name": "complete_report",
+        "description": "Full formatted report",
+        "type": "string"
+      },
+      {
+        "name": "uncertainty_handling",
+        "description": "How uncertainties were addressed",
+        "type": "string"
+      }
+    ]
+  },
+  "execution_sequence": [
+    {
+      "step": 1,
+      "operation": "Report Structure Definition",
+      "actions": [
+        "Define appropriate report sections based on analysis type",
+        "Establish hierarchical organization of content",
+        "Set formatting standards for the report"
+      ],
+      "output_on_completion": "//RESULT: report_structure: [Defined report structure]"
+    },
+    {
+      "step": 2,
+      "operation": "Verified Findings Compilation",
+      "actions": [
+        "Extract all verified findings from previous modules",
+        "Organize findings according to report structure",
+        "Ensure logical flow and narrative coherence"
+      ],
+      "output_on_completion": "//RESULT: verified_findings: [Organized compilation of findings]"
+    },
+    {
+      "step": 3,
+      "operation": "Uncertainty Assessment",
+      "actions": [
+        "Identify areas of uncertainty or limited evidence",
+        "Determine appropriate handling of speculative materials",
+        "Assess if clarification is needed regarding uncertainty inclusion"
+      ],
+      "condition": {
+        "if": "critical_uncertainties_exist",
+        "then": "//QUERY: Would you prefer these unresolved uncertainties to be included in the report as speculative assessments?",
+        "else": "//RESULT: No critical uncertainties requiring special handling"
+      }
+    },
+    {
+      "step": 4,
+      "operation": "Anomaly Integration",
+      "actions": [
+        "Review anomalies identified in previous modules",
+        "Integrate anomaly analysis into appropriate report sections",
+        "Ensure appropriate contextualization of anomalies"
+      ],
+      "output_on_completion": "//RESULT: integrated_anomalies: [Contextual anomaly analysis]"
+    },
+    {
+      "step": 5,
+      "operation": "Report Generation",
+      "actions": [
+        "Draft complete report in formal, structured prose",
+        "Apply appropriate qualified language for uncertainties",
+        "Maintain consistent compositional quality throughout",
+        "Ensure all sections form a cohesive analytical narrative"
+      ],
+      "output_on_completion": "//RESULT: complete_report: [Full intelligence report]"
+    }
+  ],
+  "prompt": "Generate a comprehensive written report based on the aggregated outputs of previous modules. The report should be constructed in formal, structured prose and adhere to professional intelligence standards.\n\nFollow this sequence:\n\n1. Define an appropriate report structure based on the analysis type. This typically includes sections such as: Introduction, Methodology, Observations, Interpretive Analysis, and Concluding Assessment. Establish a hierarchical organization that ensures logical flow and informational clarity.\n\n2. Compile all verified findings from previous modules and organize them according to the report structure. Ensure narrative coherence and logical progression of information throughout the document.\n\n3. Identify areas of uncertainty or limited evidence. Assess how to appropriately handle speculative material. Where uncertainty exists, use reserved and qualified language (e.g., \"It is plausible that...\", \"There is limited evidence suggesting...\", \"Indicators may point to...\").\n\n4. Review anomalies identified in previous modules and integrate them into appropriate report sections. Ensure anomalies are properly contextualized—neither dismissed without basis nor overemphasized beyond their evidential support.\n\n5. Draft the complete report in formal, structured prose. Maintain a high standard of compositional quality throughout. Avoid informal expressions, bullet points, or formatting structures inconsistent with continuous prose. Apply appropriate qualified language for uncertainties while presenting verified findings with appropriate confidence.\n\nIf critical uncertainties remain unresolved and could influence interpretation or decision-making, raise the following query:\n//QUERY: Would you prefer these unresolved uncertainties to be included in the report as speculative assessments?\n\nYour output must consist of a complete, professionally formatted intelligence report that begins with:\n//RESULT: complete_report:\n\nThe objective is to produce a document of sufficient clarity and rigor to inform strategic or operational decision-making without the need for editorial refinement. Do not introduce additional information not derived from prior module outputs unless explicitly requested."
+}

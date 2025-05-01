@@ -1,0 +1,89 @@
+{
+  "id": "summarization_next_steps",
+  "version": "1.0.0",
+  "title": "Module 5: Output Summarization & Next Steps",
+  "description": "Summarizes findings and suggests actionable next steps for ongoing investigation",
+  "type": "reporting",
+  "dependencies": ["correlation_analysis"],
+  "personality_compatibility": {
+    "required_capabilities": ["summary_composition", "action_planning"],
+    "preferred_personality": "default",
+    "personality_override_allowed": true
+  },
+  "input_requirements": [
+    {
+      "name": "module_outputs",
+      "type": "object",
+      "description": "Aggregated outputs from all previous modules",
+      "required": true
+    }
+  ],
+  "output_schema": {
+    "format": "structured",
+    "standard_tags": ["//RESULT", "//QUERY"],
+    "fields": [
+      {
+        "name": "summary",
+        "description": "Concise summary of key findings",
+        "type": "string"
+      },
+      {
+        "name": "recommended_actions",
+        "description": "List of actionable next steps",
+        "type": "array"
+      },
+      {
+        "name": "priority_rating",
+        "description": "Priority assessment for each recommended action",
+        "type": "object"
+      }
+    ]
+  },
+  "execution_sequence": [
+    {
+      "step": 1,
+      "operation": "Key Findings Compilation",
+      "actions": [
+        "Extract significant findings from all previous modules",
+        "Evaluate relative importance of each finding",
+        "Organize findings into coherent narrative structure"
+      ],
+      "output_on_completion": "//RESULT: key_findings: [Structured summary of findings]"
+    },
+    {
+      "step": 2,
+      "operation": "Action Generation",
+      "actions": [
+        "Identify information gaps requiring further investigation",
+        "Determine potential verification steps",
+        "Generate list of tactical next actions"
+      ],
+      "output_on_completion": "//RESULT: potential_actions: [List of potential next steps]"
+    },
+    {
+      "step": 3,
+      "operation": "Action Prioritization",
+      "actions": [
+        "Assess value potential of each action",
+        "Evaluate resource requirements and feasibility",
+        "Rank actions by priority and logical sequence"
+      ],
+      "output_on_completion": "//RESULT: prioritized_actions: [Ranked list of recommended actions]"
+    },
+    {
+      "step": 4,
+      "operation": "Proceeding Decision",
+      "actions": [
+        "Determine if immediate action is recommended",
+        "Assess if user input is required before proceeding",
+        "Formulate specific action proposal if appropriate"
+      ],
+      "condition": {
+        "if": "immediate_action_recommended",
+        "then": "//QUERY: Would you like to proceed with [Suggested step]?",
+        "else": "//RESULT: Recommendations ready for review"
+      }
+    }
+  ],
+  "prompt": "Summarize the findings from all previous modules and suggest actionable next steps for continuing the investigation. Your goal is to distill key insights into a coherent summary and propose concrete, valuable follow-up actions.\n\nFollow this sequence:\n\n1. Review and compile the significant findings from all previous modules. Extract the most important discoveries, correlations, patterns, and insights. Organize these findings into a clear, structured narrative that highlights the most valuable intelligence derived from the analysis.\n\n2. Identify information gaps, verification needs, and investigative opportunities that emerge from the current findings. Generate a comprehensive list of potential next steps that could advance the investigation, such as:\n   - Cross-verification with additional sources\n   - Deeper scraping of identified resources\n   - Geospatial lookups for location-based intelligence\n   - Identity resolution for ambiguous entities\n   - Timeline extension or refinement\n   - Network expansion to include secondary connections\n   - Technical analysis of identified digital assets\n   - Pattern amplification across broader datasets\n\n3. Prioritize the potential actions based on their likely intelligence value, resource requirements, feasibility, and logical sequence. Rank the actions to create a structured roadmap for ongoing investigation.\n\n4. Determine if any high-priority actions should be taken immediately and if user input is required before proceeding. If immediate action is recommended, formulate a specific proposal.\n\nYour output must follow this structured format:\n\n//RESULT: summary: [Key findings in concise, structured format]\n//RESULT: recommended_actions: [Prioritized list of next steps with rationale]\n\nIf immediate action is recommended:\n//QUERY: Would you like to proceed with [Suggested step]?\n\nPresent your summary and recommendations in clear, actionable language. Focus on operational value and concrete next steps rather than speculative conclusions."
+}

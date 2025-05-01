@@ -1,0 +1,89 @@
+{
+  "id": "discipline_alignment",
+  "version": "1.0.0",
+  "title": "Module 2: Discipline Alignment",
+  "description": "Determines the primary OSINT discipline(s) most relevant to the extracted context or data",
+  "type": "analysis",
+  "dependencies": ["data_recognition_ingestion"],
+  "personality_compatibility": {
+    "required_capabilities": ["analytical_classification", "technical_terminology"],
+    "preferred_personality": "default",
+    "personality_override_allowed": true
+  },
+  "input_requirements": [
+    {
+      "name": "context_data",
+      "type": "object",
+      "description": "Extracted context, entities, and patterns from data ingestion",
+      "required": true
+    }
+  ],
+  "output_schema": {
+    "format": "structured",
+    "standard_tags": ["//RESULT", "//QUERY"],
+    "fields": [
+      {
+        "name": "primary_disciplines",
+        "description": "List of identified OSINT disciplines",
+        "type": "array"
+      },
+      {
+        "name": "confidence_levels",
+        "description": "Confidence rating for each identified discipline",
+        "type": "object"
+      },
+      {
+        "name": "clarification_needed",
+        "description": "Flag indicating if additional clarification is required",
+        "type": "boolean"
+      }
+    ]
+  },
+  "execution_sequence": [
+    {
+      "step": 1,
+      "operation": "Discipline Category Analysis",
+      "actions": [
+        "Evaluate extracted entities against known OSINT discipline indicators",
+        "Identify data patterns characteristic of specific disciplines",
+        "Compare format and structure with discipline-specific conventions"
+      ],
+      "output_on_completion": "//RESULT: initial_alignment: [Potential disciplines]"
+    },
+    {
+      "step": 2,
+      "operation": "Confidence Assessment",
+      "actions": [
+        "Calculate confidence level for each potential discipline alignment",
+        "Rank disciplines by relevance to provided data",
+        "Determine primary and secondary discipline classifications"
+      ],
+      "output_on_completion": "//RESULT: confidence_assessment: [Ranked disciplines with confidence scores]"
+    },
+    {
+      "step": 3,
+      "operation": "Discipline Confirmation",
+      "actions": [
+        "Select disciplines with confidence scores above threshold",
+        "Finalize primary discipline classification",
+        "Document alignment justification"
+      ],
+      "output_on_completion": "//RESULT: primary_disciplines: [Final discipline alignment]"
+    },
+    {
+      "step": 4,
+      "operation": "Clarification Evaluation",
+      "actions": [
+        "Assess if confidence levels are sufficient for proceeding",
+        "Determine if ambiguities require user input",
+        "Formulate specific clarification queries if needed"
+      ],
+      "condition": {
+        "if": "clarification_needed",
+        "then": "//QUERY: Can you clarify the origin or use-case of this data?",
+        "else": "//RESULT: No clarification needed"
+      }
+    }
+  ],
+  "prompt": "Given the extracted context, your task is to determine the primary OSINT discipline(s) involved. Analyze the data characteristics, entities, and patterns to align with established intelligence gathering methodologies.\n\nConsider these recognized OSINT disciplines:\n- Social Media Intelligence\n- Search Engine Data\n- Public Records\n- Data Broker Intelligence\n- Metadata Forensics\n- GEOINT (Geospatial Intelligence)\n- Domain/Network Enumeration\n- Visual Media Analysis\n\nFollow this sequence:\n\n1. Evaluate the extracted entities, formats, and patterns against known indicators for each discipline. Look for telltale signatures or characteristics that suggest alignment with specific methodologies.\n\n2. Calculate confidence levels for potential discipline alignments. Rank the disciplines by relevance to the provided data, assigning percentage-based confidence scores.\n\n3. Select disciplines with confidence scores above 70% as primary disciplines. If multiple disciplines qualify, determine if they represent complementary approaches or suggest multi-modal data.\n\n4. If no discipline achieves sufficient confidence (>70%) or if there are ambiguities that prevent clear classification, formulate specific clarification queries.\n\nYour output must follow this structured format:\n\n//RESULT: primary_disciplines: [List of disciplines with confidence scores]\n\nIf clarification is needed:\n//QUERY: Can you clarify the origin or use-case of this data?\n\nMaintain objectivity in your classification, focusing on observable characteristics and established discipline definitions rather than speculative interpretation."
+}

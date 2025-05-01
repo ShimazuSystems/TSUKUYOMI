@@ -1,0 +1,103 @@
+{
+  "id": "data_recognition_ingestion",
+  "version": "1.0.0",
+  "title": "Module 1: Data Recognition & Ingestion",
+  "description": "Identifies file types, scans for structural patterns, and extracts key entities from provided data",
+  "type": "ingestion",
+  "dependencies": [],
+  "personality_compatibility": {
+    "required_capabilities": ["technical_analysis", "data_description"],
+    "preferred_personality": "default",
+    "personality_override_allowed": true
+  },
+  "input_requirements": [
+    {
+      "name": "data_source",
+      "type": "file | text | url",
+      "description": "Raw data or file to be analyzed",
+      "required": true
+    }
+  ],
+  "output_schema": {
+    "format": "structured",
+    "standard_tags": ["//RESULT", "//ANOMALY", "//QUERY"],
+    "fields": [
+      {
+        "name": "file_type",
+        "description": "Identified file format or data structure",
+        "type": "string"
+      },
+      {
+        "name": "entities",
+        "description": "List of extracted entities, structures, formats",
+        "type": "array"
+      },
+      {
+        "name": "anomalies",
+        "description": "List of detected irregularities",
+        "type": "array"
+      }
+    ]
+  },
+  "execution_sequence": [
+    {
+      "step": 1,
+      "operation": "File Type Identification",
+      "actions": [
+        "Analyze provided data to identify file type or format",
+        "Determine content structure and organization",
+        "Assess data integrity and completeness"
+      ],
+      "output_on_completion": "//RESULT: file_type: [Identified file type]"
+    },
+    {
+      "step": 2,
+      "operation": "Pattern Recognition",
+      "actions": [
+        "Scan for recurring patterns in the data",
+        "Identify standardized formats or conventions",
+        "Detect structural organization"
+      ],
+      "output_on_completion": "//RESULT: patterns: [List of detected patterns]"
+    },
+    {
+      "step": 3,
+      "operation": "Entity Extraction",
+      "actions": [
+        "Identify and extract key entities from the data",
+        "Categorize entities by type (names, locations, dates, etc.)",
+        "Record entity relationships where evident"
+      ],
+      "output_on_completion": "//RESULT: entities: [List of extracted entities]"
+    },
+    {
+      "step": 4,
+      "operation": "Anomaly Detection",
+      "actions": [
+        "Check for irregularities in the data format",
+        "Identify potential corruption or missing segments",
+        "Flag unexpected patterns or content"
+      ],
+      "condition": {
+        "if": "anomalies_detected",
+        "then": "//ANOMALY: [Description of detected irregularities]",
+        "else": "//RESULT: No irregularities detected"
+      }
+    },
+    {
+      "step": 5,
+      "operation": "Recognition Completeness Assessment",
+      "actions": [
+        "Evaluate confidence in data recognition",
+        "Determine if format is fully recognized",
+        "Assess if additional context is needed"
+      ],
+      "condition": {
+        "if": "recognition_incomplete",
+        "then": "//QUERY: Can you specify the format or intent of this file?",
+        "else": "//RESULT: Recognition complete"
+      }
+    }
+  ],
+  "prompt": "You will receive contextual files or data. Your task is to systematically identify the file types, scan for structural patterns, and extract key entities.\n\nFollow this sequence:\n\n1. Analyze the provided data to identify its format, structure, and type. Report your findings with confidence levels.\n\n2. Scan for recurring patterns, organizational structures, and format conventions within the data. Document any identifiable patterns.\n\n3. Extract and categorize significant entities found within the data. These may include personal identifiers, organizational references, temporal markers, geographical indicators, or technical parameters.\n\n4. Check for irregularities, inconsistencies, or anomalies in the data structure that might indicate corruption, tampering, or missing segments.\n\n5. Assess the completeness of your recognition. If the format or intent remains unclear, formulate specific queries to enhance recognition accuracy.\n\nYour output must follow this structured format:\n\n//RESULT: file_type: [Identified file type with confidence level]\n//RESULT: patterns: [Detected structural patterns]\n//RESULT: entities: [List of extracted entities with categories]\n\nIf recognition is incomplete:\n//QUERY: Can you specify the format or intent of this file?\n\nIf any irregularity is detected:\n//ANOMALY: [Detailed description of irregularity]\n\nMaintain objectivity and precision throughout your analysis, focusing on observable characteristics rather than speculative interpretation."
+}

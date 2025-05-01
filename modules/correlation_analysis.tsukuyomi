@@ -1,0 +1,119 @@
+{
+  "id": "correlation_analysis",
+  "version": "1.0.0",
+  "title": "Module 4: Correlation & Analysis",
+  "description": "Analyzes for high-confidence correlations between entities, events, or metadata",
+  "type": "analysis",
+  "dependencies": ["functional_inference"],
+  "personality_compatibility": {
+    "required_capabilities": ["complex_analysis", "correlation_reporting"],
+    "preferred_personality": "default",
+    "personality_override_allowed": true
+  },
+  "input_requirements": [
+    {
+      "name": "entities",
+      "type": "array",
+      "description": "Extracted entities from previous modules",
+      "required": true
+    },
+    {
+      "name": "operational_context",
+      "type": "object",
+      "description": "Context from previous modules including disciplines and operations",
+      "required": true
+    },
+    {
+      "name": "reference_sources",
+      "type": "array",
+      "description": "Known sources or contextual files for correlation",
+      "required": false
+    }
+  ],
+  "output_schema": {
+    "format": "structured",
+    "standard_tags": ["//RESULT", "//QUERY", "//ANOMALY"],
+    "fields": [
+      {
+        "name": "correlations",
+        "description": "List of identified correlations with confidence scores",
+        "type": "array"
+      },
+      {
+        "name": "confidence_thresholds",
+        "description": "Confidence thresholds applied to correlations",
+        "type": "object"
+      },
+      {
+        "name": "contradictions",
+        "description": "List of contradictory data points",
+        "type": "array"
+      }
+    ]
+  },
+  "execution_sequence": [
+    {
+      "step": 1,
+      "operation": "Correlation Identification",
+      "actions": [
+        "Compare entities against each other for relationship indicators",
+        "Analyze temporal, spatial, and semantic patterns",
+        "Identify potential correlations between data points"
+      ],
+      "output_on_completion": "//RESULT: potential_correlations: [List of potential correlations]"
+    },
+    {
+      "step": 2,
+      "operation": "Confidence Assessment",
+      "actions": [
+        "Assign confidence scores to each potential correlation",
+        "Apply verification criteria based on operational context",
+        "Filter correlations below confidence threshold"
+      ],
+      "output_on_completion": "//RESULT: high_confidence_correlations: [List with confidence scores]"
+    },
+    {
+      "step": 3,
+      "operation": "External Reference Correlation",
+      "actions": [
+        "Compare entities against available reference sources",
+        "Identify corroborating evidence from external context",
+        "Update confidence scores based on external validation"
+      ],
+      "condition": {
+        "if": "reference_sources_available",
+        "then": "//RESULT: reference_enhanced_correlations: [Updated correlations]",
+        "else": "//RESULT: No external references available for correlation"
+      }
+    },
+    {
+      "step": 4,
+      "operation": "Contradiction Detection",
+      "actions": [
+        "Identify conflicting correlations or ambiguous linkages",
+        "Analyze metadata for inconsistencies",
+        "Document contradictory evidence"
+      ],
+      "condition": {
+        "if": "contradictions_found",
+        "then": "//ANOMALY: Conflicting metadata or ambiguous linkage detected: [Details]",
+        "else": "//RESULT: No contradictions detected"
+      }
+    },
+    {
+      "step": 5,
+      "operation": "Confidence Threshold Evaluation",
+      "actions": [
+        "Evaluate if sufficient high-confidence correlations exist",
+        "Determine if lower-confidence correlations may have value",
+        "Assess need for speculative correlation inclusion"
+      ],
+      "condition": {
+        "if": "insufficient_high_confidence_correlations",
+        "then": "//QUERY: Should speculative links be included?",
+        "else": "//RESULT: Sufficient high-confidence correlations identified"
+      }
+    }
+  ],
+  "prompt": "Analyze the provided entities, events, and metadata to identify high-confidence correlations. Your goal is to discover meaningful relationships and connections while maintaining strict evidentiary standards.\n\nFollow this sequence:\n\n1. Systematically compare entities against each other to identify potential relationships. Look for temporal coincidences, spatial proximity, semantic similarities, shared attributes, and logical connections that suggest correlation.\n\n2. Assign confidence scores to each potential correlation using a scale of 0-100%. Apply verification criteria based on the operational context and established analytical standards. Filter out correlations that fall below the 70% confidence threshold.\n\n3. If reference sources or contextual files are available, compare the entities against these external sources to identify corroborating evidence. Update confidence scores based on external validation.\n\n4. Examine the correlations and underlying data for contradictions, inconsistencies, or ambiguous linkages. Document any instances where the evidence suggests conflicting interpretations or where metadata contains inconsistencies.\n\n5. Evaluate whether the high-confidence correlations (>70%) provide sufficient analytical value. If few correlations meet this threshold, assess whether including more speculative links (50-70% confidence) would enhance the overall understanding.\n\nYour output must follow this structured format:\n\n//RESULT: correlations: [Summarized correlations with confidence scores]\n\nIf confidence scores are predominantly below 70%:\n//QUERY: Should speculative links be included?\n\nIf contradictions are found:\n//ANOMALY: Conflicting metadata or ambiguous linkage detected: [Details]\n\nPresent correlations in a clear, structured format that emphasizes connection types, supporting evidence, and confidence assessments. Maintain objectivity and avoid unwarranted speculation in your analysis."
+}
