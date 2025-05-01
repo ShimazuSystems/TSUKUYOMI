@@ -1,0 +1,195 @@
+{
+  "id": "multi_factor_trend_analysis",
+  "version": "1.0.0",
+  "title": "Module S4: Multi-factor Trend Analysis",
+  "description": "Identifies, analyzes, and projects interlocking geopolitical trends across multiple domains and timeframes",
+  "type": "strategic_analysis",
+  "dependencies": ["data_recognition_ingestion", "correlation_analysis"],
+  "personality_compatibility": {
+    "required_capabilities": ["analytical_reasoning", "pattern_recognition", "structured_speculation"],
+    "preferred_personality": "formal",
+    "personality_override_allowed": true
+  },
+  "input_requirements": [
+    {
+      "name": "regional_focus",
+      "type": "string | array",
+      "description": "Geographic region(s) for trend analysis",
+      "required": true
+    },
+    {
+      "name": "trend_domains",
+      "type": "array",
+      "description": "Specific domains for trend identification (political, economic, social, etc.)",
+      "required": false
+    },
+    {
+      "name": "historical_period",
+      "type": "object",
+      "description": "Time period for historical trend identification",
+      "required": false
+    },
+    {
+      "name": "projection_timeframe",
+      "type": "string",
+      "description": "Period for forward projection of identified trends",
+      "required": false
+    }
+  ],
+  "output_schema": {
+    "format": "structured",
+    "standard_tags": ["//RESULT", "//DISCLAIMER", "//QUERY"],
+    "fields": [
+      {
+        "name": "identified_trends",
+        "description": "Major trends identified across specified domains",
+        "type": "array"
+      },
+      {
+        "name": "trend_interactions",
+        "description": "Analysis of how trends influence and modify each other",
+        "type": "object"
+      },
+      {
+        "name": "trend_drivers",
+        "description": "Underlying causal factors driving observed trends",
+        "type": "object"
+      },
+      {
+        "name": "trend_projections",
+        "description": "Forward projections of trend trajectories",
+        "type": "object"
+      },
+      {
+        "name": "inflection_points",
+        "description": "Potential breaking points or significant shifts in trend patterns",
+        "type": "array"
+      },
+      {
+        "name": "strategic_implications",
+        "description": "Consequential impacts of projected trends",
+        "type": "object"
+      },
+      {
+        "name": "confidence_assessment",
+        "description": "Evaluation of analytical confidence in trend identification and projection",
+        "type": "object"
+      }
+    ]
+  },
+  "execution_sequence": [
+    {
+      "step": 1,
+      "operation": "Disclaimer Issuance",
+      "actions": [
+        "Generate explicit disclaimer regarding trend analysis",
+        "Clarify limitations of trend projection methodology",
+        "Establish appropriate expectation framework for analysis utility"
+      ],
+      "output_on_completion": "//DISCLAIMER: This multi-factor trend analysis identifies and projects patterns based on observable historical and current developments. While trends represent persistent directional movements, they are subject to disruption from exogenous shocks, policy interventions, or emergent phenomena. Confidence in projections decreases with temporal distance and in areas of complex system interaction. This analysis should be considered a structured examination of momentum rather than a deterministic prediction of future states."
+    },
+    {
+      "step": 2,
+      "operation": "Analysis Framework Definition",
+      "actions": [
+        "Define geographic scope of analysis",
+        "Establish domains for trend identification",
+        "Determine historical period for trend analysis",
+        "Set projection timeframe"
+      ],
+      "output_on_completion": "//RESULT: analysis_parameters: [Defined trend analysis framework]"
+    },
+    {
+      "step": 3,
+      "operation": "Trend Identification",
+      "actions": [
+        "Analyze historical and current data for persistent patterns",
+        "Identify significant directional movements across domains",
+        "Qualify trends by strength, persistence, and reliability",
+        "Categorize trends by domain and geographic scope"
+      ],
+      "output_on_completion": "//RESULT: identified_trends: [Catalog of significant trends with characteristics]"
+    },
+    {
+      "step": 4,
+      "operation": "Driver Analysis",
+      "actions": [
+        "Identify causal factors driving each significant trend",
+        "Distinguish between structural and contingent drivers",
+        "Evaluate relative importance of different drivers",
+        "Assess durability of driving factors"
+      ],
+      "output_on_completion": "//RESULT: trend_drivers: [Analysis of causal factors by trend]"
+    },
+    {
+      "step": 5,
+      "operation": "Interaction Analysis",
+      "actions": [
+        "Identify relationships between different trends",
+        "Analyze reinforcing and countervailing interactions",
+        "Assess emergent patterns from trend combinations",
+        "Identify cascading effects across domains"
+      ],
+      "output_on_completion": "//RESULT: trend_interactions: [Network of trend relationships and effects]"
+    },
+    {
+      "step": 6,
+      "operation": "Trend Projection",
+      "actions": [
+        "Project identified trends through specified timeframe",
+        "Account for driver evolution and interaction effects",
+        "Consider potential acceleration or deceleration factors",
+        "Apply appropriate methodological constraints"
+      ],
+      "output_on_completion": "//RESULT: trend_projections: [Forward trajectory of identified trends]"
+    },
+    {
+      "step": 7,
+      "operation": "Inflection Point Identification",
+      "actions": [
+        "Identify potential breaking points in trend continuity",
+        "Analyze threshold conditions for trend disruption",
+        "Assess vulnerability to exogenous shocks",
+        "Evaluate potential for trend reversal or acceleration"
+      ],
+      "output_on_completion": "//RESULT: inflection_points: [Potential significant shifts in trend patterns]"
+    },
+    {
+      "step": 8,
+      "operation": "Strategic Implication Analysis",
+      "actions": [
+        "Assess consequential impacts of projected trends",
+        "Identify winners and losers from trend continuation",
+        "Evaluate strategic positioning opportunities",
+        "Analyze policy implications of trend projections"
+      ],
+      "output_on_completion": "//RESULT: strategic_implications: [Consequential impacts of projected trends]"
+    },
+    {
+      "step": 9,
+      "operation": "Confidence Assessment",
+      "actions": [
+        "Evaluate analytical confidence in trend identification",
+        "Assess reliability of projection methodologies",
+        "Identify areas of high and low certainty",
+        "Document key assumptions and limitations"
+      ],
+      "output_on_completion": "//RESULT: confidence_assessment: [Evaluation of analytical confidence]"
+    },
+    {
+      "step": 10,
+      "operation": "Clarification Evaluation",
+      "actions": [
+        "Determine if additional context would significantly improve analysis",
+        "Identify specific information gaps that limit confidence",
+        "Formulate targeted queries if needed"
+      ],
+      "condition": {
+        "if": "clarification_needed",
+        "then": "//QUERY: Additional context needed: [Specific information request]",
+        "else": "//RESULT: No additional clarification required"
+      }
+    }
+  ],
+  "prompt": "Identify, analyze, and project interlocking geopolitical trends across multiple domains for the specified region(s). Your analysis should systematically examine directional movements in political, economic, social, technological, and security dimensions, as well as their interactions and strategic implications.\n\nBegin by issuing a clear disclaimer about the nature and limitations of trend analysis, emphasizing that trends represent momentum rather than destiny and are subject to disruption from various sources.\n\nFollow this methodological sequence:\n\n1. Define the analysis framework by establishing the geographic scope, domains for trend identification, historical period for analysis, and projection timeframe. If not specified, use a standard set of domains (political, economic, social, technological, security) and appropriate default timeframes (5-10 years historical, 3-5 years forward).\n\n2. Identify significant trends within each domain by analyzing historical and current data for persistent directional movements. Qualify each trend by its strength, persistence, and reliability of supporting evidence. Categorize trends by domain and geographic relevance.\n\n3. Analyze the causal factors driving each significant trend, distinguishing between structural drivers (demographic shifts, resource constraints, technological evolution) and more contingent factors (policy choices, leadership changes, specific events). Evaluate the relative importance and durability of different drivers.\n\n4. Examine interactions between different trends, identifying reinforcing and countervailing relationships, emergent patterns from trend combinations, and cascading effects across domains. Develop a network understanding of how trends influence and modify each other.\n\n5. Project identified trends through the specified timeframe, accounting for the evolution of driving factors and interaction effects. Consider potential acceleration or deceleration factors and apply appropriate methodological constraints based on the nature of the trends.\n\n6. Identify potential inflection points where trends might experience significant shifts, analyzing threshold conditions for disruption, vulnerability to exogenous shocks, and potential for trend reversal or acceleration.\n\n7. Assess the strategic implications of projected trends, identifying likely winners and losers from trend continuation, strategic positioning opportunities, and policy implications for relevant actors.\n\n8. Evaluate analytical confidence in both trend identification and projection, identifying areas of high and low certainty, and documenting key assumptions and limitations.\n\n9. Determine whether additional context would significantly improve the analysis, identifying specific information gaps that limit confidence.\n\nYour output must include the following standardized elements:\n\n//DISCLAIMER: [Clear statement about trend analysis limitations]\n//RESULT: identified_trends: [Major trends identified across specified domains]\n//RESULT: trend_drivers: [Underlying causal factors driving observed trends]\n//RESULT: trend_interactions: [Analysis of how trends influence each other]\n//RESULT: trend_projections: [Forward projections of trend trajectories]\n//RESULT: inflection_points: [Potential breaking points or significant shifts]\n//RESULT: strategic_implications: [Consequential impacts of projected trends]\n//RESULT: confidence_assessment: [Evaluation of analytical confidence]\n\nIf significant information gaps exist:\n//QUERY: Additional context needed: [Specific information request]\n\nMaintain analytical rigor throughout, appropriately qualifying projections based on evidence quality and methodological limitations. Avoid both deterministic predictions and vague generalizations, instead providing specific, substantive analysis of directional movements and their implications."
+}

@@ -1,0 +1,178 @@
+{
+  "id": "actor_capability_assessment",
+  "version": "1.0.0",
+  "title": "Module S2: Actor Capability Assessment",
+  "description": "Systematically evaluates the capabilities, constraints, and strategic intentions of geopolitical actors",
+  "type": "strategic_analysis",
+  "dependencies": ["data_recognition_ingestion"],
+  "personality_compatibility": {
+    "required_capabilities": ["analytical_reasoning", "nuanced_expression", "technical_analysis"],
+    "preferred_personality": "formal",
+    "personality_override_allowed": true
+  },
+  "input_requirements": [
+    {
+      "name": "actor_identification",
+      "type": "string | array",
+      "description": "Name or list of geopolitical actors to analyze",
+      "required": true
+    },
+    {
+      "name": "capability_domains",
+      "type": "array",
+      "description": "Specific capability areas to assess (e.g., military, economic, diplomatic)",
+      "required": false
+    },
+    {
+      "name": "contextual_factors",
+      "type": "object",
+      "description": "Relevant strategic context influencing actor behavior",
+      "required": false
+    },
+    {
+      "name": "temporal_focus",
+      "type": "string",
+      "description": "Time frame for capability assessment (current, near-term, long-term)",
+      "required": false
+    }
+  ],
+  "output_schema": {
+    "format": "structured",
+    "standard_tags": ["//RESULT", "//DISCLAIMER", "//QUERY", "//ANOMALY"],
+    "fields": [
+      {
+        "name": "actor_profiles",
+        "description": "Detailed capability profiles for each assessed actor",
+        "type": "array"
+      },
+      {
+        "name": "comparative_assessment",
+        "description": "Relative positioning of actors across capability dimensions",
+        "type": "object"
+      },
+      {
+        "name": "strategic_intentions",
+        "description": "Assessment of likely goals and motivations",
+        "type": "object"
+      },
+      {
+        "name": "capability_constraints",
+        "description": "Identified limitations on actor capabilities",
+        "type": "object"
+      },
+      {
+        "name": "evidence_quality",
+        "description": "Evaluation of information reliability for assessment",
+        "type": "object"
+      }
+    ]
+  },
+  "execution_sequence": [
+    {
+      "step": 1,
+      "operation": "Disclaimer Issuance",
+      "actions": [
+        "Generate explicit disclaimer regarding capability assessments",
+        "Clarify limitations of intention analysis",
+        "Establish appropriate expectation framework for assessment utility"
+      ],
+      "output_on_completion": "//DISCLAIMER: This capability assessment integrates observable evidence with analytical judgment. While capabilities can be assessed with reasonable confidence, assessments of intentions involve higher uncertainty. Capability estimates reflect available information and may not account for deliberately concealed assets or capabilities. This analysis should be considered one input among many for strategic decision-making."
+    },
+    {
+      "step": 2,
+      "operation": "Assessment Scope Definition",
+      "actions": [
+        "Identify actors to be assessed",
+        "Define capability domains for evaluation",
+        "Establish assessment timeframe",
+        "Determine relevant contextual factors"
+      ],
+      "output_on_completion": "//RESULT: assessment_parameters: [Defined scope of actor capability assessment]"
+    },
+    {
+      "step": 3,
+      "operation": "Capability Domain Analysis",
+      "actions": [
+        "Analyze each actor across defined capability domains",
+        "Assess absolute and relative capabilities",
+        "Identify key strengths and vulnerabilities",
+        "Evaluate capability development trajectories"
+      ],
+      "output_on_completion": "//RESULT: capability_analysis: [Detailed assessment by domain]"
+    },
+    {
+      "step": 4,
+      "operation": "Constraint Identification",
+      "actions": [
+        "Identify internal constraints on capability utilization",
+        "Assess external limitations and countervailing forces",
+        "Evaluate resource constraints and sustainability issues",
+        "Analyze institutional or structural limitations"
+      ],
+      "output_on_completion": "//RESULT: capability_constraints: [Analysis of limitations and constraints]"
+    },
+    {
+      "step": 5,
+      "operation": "Strategic Intention Analysis",
+      "actions": [
+        "Analyze historical behavior patterns",
+        "Evaluate stated objectives against observed actions",
+        "Consider domestic and international pressures",
+        "Assess likely strategic priorities and red lines"
+      ],
+      "output_on_completion": "//RESULT: strategic_intentions: [Assessment of likely goals and motivations]"
+    },
+    {
+      "step": 6,
+      "operation": "Comparative Assessment",
+      "actions": [
+        "Compare actors across capability dimensions",
+        "Identify relative advantages and disadvantages",
+        "Assess asymmetric capabilities and dependencies",
+        "Evaluate strategic positioning in relevant contexts"
+      ],
+      "output_on_completion": "//RESULT: comparative_assessment: [Relative positioning analysis]"
+    },
+    {
+      "step": 7,
+      "operation": "Evidence Quality Evaluation",
+      "actions": [
+        "Assess reliability of information sources",
+        "Identify areas of high and low confidence",
+        "Note significant information gaps",
+        "Evaluate potential for denial and deception"
+      ],
+      "output_on_completion": "//RESULT: evidence_quality: [Information reliability assessment]"
+    },
+    {
+      "step": 8,
+      "operation": "Anomaly Detection",
+      "actions": [
+        "Identify inconsistencies in capability indicators",
+        "Flag unusual patterns or unexpected developments",
+        "Assess possible explanations for anomalies",
+        "Determine implications for overall assessment"
+      ],
+      "condition": {
+        "if": "anomalies_detected",
+        "then": "//ANOMALY: [Description of detected inconsistencies or patterns]",
+        "else": "//RESULT: No significant anomalies detected in capability indicators"
+      }
+    },
+    {
+      "step": 9,
+      "operation": "Data Sufficiency Evaluation",
+      "actions": [
+        "Determine if available information is adequate for assessment",
+        "Identify critical information gaps",
+        "Formulate specific queries if needed"
+      ],
+      "condition": {
+        "if": "insufficient_data",
+        "then": "//QUERY: Additional information needed: [Specific information request]",
+        "else": "//RESULT: Available information sufficient for assessment"
+      }
+    }
+  ],
+  "prompt": "Systematically evaluate the capabilities, constraints, and strategic intentions of the specified geopolitical actors. Your assessment should provide a structured analysis of their strengths, limitations, and likely objectives within the relevant strategic context.\n\nBegin by issuing a clear disclaimer about the nature of capability assessments, particularly emphasizing the greater uncertainty involved in assessing intentions compared to observable capabilities.\n\nFollow this methodological sequence:\n\n1. Define the scope of the assessment by identifying the specific actors to be evaluated, the capability domains to be considered, the relevant timeframe, and the strategic context. If capability domains are not specified, consider standard dimensions including military, economic, diplomatic, technological, informational, and institutional capabilities.\n\n2. Analyze each actor across the defined capability domains, assessing both absolute capabilities and relative positioning. Identify key strengths and vulnerabilities, and evaluate capability development trajectories within the specified timeframe.\n\n3. Identify internal and external constraints that limit the effective utilization of capabilities. Consider resource limitations, institutional constraints, countervailing forces, sustainability issues, and other factors that may restrict an actor's freedom of action.\n\n4. Analyze strategic intentions by examining historical behavior patterns, stated objectives, domestic and international pressures, and likely priorities. Distinguish between declared, revealed, and inferred intentions, with appropriate confidence levels for each assessment.\n\n5. Develop a comparative assessment that evaluates the relative positioning of actors across capability dimensions. Identify asymmetric capabilities, strategic dependencies, and areas of competitive advantage or disadvantage.\n\n6. Evaluate the quality of available evidence, noting areas of high and low confidence, significant information gaps, and the potential for denial and deception activities that could affect assessment accuracy.\n\n7. Identify any anomalies or inconsistencies in capability indicators, including unusual patterns or unexpected developments that may suggest concealed capabilities or strategic shifts.\n\n8. Determine whether the available information is sufficient for a comprehensive assessment, identifying any critical information gaps that significantly impact analytical confidence.\n\nYour output must include the following standardized elements:\n\n//DISCLAIMER: [Clear statement about assessment limitations]\n//RESULT: actor_profiles: [Detailed capability profiles for each assessed actor]\n//RESULT: comparative_assessment: [Relative positioning of actors across capability dimensions]\n//RESULT: strategic_intentions: [Assessment of likely goals and motivations]\n//RESULT: capability_constraints: [Identified limitations on actor capabilities]\n//RESULT: evidence_quality: [Evaluation of information reliability for assessment]\n\nIf significant anomalies are detected:\n//ANOMALY: [Description of detected inconsistencies or patterns]\n\nIf critical information gaps exist:\n//QUERY: Additional information needed: [Specific information request]\n\nMaintain objectivity and analytical rigor throughout the assessment. Clearly distinguish between factual observations and analytical judgments, and appropriately qualify assessments based on information reliability and confidence levels."
+}

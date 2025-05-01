@@ -1,0 +1,176 @@
+{
+  "id": "utility_monitoring",
+  "version": "1.0.0",
+  "title": "Utility Monitoring Module",
+  "description": "Systematic monitoring and analysis of utility services including power, water, gas, telecommunications, and waste management",
+  "type": "monitoring",
+  "dependencies": ["infrastructure_assessment"],
+  "personality_compatibility": {
+    "required_capabilities": ["technical_terminology", "monitoring_reporting", "alert_communication"],
+    "preferred_personality": "precise",
+    "personality_override_allowed": true
+  },
+  "input_requirements": [
+    {
+      "name": "utility_systems",
+      "type": "array",
+      "description": "Target utility systems to monitor (power, water, gas, telecom, waste, etc.)",
+      "required": true
+    },
+    {
+      "name": "monitoring_parameters",
+      "type": "object",
+      "description": "Monitoring timeframe, sampling rate, and threshold settings",
+      "required": false
+    },
+    {
+      "name": "baseline_metrics",
+      "type": "object",
+      "description": "Expected operational parameters for comparison",
+      "required": false
+    }
+  ],
+  "output_schema": {
+    "format": "structured",
+    "standard_tags": ["//RESULT", "//ANOMALY", "//ALERT", "//QUERY"],
+    "fields": [
+      {
+        "name": "monitoring_scope",
+        "description": "Defined parameters of the utility monitoring operation",
+        "type": "object"
+      },
+      {
+        "name": "utility_status",
+        "description": "Current operational status of each utility system",
+        "type": "object"
+      },
+      {
+        "name": "performance_metrics",
+        "description": "Key performance indicators for each utility system",
+        "type": "object"
+      },
+      {
+        "name": "consumption_patterns",
+        "description": "Usage patterns, trends, and anomalies",
+        "type": "object"
+      },
+      {
+        "name": "service_disruptions",
+        "description": "Identified or predicted service disruptions",
+        "type": "array"
+      },
+      {
+        "name": "efficiency_assessment",
+        "description": "Analysis of system efficiency and resource utilization",
+        "type": "object"
+      },
+      {
+        "name": "alerts",
+        "description": "Critical conditions requiring immediate attention",
+        "type": "array"
+      }
+    ]
+  },
+  "execution_sequence": [
+    {
+      "step": 1,
+      "operation": "Monitoring Scope Definition",
+      "actions": [
+        "Confirm utility systems to be monitored",
+        "Establish monitoring parameters (timeframe, sampling rate)",
+        "Define alert thresholds and notification criteria",
+        "Identify key performance indicators for each utility"
+      ],
+      "output_on_completion": "//RESULT: monitoring_scope: [Defined utility monitoring parameters]"
+    },
+    {
+      "step": 2,
+      "operation": "Utility Status Assessment",
+      "actions": [
+        "Determine current operational state of each utility system",
+        "Identify active, degraded, or offline components",
+        "Assess service delivery capabilities",
+        "Evaluate reserve capacity and redundancy"
+      ],
+      "output_on_completion": "//RESULT: utility_status: [Current status of each utility system]"
+    },
+    {
+      "step": 3,
+      "operation": "Performance Metric Analysis",
+      "actions": [
+        "Collect and analyze key performance indicators",
+        "Compare current metrics against baselines or standards",
+        "Identify performance trends and patterns",
+        "Flag performance deviations exceeding thresholds"
+      ],
+      "output_on_completion": "//RESULT: performance_metrics: [Performance data for each utility]"
+    },
+    {
+      "step": 4,
+      "operation": "Consumption Pattern Analysis",
+      "actions": [
+        "Analyze resource consumption rates and patterns",
+        "Identify usage trends (hourly, daily, seasonal)",
+        "Detect anomalous consumption patterns",
+        "Correlate consumption with external factors (weather, events)"
+      ],
+      "output_on_completion": "//RESULT: consumption_patterns: [Usage analysis and trends]"
+    },
+    {
+      "step": 5,
+      "operation": "Service Disruption Identification",
+      "actions": [
+        "Identify active service disruptions or outages",
+        "Determine impact scope and affected areas",
+        "Estimate disruption duration based on available data",
+        "Assess restoration efforts if applicable"
+      ],
+      "condition": {
+        "if": "disruptions_detected",
+        "then": "//RESULT: service_disruptions: [Details of identified disruptions]",
+        "else": "//RESULT: service_disruptions: No active service disruptions detected"
+      }
+    },
+    {
+      "step": 6,
+      "operation": "Efficiency Assessment",
+      "actions": [
+        "Analyze resource utilization efficiency",
+        "Identify energy or resource waste",
+        "Assess transmission or distribution losses",
+        "Evaluate system optimization opportunities"
+      ],
+      "output_on_completion": "//RESULT: efficiency_assessment: [Efficiency analysis for each utility]"
+    },
+    {
+      "step": 7,
+      "operation": "Critical Alert Evaluation",
+      "actions": [
+        "Identify conditions requiring immediate attention",
+        "Assess severity and potential consequences",
+        "Determine appropriate response actions",
+        "Formulate clear alert messaging"
+      ],
+      "condition": {
+        "if": "critical_conditions_detected",
+        "then": "//ALERT: [Critical condition details and recommended actions]",
+        "else": "//RESULT: alerts: No critical conditions requiring immediate action"
+      }
+    },
+    {
+      "step": 8,
+      "operation": "Data Quality Assessment",
+      "actions": [
+        "Identify monitoring gaps or data quality issues",
+        "Assess confidence level in monitoring results",
+        "Determine if supplemental data is required"
+      ],
+      "condition": {
+        "if": "data_quality_issues",
+        "then": "//QUERY: Additional utility monitoring data needed: [Specific data request]",
+        "else": "//RESULT: monitoring_data_quality: Sufficient for reliable assessment"
+      }
+    }
+  ],
+  "prompt": "Monitor and analyze the specified utility systems to provide comprehensive insight into their operational status, performance, consumption patterns, and any service disruptions. Your monitoring should enable both real-time awareness and trend analysis to support operational decision-making.\n\nFollow this methodological sequence:\n\n1. Begin by confirming the utility systems to be monitored (such as electrical power, water supply, natural gas, telecommunications, waste management) and establishing monitoring parameters including timeframe, sampling frequency, and alert thresholds. Output a clear definition of the monitoring scope and parameters.\n\n2. Assess the current operational status of each utility system, identifying whether components are fully operational, operating at reduced capacity, or offline. Evaluate service delivery capabilities and available redundancy.\n\n3. Analyze key performance indicators for each utility system, comparing current metrics against established baselines or industry standards. Identify significant deviations and track performance trends over the monitoring period.\n\n4. Examine consumption patterns for each utility, identifying usage trends across different timeframes (hourly, daily, seasonal) and detecting any anomalous consumption that may indicate inefficiencies, leaks, or unauthorized usage.\n\n5. Identify any active service disruptions or outages, determining their scope, affected areas, estimated duration, and status of restoration efforts when applicable.\n\n6. Assess the efficiency of each utility system, analyzing resource utilization, identifying waste or losses, and evaluating opportunities for system optimization or improved resource management.\n\n7. Evaluate conditions that may require immediate attention, generating alerts for situations that exceed defined thresholds or present significant risks to service continuity, safety, or regulatory compliance.\n\n8. Assess the quality and completeness of monitoring data, identifying any gaps or limitations that may affect confidence in the analysis results.\n\nYour output must include the following standardized elements:\n\n//RESULT: monitoring_scope: [Defined utility monitoring parameters]\n//RESULT: utility_status: [Current status of each utility system]\n//RESULT: performance_metrics: [Performance data for each utility]\n//RESULT: consumption_patterns: [Usage analysis and trends]\n//RESULT: service_disruptions: [Details of identified disruptions]\n//RESULT: efficiency_assessment: [Efficiency analysis for each utility]\n\nFor critical conditions requiring immediate attention:\n//ALERT: [Critical condition details and recommended actions]\n\nFor data quality or completeness issues:\n//QUERY: Additional utility monitoring data needed: [Specific data request]\n\nFor unexpected patterns or anomalies:\n//ANOMALY: [Description of unexpected utility patterns or behavior]\n\nMaintain a precise, factual reporting style that clearly distinguishes between observed conditions and inferred conclusions. Prioritize actionable insights that enable effective utility management and rapid response to emerging issues."
+}

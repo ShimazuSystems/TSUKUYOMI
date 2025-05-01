@@ -1,0 +1,213 @@
+{
+  "id": "pdf_document_generator",
+  "version": "1.0.0",
+  "title": "PDF Document Generator Module",
+  "description": "Creates professionally formatted PDF documents with customizable layouts, styling, and visual elements",
+  "type": "document_generation",
+  "dependencies": [],
+  "personality_compatibility": {
+    "required_capabilities": ["design_sensibility", "content_organization", "clarity_focus"],
+    "preferred_personality": "professional",
+    "personality_override_allowed": true
+  },
+  "input_requirements": [
+    {
+      "name": "document_content",
+      "type": "object",
+      "description": "Content elements to include in the PDF (text, tables, charts, etc.)",
+      "required": true
+    },
+    {
+      "name": "document_metadata",
+      "type": "object",
+      "description": "Title, author, creation date, document identifiers, etc.",
+      "required": false
+    },
+    {
+      "name": "formatting_options",
+      "type": "object",
+      "description": "Style overrides, layout preferences, and special formatting instructions",
+      "required": false
+    },
+    {
+      "name": "source_data",
+      "type": "object",
+      "description": "Data sources for dynamic content generation (tables, charts, etc.)",
+      "required": false
+    }
+  ],
+  "output_schema": {
+    "format": "structured",
+    "standard_tags": ["//RESULT", "//ANOMALY", "//QUERY"],
+    "fields": [
+      {
+        "name": "pdf_document",
+        "description": "Generated PDF document file",
+        "type": "file"
+      },
+      {
+        "name": "generation_log",
+        "description": "Process log of document creation with details on each component",
+        "type": "object"
+      },
+      {
+        "name": "content_summary",
+        "description": "Summary of content elements included in the document",
+        "type": "object"
+      },
+      {
+        "name": "rendering_notes",
+        "description": "Technical notes about any special handling during rendering",
+        "type": "array"
+      }
+    ]
+  },
+  "execution_sequence": [
+    {
+      "step": 1,
+      "operation": "Document Configuration",
+      "actions": [
+        "Initialize PDF document with default settings (black background, white text)",
+        "Configure document metadata (title, author, creation date, etc.)",
+        "Set up page dimensions, margins, and orientation",
+        "Establish document-wide styling parameters",
+        "Apply any custom formatting overrides from input"
+      ],
+      "output_on_completion": "//RESULT: document_configuration: [Configuration parameters applied]"
+    },
+    {
+      "step": 2,
+      "operation": "Content Structure Planning",
+      "actions": [
+        "Analyze provided content elements",
+        "Determine optimal content flow and organization",
+        "Plan section breaks and hierarchical structure",
+        "Identify elements requiring special handling (tables, charts, etc.)",
+        "Establish typographical hierarchy for different content types"
+      ],
+      "output_on_completion": "//RESULT: content_structure: [Document structure plan]"
+    },
+    {
+      "step": 3,
+      "operation": "Text Content Processing",
+      "actions": [
+        "Process and format all textual content",
+        "Apply appropriate typography (font, size, weight, spacing)",
+        "Implement headings, subheadings, and body text styling",
+        "Format lists, blockquotes, and other text elements",
+        "Apply emphasis and semantic formatting as needed"
+      ],
+      "output_on_completion": "//RESULT: text_processing: [Text content formatting applied]"
+    },
+    {
+      "step": 4,
+      "operation": "Table Generation",
+      "actions": [
+        "Process tabular data from input",
+        "Design table layouts with appropriate formatting",
+        "Apply table styling (headers, alternating rows, borders)",
+        "Handle complex tables with nested structures if present",
+        "Optimize table presentation for readability on black background"
+      ],
+      "condition": {
+        "if": "tables_present_in_content",
+        "then": "//RESULT: table_generation: [Tables processed and formatted]",
+        "else": "//RESULT: table_generation: No tabular content to process"
+      }
+    },
+    {
+      "step": 5,
+      "operation": "Chart and Visualization Creation",
+      "actions": [
+        "Process data for visual representations",
+        "Generate appropriate chart types based on data characteristics",
+        "Apply visualization styling optimized for black background",
+        "Create legends, labels, and supporting elements",
+        "Ensure accessibility considerations in visual elements"
+      ],
+      "condition": {
+        "if": "visualizations_requested",
+        "then": "//RESULT: visualization_creation: [Charts and graphics generated]",
+        "else": "//RESULT: visualization_creation: No visualizations requested"
+      }
+    },
+    {
+      "step": 6,
+      "operation": "Page Layout Implementation",
+      "actions": [
+        "Arrange content elements according to structure plan",
+        "Apply professional layout principles (alignment, proximity, etc.)",
+        "Implement headers, footers, and page numbering",
+        "Create appropriate white space distribution",
+        "Ensure consistent visual hierarchy across document"
+      ],
+      "output_on_completion": "//RESULT: page_layout: [Layout applied to document]"
+    },
+    {
+      "step": 7,
+      "operation": "Navigation Element Creation",
+      "actions": [
+        "Generate table of contents if applicable",
+        "Create section bookmarks for navigation",
+        "Implement internal document links and references",
+        "Add index or glossary if specified",
+        "Ensure navigational elements are properly hyperlinked"
+      ],
+      "condition": {
+        "if": "navigation_elements_needed",
+        "then": "//RESULT: navigation_elements: [Document navigation structures created]",
+        "else": "//RESULT: navigation_elements: No navigation elements required"
+      }
+    },
+    {
+      "step": 8,
+      "operation": "Finalization and Quality Control",
+      "actions": [
+        "Check for rendering issues or formatting inconsistencies",
+        "Verify all content elements are properly included",
+        "Optimize for file size and performance",
+        "Ensure proper tagging for accessibility",
+        "Apply final metadata and document properties"
+      ],
+      "output_on_completion": "//RESULT: quality_control: [Document verification complete]"
+    },
+    {
+      "step": 9,
+      "operation": "Format Compatibility Check",
+      "actions": [
+        "Verify document renders correctly with black background",
+        "Check readability of all text and visual elements",
+        "Identify any elements requiring adjustment for dark theme",
+        "Apply necessary corrections for optimal presentation"
+      ],
+      "condition": {
+        "if": "compatibility_issues_detected",
+        "then": "//ANOMALY: [Description of rendering or compatibility issues]",
+        "else": "//RESULT: format_compatibility: Document renders correctly with specified styling"
+      }
+    },
+    {
+      "step": 10,
+      "operation": "PDF Generation",
+      "actions": [
+        "Compile all elements into final PDF document",
+        "Apply compression and optimization",
+        "Finalize document properties and metadata",
+        "Generate document with appropriate file naming"
+      ],
+      "output_on_completion": "//RESULT: pdf_document: [Generated PDF document]"
+    },
+    {
+      "step": 11,
+      "operation": "Documentation Creation",
+      "actions": [
+        "Create generation log with process details",
+        "Compile content summary of included elements",
+        "Document any special handling or rendering notes",
+        "Generate usage guidance if applicable"
+      ],
+      "output_on_completion": "//RESULT: documentation: [Document generation report]"
+    }
+  ],
+  "prompt": "Create a professionally formatted PDF document according to the provided content and specifications. The default styling will use a black background with white text, maintaining high readability and professional appearance. Your document generation should incorporate appropriate visual elements, consistent typography, and professional layout principles.\n\nFollow this methodological sequence:\n\n1. Begin by configuring the document settings, establishing the black background, white text default theme, and setting up document metadata. Apply any custom formatting overrides specified in the input while maintaining the core black/white aesthetic.\n\n2. Analyze the provided content to plan an optimal structure, determining appropriate content flow, section breaks, and hierarchical organization. Develop a structural framework that will guide the document's layout and information hierarchy.\n\n3. Process all textual content, applying consistent and appropriate typography. Use white as the primary text color with appropriate contrast variations for hierarchy. Implement proper text spacing, alignment, and semantic formatting to enhance readability against the black background.\n\n4. If tabular data is provided, generate properly formatted tables with clear structure and styling optimized for the dark background. Implement appropriate header treatments, row/column formatting, and ensure high readability of tabular information.\n\n5. When visualization data is provided, create appropriate charts, graphs, or other visual representations using a color palette harmonious with the black background. Ensure all visual elements maintain clarity and professional appearance with proper labeling and legends.\n\n6. Implement a cohesive page layout, arranging all content elements according to professional design principles. Apply consistent spacing, alignment, and visual hierarchy throughout the document while maintaining the black background aesthetic.\n\n7. Create navigation elements as appropriate for the document's complexity, including table of contents, bookmarks, internal references, or indexes. Ensure all navigational features are properly hyperlinked and functional.\n\n8. Perform quality control checks to identify and resolve any formatting inconsistencies, verify content inclusion, and optimize the document for performance while maintaining visual quality.\n\n9. Verify format compatibility to ensure all elements render correctly with the black background theme, making any necessary adjustments to optimize readability and visual presentation.\n\n10. Generate the final PDF document, applying appropriate compression and optimization while maintaining visual quality.\n\n11. Create documentation of the generation process, including a log of actions taken, summary of content elements, and any special handling notes.\n\nYour output must include the following standardized elements:\n\n//RESULT: document_configuration: [Applied settings]\n//RESULT: content_structure: [Document organization]\n//RESULT: text_processing: [Text formatting details]\n//RESULT: page_layout: [Layout implementation]\n//RESULT: pdf_document: [Generated document file]\n//RESULT: documentation: [Generation report]\n\nFor tables (if present):\n//RESULT: table_generation: [Table processing details]\n\nFor visualizations (if requested):\n//RESULT: visualization_creation: [Chart generation details]\n\nFor navigation elements (if applicable):\n//RESULT: navigation_elements: [Navigation structure details]\n\nFor rendering issues:\n//ANOMALY: [Description of formatting or compatibility problems]\n\nFor missing information:\n//QUERY: Additional content details needed: [Specific request]\n\nApply design thinking throughout the document creation process, balancing aesthetic considerations with functional requirements and information clarity. The black background should serve as a sophisticated canvas that enhances the presentation of information rather than detracting from it. Ensure all text maintains optimal readability and that visual elements are rendered with appropriate contrast and clarity."
+}

@@ -1,0 +1,183 @@
+{
+  "id": "strategic_scenario_modeling",
+  "version": "1.0.0",
+  "title": "Module S1: Strategic Scenario Modeling",
+  "description": "Develops structured, evidence-based scenarios for potential geopolitical outcomes with probability assessments",
+  "type": "strategic_analysis",
+  "dependencies": ["data_recognition_ingestion", "correlation_analysis"],
+  "personality_compatibility": {
+    "required_capabilities": ["analytical_reasoning", "nuanced_expression", "structured_speculation"],
+    "preferred_personality": "formal",
+    "personality_override_allowed": true
+  },
+  "input_requirements": [
+    {
+      "name": "geopolitical_context",
+      "type": "object | string",
+      "description": "Current situation, relevant actors, and key factors to consider",
+      "required": true
+    },
+    {
+      "name": "time_horizon",
+      "type": "string",
+      "description": "Temporal scope for scenario development (short-term, medium-term, long-term)",
+      "required": true
+    },
+    {
+      "name": "variables_of_interest",
+      "type": "array",
+      "description": "Specific factors, developments, or indicators to track in scenarios",
+      "required": false
+    },
+    {
+      "name": "historical_precedents",
+      "type": "array",
+      "description": "Similar historical situations that may inform scenario development",
+      "required": false
+    }
+  ],
+  "output_schema": {
+    "format": "structured",
+    "standard_tags": ["//RESULT", "//DISCLAIMER", "//QUERY"],
+    "fields": [
+      {
+        "name": "key_factors",
+        "description": "Critical variables that shape scenario development",
+        "type": "array"
+      },
+      {
+        "name": "baseline_scenario",
+        "description": "Most probable trajectory given current conditions",
+        "type": "object"
+      },
+      {
+        "name": "alternative_scenarios",
+        "description": "Array of plausible alternative developments",
+        "type": "array"
+      },
+      {
+        "name": "probability_assessments",
+        "description": "Quantitative or qualitative likelihood estimates for each scenario",
+        "type": "object"
+      },
+      {
+        "name": "key_indicators",
+        "description": "Observable signals that would suggest scenario progression",
+        "type": "array"
+      },
+      {
+        "name": "methodological_limitations",
+        "description": "Explicit statement of analytical constraints and uncertainties",
+        "type": "string"
+      }
+    ]
+  },
+  "execution_sequence": [
+    {
+      "step": 1,
+      "operation": "Disclaimer Issuance",
+      "actions": [
+        "Generate explicit disclaimer regarding the speculative nature of strategic projections",
+        "Clarify difference between evidence-based assessment and forecasting",
+        "Establish appropriate expectation framework for scenario utility"
+      ],
+      "output_on_completion": "//DISCLAIMER: Strategic scenario modeling involves structured speculation based on available evidence and analytical frameworks. While methodologically sound, scenarios represent plausible futures rather than predictions. All probability assessments are estimates intended to convey relative likelihood rather than statistical certainty."
+    },
+    {
+      "step": 2,
+      "operation": "Factor Identification",
+      "actions": [
+        "Analyze geopolitical context to identify key driving forces",
+        "Categorize factors (political, economic, social, technological, etc.)",
+        "Determine relative importance and interdependencies",
+        "Identify critical uncertainties"
+      ],
+      "output_on_completion": "//RESULT: key_factors: [Array of identified factors with classifications]"
+    },
+    {
+      "step": 3,
+      "operation": "Historical Pattern Analysis",
+      "actions": [
+        "Evaluate historical precedents for relevant patterns",
+        "Identify analogous situations and outcomes",
+        "Extract applicable insights while noting contextual differences",
+        "Integrate historical insights with current factors"
+      ],
+      "condition": {
+        "if": "historical_precedents_provided",
+        "then": "//RESULT: historical_insights: [Analysis of relevant patterns]",
+        "else": "//RESULT: No historical precedents provided for analysis"
+      }
+    },
+    {
+      "step": 4,
+      "operation": "Baseline Scenario Development",
+      "actions": [
+        "Project current trajectories forward within specified time horizon",
+        "Integrate most probable developments of key factors",
+        "Construct coherent narrative of most likely outcome",
+        "Identify key decision points and inflection possibilities"
+      ],
+      "output_on_completion": "//RESULT: baseline_scenario: [Detailed description of most probable scenario]"
+    },
+    {
+      "step": 5,
+      "operation": "Alternative Scenario Generation",
+      "actions": [
+        "Identify plausible variations from baseline assumptions",
+        "Develop coherent alternative scenarios based on differing assumptions",
+        "Ensure appropriate diversity in scenario set",
+        "Verify internal consistency within each scenario"
+      ],
+      "output_on_completion": "//RESULT: alternative_scenarios: [Array of alternative scenario descriptions]"
+    },
+    {
+      "step": 6,
+      "operation": "Probability Assessment",
+      "actions": [
+        "Evaluate relative likelihood of each scenario",
+        "Assign quantitative or qualitative probability assessments",
+        "Articulate confidence levels in assessments",
+        "Document key assumptions underlying probability judgments"
+      ],
+      "output_on_completion": "//RESULT: probability_assessments: [Likelihood estimates for all scenarios]"
+    },
+    {
+      "step": 7,
+      "operation": "Indicator Development",
+      "actions": [
+        "Identify observable indicators that would signal scenario progression",
+        "Create monitoring framework for tracking developments",
+        "Specify leading indicators for early detection",
+        "Define thresholds for significant developments"
+      ],
+      "output_on_completion": "//RESULT: key_indicators: [Array of observable signals for scenario tracking]"
+    },
+    {
+      "step": 8,
+      "operation": "Limitation Assessment",
+      "actions": [
+        "Evaluate methodological limitations of the analysis",
+        "Identify key knowledge gaps or uncertainties",
+        "Assess potential blind spots or biases",
+        "Document constraints on scenario reliability"
+      ],
+      "output_on_completion": "//RESULT: methodological_limitations: [Explicit statement of analytical constraints]"
+    },
+    {
+      "step": 9,
+      "operation": "Clarification Evaluation",
+      "actions": [
+        "Determine if additional context would significantly improve scenario quality",
+        "Identify specific information that would enhance analysis",
+        "Formulate targeted queries if needed"
+      ],
+      "condition": {
+        "if": "clarification_needed",
+        "then": "//QUERY: Additional context needed: [Specific information request]",
+        "else": "//RESULT: No additional clarification required"
+      }
+    }
+  ],
+  "prompt": "Develop structured, evidence-based scenarios for potential geopolitical outcomes based on the provided context. Your analysis should balance analytical rigor with appropriate speculation about plausible futures.\n\nBegin by issuing a clear disclaimer about the nature of strategic forecasting and the appropriate use of scenario-based analysis. This disclaimer should emphasize that scenarios represent plausible futures rather than predictions.\n\nFollow this methodological sequence:\n\n1. Identify and categorize the key factors that will drive outcomes in the specified geopolitical context. Consider political, economic, social, technological, environmental, and military dimensions. Determine which factors are most critical and how they may interact.\n\n2. If historical precedents are provided, analyze these for relevant patterns and insights while acknowledging contextual differences between historical situations and the current scenario.\n\n3. Develop a baseline scenario representing the most probable trajectory given current conditions and assuming no major disruptions or policy changes. This should be a coherent narrative that extends current trends through the specified time horizon.\n\n4. Generate 3-5 alternative scenarios that represent distinct but plausible alternative futures. These should diverge from the baseline based on reasonable variations in key assumptions or the introduction of plausible disruptive events.\n\n5. Assess the relative probability of each scenario using either quantitative estimates (percentages) or qualitative assessments (highly likely, somewhat likely, unlikely, etc.). Clearly articulate the confidence level and key assumptions underlying these probability judgments.\n\n6. Identify observable indicators that would suggest movement toward each scenario. These should be specific, measurable developments that could serve as early warning signs or confirmation of scenario progression.\n\n7. Document methodological limitations, knowledge gaps, and potential blind spots in the analysis to ensure appropriate interpretation of the scenarios.\n\nYour output must include the following standardized elements:\n\n//DISCLAIMER: [Clear statement about the speculative nature of scenario analysis]\n//RESULT: key_factors: [Critical variables shaping the scenarios]\n//RESULT: baseline_scenario: [Most probable trajectory given current conditions]\n//RESULT: alternative_scenarios: [Array of plausible alternative developments]\n//RESULT: probability_assessments: [Likelihood estimates for each scenario]\n//RESULT: key_indicators: [Observable signals for scenario tracking]\n//RESULT: methodological_limitations: [Statement of analytical constraints]\n\nIf significant information gaps exist that could substantially improve the analysis:\n//QUERY: Additional context needed: [Specific information request]\n\nEnsure all scenarios are internally consistent, evidence-informed, and avoid both excessive pessimism and unwarranted optimism. Maintain objectivity throughout while acknowledging the inherently uncertain nature of strategic forecasting."
+}

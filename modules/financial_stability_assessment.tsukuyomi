@@ -1,0 +1,214 @@
+{
+  "id": "financial_stability_assessment",
+  "version": "1.0.0",
+  "title": "Module E4: Financial System Stability Assessment",
+  "description": "Analyzes stability factors, systemic risks, and contagion potential in financial systems",
+  "type": "economic_analysis",
+  "dependencies": ["data_recognition_ingestion"],
+  "personality_compatibility": {
+    "required_capabilities": ["analytical_reasoning", "economic_terminology", "financial_expertise"],
+    "preferred_personality": "formal",
+    "personality_override_allowed": true
+  },
+  "input_requirements": [
+    {
+      "name": "target_financial_system",
+      "type": "string | array",
+      "description": "Financial system(s) to be assessed",
+      "required": true
+    },
+    {
+      "name": "stability_domains",
+      "type": "array",
+      "description": "Specific stability areas to assess (e.g., banking, sovereign, currency)",
+      "required": false
+    },
+    {
+      "name": "external_factors",
+      "type": "array",
+      "description": "External economic or financial factors to consider",
+      "required": false
+    },
+    {
+      "name": "timeframe",
+      "type": "string",
+      "description": "Time horizon for stability assessment",
+      "required": false
+    }
+  ],
+  "output_schema": {
+    "format": "structured",
+    "standard_tags": ["//RESULT", "//DISCLAIMER", "//QUERY"],
+    "fields": [
+      {
+        "name": "systemic_risk_assessment",
+        "description": "Analysis of core financial system stability risks",
+        "type": "object"
+      },
+      {
+        "name": "macroprudential_indicators",
+        "description": "Key metrics indicating financial system health",
+        "type": "object"
+      },
+      {
+        "name": "institutional_vulnerabilities",
+        "description": "Assessment of key institutions and their stability",
+        "type": "object"
+      },
+      {
+        "name": "contagion_pathways",
+        "description": "Potential transmission mechanisms for financial instability",
+        "type": "array"
+      },
+      {
+        "name": "stress_scenarios",
+        "description": "Potential financial shock scenarios and their implications",
+        "type": "array"
+      },
+      {
+        "name": "resilience_factors",
+        "description": "Stabilizing mechanisms and buffers within the system",
+        "type": "object"
+      },
+      {
+        "name": "regulatory_effectiveness",
+        "description": "Assessment of regulatory frameworks and their adequacy",
+        "type": "object"
+      }
+    ]
+  },
+  "execution_sequence": [
+    {
+      "step": 1,
+      "operation": "Disclaimer Issuance",
+      "actions": [
+        "Generate explicit disclaimer regarding financial stability assessment",
+        "Clarify limitations of financial system risk analysis",
+        "Establish appropriate expectation framework for assessment utility"
+      ],
+      "output_on_completion": "//DISCLAIMER: This financial stability assessment analyzes structural vulnerabilities and potential risk factors based on observable financial metrics and system architecture. Financial systems are complex adaptive networks subject to reflexivity, market psychology, and emergent behaviors that cannot be deterministically modeled. While this analysis identifies potential vulnerabilities, the timing and specific triggers of financial instability often emerge from unforeseen combinations of factors or from areas where data visibility is limited. This assessment should be considered one input among many for risk monitoring."
+    },
+    {
+      "step": 2,
+      "operation": "Assessment Scope Definition",
+      "actions": [
+        "Define target financial system(s)",
+        "Establish stability domains for evaluation",
+        "Identify external factors for consideration",
+        "Set time horizon for stability assessment"
+      ],
+      "output_on_completion": "//RESULT: assessment_parameters: [Defined scope of stability assessment]"
+    },
+    {
+      "step": 3,
+      "operation": "Macroprudential Indicator Analysis",
+      "actions": [
+        "Analyze key financial stability indicators",
+        "Assess credit growth and debt sustainability metrics",
+        "Evaluate asset price dynamics and potential bubbles",
+        "Analyze liquidity and funding stability measures",
+        "Assess capital adequacy and leverage in the system"
+      ],
+      "output_on_completion": "//RESULT: macroprudential_indicators: [Analysis of key stability metrics]"
+    },
+    {
+      "step": 4,
+      "operation": "Institutional Vulnerability Assessment",
+      "actions": [
+        "Identify systemically important financial institutions",
+        "Analyze balance sheet strengths and weaknesses",
+        "Assess business model sustainability",
+        "Evaluate institutional interconnectedness",
+        "Identify potential problem institutions"
+      ],
+      "output_on_completion": "//RESULT: institutional_vulnerabilities: [Assessment of key institutions]"
+    },
+    {
+      "step": 5,
+      "operation": "Market Structure Analysis",
+      "actions": [
+        "Evaluate market liquidity and functioning",
+        "Assess market concentration and power dynamics",
+        "Analyze price discovery mechanisms",
+        "Identify potential market distortions",
+        "Evaluate shadow banking presence and risks"
+      ],
+      "output_on_completion": "//RESULT: market_structure_assessment: [Analysis of financial market functioning]"
+    },
+    {
+      "step": 6,
+      "operation": "Systemic Risk Identification",
+      "actions": [
+        "Identify key systemic risk factors",
+        "Assess procyclicality dynamics",
+        "Evaluate risk concentration patterns",
+        "Analyze cross-sectoral risk transmission",
+        "Identify emerging non-traditional risks"
+      ],
+      "output_on_completion": "//RESULT: systemic_risk_assessment: [Identified financial stability risks]"
+    },
+    {
+      "step": 7,
+      "operation": "Contagion Pathway Analysis",
+      "actions": [
+        "Map potential financial contagion pathways",
+        "Assess direct exposure networks",
+        "Evaluate funding channel vulnerabilities",
+        "Analyze collateral chains and interdependencies",
+        "Identify behavioral contagion mechanisms"
+      ],
+      "output_on_completion": "//RESULT: contagion_pathways: [Potential transmission mechanisms]"
+    },
+    {
+      "step": 8,
+      "operation": "Stress Scenario Development",
+      "actions": [
+        "Develop plausible financial stress scenarios",
+        "Analyze potential triggering mechanisms",
+        "Assess impact magnitude and system response",
+        "Evaluate amplification and feedback mechanisms",
+        "Project potential stabilization pathways"
+      ],
+      "output_on_completion": "//RESULT: stress_scenarios: [Potential shock scenarios and implications]"
+    },
+    {
+      "step": 9,
+      "operation": "Resilience Factor Analysis",
+      "actions": [
+        "Identify stabilizing mechanisms within the system",
+        "Assess capital and liquidity buffers",
+        "Evaluate loss absorption capacity",
+        "Analyze automatic stabilizers",
+        "Assess market maker of last resort capabilities"
+      ],
+      "output_on_completion": "//RESULT: resilience_factors: [Stabilizing mechanisms and buffers]"
+    },
+    {
+      "step": 10,
+      "operation": "Regulatory Framework Assessment",
+      "actions": [
+        "Evaluate effectiveness of regulatory framework",
+        "Identify regulatory gaps or arbitrage opportunities",
+        "Assess supervisory capacity and resources",
+        "Analyze crisis management frameworks",
+        "Evaluate resolution mechanisms for failing institutions"
+      ],
+      "output_on_completion": "//RESULT: regulatory_effectiveness: [Assessment of regulatory frameworks]"
+    },
+    {
+      "step": 11,
+      "operation": "Data Adequacy Assessment",
+      "actions": [
+        "Identify critical data gaps affecting assessment confidence",
+        "Determine if available information is sufficient",
+        "Formulate specific queries for additional information if needed"
+      ],
+      "condition": {
+        "if": "critical_data_gaps",
+        "then": "//QUERY: Additional financial data needed: [Specific information request]",
+        "else": "//RESULT: Available data sufficient for stability assessment"
+      }
+    }
+  ],
+  "prompt": "Analyze stability factors, systemic risks, and contagion potential in the specified financial system(s). Your assessment should provide a structured analysis of vulnerabilities, resilience mechanisms, and potential stress scenarios to evaluate overall financial stability.\n\nBegin by issuing a clear disclaimer about the nature of financial stability assessment, emphasizing that financial systems are complex adaptive networks subject to emergent behaviors and psychological factors that cannot be deterministically modeled.\n\nFollow this methodological sequence:\n\n1. Define the scope of the assessment by identifying the target financial system(s), establishing the stability domains for evaluation (banking, securities markets, insurance, etc.), identifying relevant external factors, and setting an appropriate time horizon.\n\n2. Analyze macroprudential indicators including credit growth and debt sustainability metrics, asset price dynamics, liquidity and funding stability measures, and capital adequacy and leverage in the system. Identify any concerning trends or imbalances.\n\n3. Assess institutional vulnerabilities by identifying systemically important financial institutions, analyzing their balance sheet strengths and weaknesses, evaluating business model sustainability, and assessing institutional interconnectedness.\n\n4. Evaluate market structure by analyzing market liquidity and functioning, assessing concentration and power dynamics, evaluating price discovery mechanisms, identifying potential distortions, and assessing shadow banking risks.\n\n5. Identify key systemic risk factors including procyclicality dynamics, risk concentration patterns, cross-sectoral risk transmission mechanisms, and emerging non-traditional risks such as cyber or climate financial risks.\n\n6. Map potential financial contagion pathways, including direct exposure networks, funding vulnerabilities, collateral chains, and behavioral contagion mechanisms that could transmit or amplify financial stress.\n\n7. Develop plausible financial stress scenarios, analyzing potential triggering mechanisms, impact magnitude, amplification dynamics, and possible stabilization pathways.\n\n8. Identify resilience factors including capital and liquidity buffers, loss absorption capacity, automatic stabilizers, and market maker of last resort capabilities that could mitigate financial stress.\n\n9. Assess the effectiveness of the regulatory framework, identifying any gaps or arbitrage opportunities, evaluating supervisory capacity, and analyzing crisis management frameworks.\n\n10. Evaluate the adequacy of available data, identifying any critical information gaps that significantly impact analytical confidence.\n\nYour output must include the following standardized elements:\n\n//DISCLAIMER: [Clear statement about assessment limitations]\n//RESULT: systemic_risk_assessment: [Analysis of core financial stability risks]\n//RESULT: macroprudential_indicators: [Key metrics indicating financial health]\n//RESULT: institutional_vulnerabilities: [Assessment of key institutions]\n//RESULT: contagion_pathways: [Potential transmission mechanisms]\n//RESULT: stress_scenarios: [Potential shock scenarios and implications]\n//RESULT: resilience_factors: [Stabilizing mechanisms and buffers]\n//RESULT: regulatory_effectiveness: [Assessment of regulatory frameworks]\n\nIf critical data gaps exist:\n//QUERY: Additional financial data needed: [Specific information request]\n\nMaintain analytical rigor throughout the assessment, appropriately qualifying judgments based on data confidence and inherent uncertainties. Balance identification of vulnerabilities with recognition of resilience factors and adaptive capacities within the financial system."
+}

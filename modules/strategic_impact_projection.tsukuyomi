@@ -1,0 +1,190 @@
+{
+  "id": "strategic_impact_projection",
+  "version": "1.0.0",
+  "title": "Module S3: Strategic Impact Projection",
+  "description": "Analyzes potential consequences of specific events, decisions, or policies across multiple domains and time horizons",
+  "type": "strategic_analysis",
+  "dependencies": ["actor_capability_assessment", "data_recognition_ingestion"],
+  "personality_compatibility": {
+    "required_capabilities": ["analytical_reasoning", "nuanced_expression", "structured_speculation"],
+    "preferred_personality": "formal",
+    "personality_override_allowed": true
+  },
+  "input_requirements": [
+    {
+      "name": "strategic_event",
+      "type": "string | object",
+      "description": "Event, decision, or policy to be analyzed for potential impacts",
+      "required": true
+    },
+    {
+      "name": "affected_domains",
+      "type": "array",
+      "description": "Domains to consider in impact analysis (e.g., security, economic, political)",
+      "required": false
+    },
+    {
+      "name": "time_horizons",
+      "type": "array",
+      "description": "Temporal frames for impact assessment (immediate, short-term, medium-term, long-term)",
+      "required": false
+    },
+    {
+      "name": "actor_context",
+      "type": "object",
+      "description": "Relevant geopolitical actors and their current positioning",
+      "required": false
+    }
+  ],
+  "output_schema": {
+    "format": "structured",
+    "standard_tags": ["//RESULT", "//DISCLAIMER", "//QUERY"],
+    "fields": [
+      {
+        "name": "first_order_impacts",
+        "description": "Direct consequences across specified domains",
+        "type": "object"
+      },
+      {
+        "name": "second_order_impacts",
+        "description": "Indirect effects resulting from first-order impacts",
+        "type": "object"
+      },
+      {
+        "name": "temporal_projection",
+        "description": "Evolution of impacts across different time horizons",
+        "type": "object"
+      },
+      {
+        "name": "differential_impacts",
+        "description": "Varying effects on different actors or systems",
+        "type": "object"
+      },
+      {
+        "name": "critical_uncertainties",
+        "description": "Key variables that could significantly alter projected impacts",
+        "type": "array"
+      },
+      {
+        "name": "mitigation_opportunities",
+        "description": "Potential interventions to modify projected impacts",
+        "type": "array"
+      }
+    ]
+  },
+  "execution_sequence": [
+    {
+      "step": 1,
+      "operation": "Disclaimer Issuance",
+      "actions": [
+        "Generate explicit disclaimer regarding impact projections",
+        "Clarify limitations of causal analysis in complex systems",
+        "Establish appropriate expectation framework for projection utility"
+      ],
+      "output_on_completion": "//DISCLAIMER: This strategic impact projection analyzes potential consequences of specified events or decisions across multiple domains and time horizons. Due to the complexity of geopolitical systems, unforeseen variables, and emergent properties, these projections represent structured analytical judgments rather than deterministic predictions. Confidence decreases as time horizons extend and with each subsequent order of effects. This analysis should inform strategic thinking rather than serve as a definitive forecast."
+    },
+    {
+      "step": 2,
+      "operation": "Event Characterization",
+      "actions": [
+        "Define the strategic event, decision, or policy in specific terms",
+        "Clarify scope, scale, and key parameters",
+        "Establish baseline understanding of the triggering development"
+      ],
+      "output_on_completion": "//RESULT: event_characterization: [Precise definition of the analyzed event]"
+    },
+    {
+      "step": 3,
+      "operation": "Domain and Timeframe Definition",
+      "actions": [
+        "Identify domains for impact analysis",
+        "Define specific time horizons for projection",
+        "Establish relevant actor context",
+        "Set analysis boundaries"
+      ],
+      "output_on_completion": "//RESULT: analysis_parameters: [Defined impact assessment framework]"
+    },
+    {
+      "step": 4,
+      "operation": "First-Order Impact Analysis",
+      "actions": [
+        "Identify direct consequences across specified domains",
+        "Assess immediate causal relationships",
+        "Evaluate relative magnitude and significance of impacts",
+        "Determine confidence levels for first-order projections"
+      ],
+      "output_on_completion": "//RESULT: first_order_impacts: [Assessment of direct consequences]"
+    },
+    {
+      "step": 5,
+      "operation": "Second-Order Impact Analysis",
+      "actions": [
+        "Identify knock-on effects from first-order impacts",
+        "Analyze interaction effects between first-order consequences",
+        "Evaluate systemic responses to initial perturbations",
+        "Determine confidence levels for second-order projections"
+      ],
+      "output_on_completion": "//RESULT: second_order_impacts: [Assessment of indirect consequences]"
+    },
+    {
+      "step": 6,
+      "operation": "Temporal Evolution Analysis",
+      "actions": [
+        "Project how impacts develop across time horizons",
+        "Identify potential acceleration or dissipation factors",
+        "Assess cumulative effects over time",
+        "Evaluate potential inflection points or thresholds"
+      ],
+      "output_on_completion": "//RESULT: temporal_projection: [Impact evolution across time horizons]"
+    },
+    {
+      "step": 7,
+      "operation": "Differential Impact Assessment",
+      "actions": [
+        "Analyze how impacts vary across different actors",
+        "Identify beneficiaries and disadvantaged parties",
+        "Assess variations in vulnerability and resilience",
+        "Evaluate potential for asymmetric effects"
+      ],
+      "output_on_completion": "//RESULT: differential_impacts: [Varying effects across actors or systems]"
+    },
+    {
+      "step": 8,
+      "operation": "Critical Uncertainty Identification",
+      "actions": [
+        "Identify key variables that could significantly alter projections",
+        "Assess sensitivity of outcomes to assumptions",
+        "Determine critical dependencies in causal chains",
+        "Evaluate potential for non-linear or threshold effects"
+      ],
+      "output_on_completion": "//RESULT: critical_uncertainties: [Key variables affecting projection reliability]"
+    },
+    {
+      "step": 9,
+      "operation": "Mitigation Opportunity Assessment",
+      "actions": [
+        "Identify potential intervention points to modify projected impacts",
+        "Assess feasibility and effectiveness of mitigation measures",
+        "Evaluate potential for unintended consequences from interventions",
+        "Determine time-sensitivity of mitigation opportunities"
+      ],
+      "output_on_completion": "//RESULT: mitigation_opportunities: [Potential interventions to modify impacts]"
+    },
+    {
+      "step": 10,
+      "operation": "Information Adequacy Assessment",
+      "actions": [
+        "Evaluate sufficiency of available information for robust projection",
+        "Identify critical information gaps",
+        "Determine if additional context would significantly improve analysis",
+        "Formulate specific queries if needed"
+      ],
+      "condition": {
+        "if": "additional_information_needed",
+        "then": "//QUERY: Additional context needed: [Specific information request]",
+        "else": "//RESULT: Available information sufficient for impact projection"
+      }
+    }
+  ],
+  "prompt": "Analyze the potential consequences of a specified strategic event, decision, or policy across multiple domains and time horizons. Your projection should systematically trace causal chains, identify key uncertainties, and assess differential impacts on relevant actors or systems.\n\nBegin by issuing a clear disclaimer regarding the inherent limitations of impact projections in complex geopolitical systems, emphasizing that these represent structured analytical judgments rather than deterministic predictions.\n\nFollow this methodological sequence:\n\n1. Precisely characterize the strategic event, decision, or policy to be analyzed, clarifying its scope, scale, and key parameters to establish a clear baseline understanding.\n\n2. Define the analytical framework by identifying the domains for impact assessment (security, economic, political, social, etc.), specific time horizons (immediate, short-term, medium-term, long-term), and the relevant actor context.\n\n3. Conduct first-order impact analysis by identifying direct consequences across specified domains. Assess immediate causal relationships, evaluate the relative magnitude and significance of these impacts, and determine confidence levels for these projections.\n\n4. Analyze second-order impacts by identifying knock-on effects from first-order consequences, interaction effects between different first-order impacts, and systemic responses to initial perturbations. Appropriately qualify confidence levels for these more distant causal relationships.\n\n5. Project how impacts are likely to evolve across different time horizons, identifying potential acceleration or dissipation factors, cumulative effects, and possible inflection points or thresholds where significant changes in trajectory might occur.\n\n6. Assess differential impacts across various actors or systems, identifying likely beneficiaries and disadvantaged parties, variations in vulnerability and resilience, and the potential for asymmetric effects that could alter strategic positioning.\n\n7. Identify critical uncertainties—key variables that could significantly alter the projected impacts—and assess the sensitivity of outcomes to different assumptions or developments.\n\n8. Evaluate potential mitigation opportunities, identifying intervention points that could modify projected impacts, assessing the feasibility and effectiveness of various measures, and determining time-sensitivity of possible responses.\n\n9. Determine whether available information is sufficient for a robust projection, identifying any critical information gaps that significantly impact analytical confidence.\n\nYour output must include the following standardized elements:\n\n//DISCLAIMER: [Clear statement about projection limitations]\n//RESULT: first_order_impacts: [Assessment of direct consequences across domains]\n//RESULT: second_order_impacts: [Assessment of indirect consequences]\n//RESULT: temporal_projection: [Impact evolution across time horizons]\n//RESULT: differential_impacts: [Varying effects across actors or systems]\n//RESULT: critical_uncertainties: [Key variables affecting projection reliability]\n//RESULT: mitigation_opportunities: [Potential interventions to modify impacts]\n\nIf additional context would significantly improve the analysis:\n//QUERY: Additional context needed: [Specific information request]\n\nMaintain analytical rigor throughout the projection, clearly distinguishing between different orders of effects and appropriately qualifying confidence levels as causal chains extend further from the initial event. Avoid both alarmism and complacency, focusing instead on balanced assessment of potential consequences across the spectrum of possibility."
+}

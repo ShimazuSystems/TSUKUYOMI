@@ -1,0 +1,206 @@
+{
+  "id": "trade_network_impact",
+  "version": "1.0.0",
+  "title": "Module E2: Trade Network Impact Analysis",
+  "description": "Analyzes how changes in trade relationships, sanctions, agreements, or disruptions affect economic systems",
+  "type": "economic_analysis",
+  "dependencies": ["data_recognition_ingestion"],
+  "personality_compatibility": {
+    "required_capabilities": ["analytical_reasoning", "economic_terminology", "network_analysis"],
+    "preferred_personality": "formal",
+    "personality_override_allowed": true
+  },
+  "input_requirements": [
+    {
+      "name": "trade_event",
+      "type": "string | object",
+      "description": "Trade policy change, disruption, or scenario to analyze",
+      "required": true
+    },
+    {
+      "name": "affected_economies",
+      "type": "array",
+      "description": "Primary economies involved in or affected by the trade event",
+      "required": true
+    },
+    {
+      "name": "trade_categories",
+      "type": "array",
+      "description": "Specific sectors, industries, or product categories to analyze",
+      "required": false
+    },
+    {
+      "name": "timeframe",
+      "type": "string | object",
+      "description": "Time horizon for impact assessment (immediate, short-term, medium-term)",
+      "required": false
+    }
+  ],
+  "output_schema": {
+    "format": "structured",
+    "standard_tags": ["//RESULT", "//DISCLAIMER", "//QUERY"],
+    "fields": [
+      {
+        "name": "direct_trade_impacts",
+        "description": "Primary effects on trade flows, volumes, and values",
+        "type": "object"
+      },
+      {
+        "name": "supply_chain_effects",
+        "description": "Cascading impacts through supply networks",
+        "type": "object"
+      },
+      {
+        "name": "sector_analysis",
+        "description": "Differential impacts across economic sectors",
+        "type": "object"
+      },
+      {
+        "name": "substitution_dynamics",
+        "description": "Trade diversion and adaptation patterns",
+        "type": "object"
+      },
+      {
+        "name": "economic_indicators",
+        "description": "Projected changes in key economic metrics",
+        "type": "object"
+      },
+      {
+        "name": "strategic_implications",
+        "description": "Longer-term structural changes and strategic positioning",
+        "type": "object"
+      },
+      {
+        "name": "asymmetric_impacts",
+        "description": "Differential effects on various economic actors",
+        "type": "object"
+      }
+    ]
+  },
+  "execution_sequence": [
+    {
+      "step": 1,
+      "operation": "Disclaimer Issuance",
+      "actions": [
+        "Generate explicit disclaimer regarding trade impact analysis",
+        "Clarify limitations of trade network modeling",
+        "Establish appropriate expectation framework for assessment utility"
+      ],
+      "output_on_completion": "//DISCLAIMER: This trade network impact analysis examines potential consequences of specified trade events using structural economic analysis and network theory. While direct trade relationships can be mapped with reasonable accuracy, complex adaptive responses by economic actors, policy interventions, and market psychology introduce significant uncertainty. This analysis identifies potential transmission pathways and relative magnitudes rather than precise quantitative predictions. Trade systems feature emergent properties and non-linear responses that limit forecasting precision, particularly beyond immediate impacts."
+    },
+    {
+      "step": 2,
+      "operation": "Trade Event Characterization",
+      "actions": [
+        "Define the specific trade event, policy, or disruption",
+        "Characterize scope, scale, and implementation parameters",
+        "Establish baseline understanding of the trade change"
+      ],
+      "output_on_completion": "//RESULT: event_characterization: [Precise definition of the analyzed trade event]"
+    },
+    {
+      "step": 3,
+      "operation": "Baseline Trade Network Mapping",
+      "actions": [
+        "Map current trade relationships between affected economies",
+        "Quantify trade volumes, values, and dependencies",
+        "Identify critical trade flows and vulnerabilities",
+        "Establish pre-event baseline for comparison"
+      ],
+      "output_on_completion": "//RESULT: baseline_trade_network: [Current trade relationships and metrics]"
+    },
+    {
+      "step": 4,
+      "operation": "Direct Impact Assessment",
+      "actions": [
+        "Identify trade flows directly affected by the event",
+        "Quantify immediate changes in volume, value, and composition",
+        "Assess tariff/non-tariff effects on trade economics",
+        "Calculate first-order impacts on balance of trade"
+      ],
+      "output_on_completion": "//RESULT: direct_trade_impacts: [Primary effects on trade flows]"
+    },
+    {
+      "step": 5,
+      "operation": "Supply Chain Analysis",
+      "actions": [
+        "Trace affected products through supply networks",
+        "Identify upstream and downstream dependencies",
+        "Assess input-output relationships and bottlenecks",
+        "Evaluate production disruption potential"
+      ],
+      "output_on_completion": "//RESULT: supply_chain_effects: [Cascading impacts through supply networks]"
+    },
+    {
+      "step": 6,
+      "operation": "Sectoral Impact Analysis",
+      "actions": [
+        "Analyze differential impacts across economic sectors",
+        "Identify most adversely affected industries",
+        "Assess potential beneficiaries of trade changes",
+        "Evaluate sectoral vulnerability and resilience factors"
+      ],
+      "output_on_completion": "//RESULT: sector_analysis: [Differential impacts across economic sectors]"
+    },
+    {
+      "step": 7,
+      "operation": "Substitution and Adaptation Analysis",
+      "actions": [
+        "Identify potential trade diversion patterns",
+        "Assess substitution possibilities for affected goods",
+        "Evaluate market access alternatives",
+        "Project adaptation timeframes and transition costs"
+      ],
+      "output_on_completion": "//RESULT: substitution_dynamics: [Trade diversion and adaptation patterns]"
+    },
+    {
+      "step": 8,
+      "operation": "Economic Indicator Projection",
+      "actions": [
+        "Project impacts on key economic indicators",
+        "Assess GDP effects through trade multipliers",
+        "Evaluate employment impacts in affected sectors",
+        "Analyze price effects and inflation implications",
+        "Project potential currency and financial market effects"
+      ],
+      "output_on_completion": "//RESULT: economic_indicators: [Projected changes in key economic metrics]"
+    },
+    {
+      "step": 9,
+      "operation": "Strategic Implication Analysis",
+      "actions": [
+        "Identify longer-term structural changes to trade patterns",
+        "Assess strategic repositioning of economic actors",
+        "Evaluate market power and concentration changes",
+        "Analyze potential for trade relationship normalization or further deterioration"
+      ],
+      "output_on_completion": "//RESULT: strategic_implications: [Longer-term structural changes]"
+    },
+    {
+      "step": 10,
+      "operation": "Asymmetric Impact Assessment",
+      "actions": [
+        "Analyze differential effects across economic actors",
+        "Identify winners and losers from trade changes",
+        "Assess vulnerability and resilience disparities",
+        "Evaluate potential for strategic advantage creation"
+      ],
+      "output_on_completion": "//RESULT: asymmetric_impacts: [Differential effects across economic actors]"
+    },
+    {
+      "step": 11,
+      "operation": "Data Adequacy Assessment",
+      "actions": [
+        "Identify critical data gaps affecting analysis confidence",
+        "Determine if available information is sufficient",
+        "Formulate specific queries for additional information if needed"
+      ],
+      "condition": {
+        "if": "critical_data_gaps",
+        "then": "//QUERY: Additional trade data needed: [Specific information request]",
+        "else": "//RESULT: Available data sufficient for trade impact assessment"
+      }
+    }
+  ],
+  "prompt": "Analyze how the specified change in trade relationships, sanctions, agreements, or disruptions would affect the involved economic systems and broader trade networks. Your assessment should systematically trace impact pathways, adaptation mechanisms, and strategic implications across multiple timeframes.\n\nBegin by issuing a clear disclaimer about the nature of trade network analysis, emphasizing that while direct relationships can be mapped with reasonable accuracy, adaptive responses by economic actors introduce significant uncertainty that limits forecasting precision.\n\nFollow this methodological sequence:\n\n1. Precisely characterize the trade event to be analyzed, clarifying its scope, scale, implementation parameters, and key mechanisms to establish a clear baseline understanding.\n\n2. Map the current trade relationships between affected economies, quantifying volumes, values, and dependencies to establish the pre-event baseline for comparison.\n\n3. Assess direct impacts by identifying trade flows immediately affected by the event and quantifying changes in volume, value, and composition. Calculate first-order effects on balance of trade and related metrics.\n\n4. Analyze supply chain implications by tracing affected products through production networks, identifying upstream and downstream dependencies, and evaluating potential production disruptions or bottlenecks.\n\n5. Conduct sectoral impact analysis to identify differential effects across economic sectors, highlighting the most adversely affected industries and potential beneficiaries of trade changes.\n\n6. Examine substitution and adaptation dynamics, including potential trade diversion patterns, substitution possibilities for affected goods, and realistic adaptation timeframes and transition costs.\n\n7. Project impacts on key economic indicators including GDP effects through trade multipliers, employment impacts in affected sectors, price effects, and potential currency and financial market implications.\n\n8. Analyze strategic implications including longer-term structural changes to trade patterns, strategic repositioning of economic actors, and potential for trade relationship normalization or further deterioration.\n\n9. Assess asymmetric impacts across different economic actors, identifying relative winners and losers from trade changes and evaluating whether the event creates strategic advantages for certain parties.\n\n10. Evaluate the adequacy of available data, identifying any critical information gaps that significantly impact analytical confidence.\n\nYour output must include the following standardized elements:\n\n//DISCLAIMER: [Clear statement about analysis limitations]\n//RESULT: direct_trade_impacts: [Primary effects on trade flows]\n//RESULT: supply_chain_effects: [Cascading impacts through supply networks]\n//RESULT: sector_analysis: [Differential impacts across economic sectors]\n//RESULT: substitution_dynamics: [Trade diversion and adaptation patterns]\n//RESULT: economic_indicators: [Projected changes in key economic metrics]\n//RESULT: strategic_implications: [Longer-term structural changes]\n//RESULT: asymmetric_impacts: [Differential effects across economic actors]\n\nIf critical data gaps exist:\n//QUERY: Additional trade data needed: [Specific information request]\n\nMaintain analytical rigor throughout the assessment, clearly distinguishing between immediate mechanical impacts (higher confidence) and adaptive responses (lower confidence). Appropriately qualify projections based on timeframe, with confidence decreasing as the projection extends further from the initial event."
+}

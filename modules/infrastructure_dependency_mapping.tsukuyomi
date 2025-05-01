@@ -1,0 +1,212 @@
+{
+  "id": "infrastructure_dependency_mapping",
+  "version": "1.0.0",
+  "title": "Infrastructure Dependency Mapping Module",
+  "description": "Systematic identification and analysis of relationships, dependencies, and cascading effects between infrastructure systems and components",
+  "type": "relationship_analysis",
+  "dependencies": ["infrastructure_assessment"],
+  "personality_compatibility": {
+    "required_capabilities": ["systems_thinking", "relationship_description", "complexity_management"],
+    "preferred_personality": "analytical",
+    "personality_override_allowed": true
+  },
+  "input_requirements": [
+    {
+      "name": "infrastructure_systems",
+      "type": "array",
+      "description": "Infrastructure systems to include in dependency mapping",
+      "required": true
+    },
+    {
+      "name": "mapping_parameters",
+      "type": "object",
+      "description": "Mapping depth, relationship types to analyze, and specific focus areas",
+      "required": false
+    },
+    {
+      "name": "existing_dependency_data",
+      "type": "object",
+      "description": "Previously mapped relationships or known dependencies",
+      "required": false
+    }
+  ],
+  "output_schema": {
+    "format": "structured",
+    "standard_tags": ["//RESULT", "//ANOMALY", "//QUERY"],
+    "fields": [
+      {
+        "name": "dependency_methodology",
+        "description": "Mapping approach and parameters used for dependency analysis",
+        "type": "object"
+      },
+      {
+        "name": "system_inventory",
+        "description": "Categorized inventory of infrastructure systems in scope",
+        "type": "object"
+      },
+      {
+        "name": "direct_dependencies",
+        "description": "Comprehensive catalog of primary dependencies between systems",
+        "type": "array"
+      },
+      {
+        "name": "cascading_pathways",
+        "description": "Multi-level dependency chains and propagation routes",
+        "type": "array"
+      },
+      {
+        "name": "critical_nodes",
+        "description": "Identification of nexus points with high dependency concentration",
+        "type": "array"
+      },
+      {
+        "name": "feedback_loops",
+        "description": "Circular dependencies and reinforcing/balancing feedback structures",
+        "type": "array"
+      },
+      {
+        "name": "vulnerability_assessment",
+        "description": "Analysis of systemic vulnerabilities created by dependencies",
+        "type": "object"
+      },
+      {
+        "name": "resilience_opportunities",
+        "description": "Potential interventions to reduce harmful dependencies",
+        "type": "array"
+      }
+    ]
+  },
+  "execution_sequence": [
+    {
+      "step": 1,
+      "operation": "Mapping Methodology Definition",
+      "actions": [
+        "Define dependency mapping scope and objectives",
+        "Establish dependency classification framework",
+        "Determine relationship types to be mapped",
+        "Define mapping depth and boundary conditions"
+      ],
+      "output_on_completion": "//RESULT: dependency_methodology: [Detailed mapping parameters]"
+    },
+    {
+      "step": 2,
+      "operation": "System Component Inventory",
+      "actions": [
+        "Catalog all infrastructure systems within scope",
+        "Categorize systems by domain and function",
+        "Identify key operational components within each system",
+        "Establish consistent naming and reference taxonomy"
+      ],
+      "output_on_completion": "//RESULT: system_inventory: [Structured infrastructure inventory]"
+    },
+    {
+      "step": 3,
+      "operation": "Direct Dependency Identification",
+      "actions": [
+        "Identify physical dependencies between systems",
+        "Map information/cyber dependencies",
+        "Document geographical/spatial dependencies",
+        "Analyze operational/procedural dependencies",
+        "Catalog resource dependencies"
+      ],
+      "output_on_completion": "//RESULT: direct_dependencies: [Primary dependency catalog]"
+    },
+    {
+      "step": 4,
+      "operation": "Dependency Characterization",
+      "actions": [
+        "Classify dependency types and mechanisms",
+        "Assess dependency strength and criticality",
+        "Determine dependency directionality",
+        "Evaluate temporal characteristics of dependencies",
+        "Document dependency requirements and thresholds"
+      ],
+      "output_on_completion": "//RESULT: dependency_characteristics: [Detailed dependency attributes]"
+    },
+    {
+      "step": 5,
+      "operation": "Cascading Effect Analysis",
+      "actions": [
+        "Trace multi-level dependency chains",
+        "Identify propagation pathways across systems",
+        "Map n-order effects of component failures",
+        "Identify amplification points in dependency networks",
+        "Document cascade initiation thresholds"
+      ],
+      "output_on_completion": "//RESULT: cascading_pathways: [Multi-level dependency propagation routes]"
+    },
+    {
+      "step": 6,
+      "operation": "Critical Node Identification",
+      "actions": [
+        "Locate nexus points with high dependency concentration",
+        "Identify components supporting multiple critical functions",
+        "Evaluate centrality of components in dependency network",
+        "Assess systemic importance of individual nodes"
+      ],
+      "output_on_completion": "//RESULT: critical_nodes: [Key nexus points in dependency network]"
+    },
+    {
+      "step": 7,
+      "operation": "Feedback Loop Analysis",
+      "actions": [
+        "Identify circular dependencies between systems",
+        "Analyze reinforcing feedback mechanisms",
+        "Document balancing feedback structures",
+        "Assess stability implications of identified loops"
+      ],
+      "output_on_completion": "//RESULT: feedback_loops: [Circular dependency structures]"
+    },
+    {
+      "step": 8,
+      "operation": "Dependency Vulnerability Assessment",
+      "actions": [
+        "Evaluate systemic vulnerabilities created by dependencies",
+        "Identify high-risk dependency pathways",
+        "Assess dependency-induced single points of failure",
+        "Analyze temporal vulnerability windows"
+      ],
+      "output_on_completion": "//RESULT: vulnerability_assessment: [Dependency-based vulnerability analysis]"
+    },
+    {
+      "step": 9,
+      "operation": "Anomalous Dependency Detection",
+      "actions": [
+        "Identify unexpected or unusual dependencies",
+        "Flag potentially problematic dependency structures",
+        "Detect inconsistencies in dependency patterns"
+      ],
+      "condition": {
+        "if": "anomalous_dependencies_detected",
+        "then": "//ANOMALY: [Description of unexpected dependency patterns]",
+        "else": "//RESULT: dependency_patterns: All identified dependencies follow expected patterns"
+      }
+    },
+    {
+      "step": 10,
+      "operation": "Resilience Opportunity Identification",
+      "actions": [
+        "Identify potential interventions to reduce harmful dependencies",
+        "Develop redundancy or alternative pathway recommendations",
+        "Suggest dependency decoupling strategies",
+        "Formulate monitoring recommendations for critical dependencies"
+      ],
+      "output_on_completion": "//RESULT: resilience_opportunities: [Dependency management recommendations]"
+    },
+    {
+      "step": 11,
+      "operation": "Data Adequacy Assessment",
+      "actions": [
+        "Identify information gaps affecting mapping confidence",
+        "Determine if additional relationship data is required",
+        "Formulate specific information requests if needed"
+      ],
+      "condition": {
+        "if": "information_gaps_exist",
+        "then": "//QUERY: Additional relationship data needed: [Specific information request]",
+        "else": "//RESULT: mapping_confidence: Sufficient information for reliable dependency mapping"
+      }
+    }
+  ],
+  "prompt": "Create a comprehensive mapping of dependencies and relationships between the specified infrastructure systems. Your analysis should identify, characterize, and visualize the complex web of interdependencies that connect infrastructure components, enabling better understanding of system behavior, vulnerability pathways, and resilience opportunities.\n\nFollow this methodological sequence:\n\n1. Begin by establishing a clear mapping methodology, defining the types of dependencies to be mapped (physical, cyber, geographical, operational, resource-based), the depth of analysis, and the classification framework for relationships.\n\n2. Develop a structured inventory of all infrastructure systems and components within scope, establishing a consistent taxonomy for reference throughout the mapping process.\n\n3. Systematically identify direct dependencies between systems and components, documenting the specific mechanisms by which one element depends on another. This includes physical connections, information flows, resource requirements, geographical co-location, and operational relationships.\n\n4. Characterize each identified dependency by classifying its type, strength, criticality, directionality, and temporal characteristics. Document specific thresholds or requirements that define the dependency relationship.\n\n5. Analyze how effects can cascade through interconnected systems by tracing multi-level dependency chains, identifying propagation pathways, and mapping potential n-order effects of component failures or disruptions.\n\n6. Identify critical nodes within the infrastructure network that serve as nexus points with high dependency concentration, supporting multiple critical functions or exhibiting high centrality in the dependency network.\n\n7. Analyze feedback loops within the dependency structure, identifying circular dependencies that may create reinforcing or balancing feedback mechanisms with implications for system stability and behavior.\n\n8. Evaluate how the identified dependency relationships create or contribute to systemic vulnerabilities, identifying high-risk pathways, dependency-induced single points of failure, and temporal vulnerability windows.\n\n9. Detect any anomalous or unexpected dependency relationships that may indicate design problems, undocumented connections, or emerging risks within the infrastructure ecosystem.\n\n10. Identify opportunities to enhance system resilience by reducing harmful dependencies, creating redundancy or alternative pathways, decoupling critical systems, or improving monitoring of key dependency relationships.\n\n11. Assess the adequacy of available information and identify any significant gaps that affect mapping confidence.\n\nYour output must include the following standardized elements:\n\n//RESULT: dependency_methodology: [Mapping approach]\n//RESULT: system_inventory: [Infrastructure components]\n//RESULT: direct_dependencies: [Primary relationships]\n//RESULT: dependency_characteristics: [Relationship attributes]\n//RESULT: cascading_pathways: [Effect propagation routes]\n//RESULT: critical_nodes: [Key nexus points]\n//RESULT: feedback_loops: [Circular dependencies]\n//RESULT: vulnerability_assessment: [Dependency-based risks]\n//RESULT: resilience_opportunities: [Intervention recommendations]\n\nFor anomalous findings:\n//ANOMALY: [Description of unexpected dependency patterns]\n\nFor information gaps:\n//QUERY: Additional relationship data needed: [Specific request]\n\nApply systems thinking throughout the analysis, recognizing that infrastructure dependencies create complex networks with emergent properties beyond the sum of individual connections. Balance technical precision with clarity, ensuring that the dependency mapping provides actionable insights for infrastructure planning, risk management, and resilience enhancement."
+}

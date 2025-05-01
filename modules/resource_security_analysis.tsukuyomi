@@ -1,0 +1,207 @@
+{
+  "id": "resource_security_analysis",
+  "version": "1.0.0",
+  "title": "Module E3: Resource Security Analysis",
+  "description": "Evaluates access to critical resources, supply chain vulnerabilities, and resource competition dynamics",
+  "type": "economic_analysis",
+  "dependencies": ["data_recognition_ingestion"],
+  "personality_compatibility": {
+    "required_capabilities": ["analytical_reasoning", "economic_terminology", "technical_analysis"],
+    "preferred_personality": "formal",
+    "personality_override_allowed": true
+  },
+  "input_requirements": [
+    {
+      "name": "target_economy",
+      "type": "string | array",
+      "description": "Economy or economies to analyze for resource security",
+      "required": true
+    },
+    {
+      "name": "resource_categories",
+      "type": "array",
+      "description": "Specific resources or resource categories to evaluate",
+      "required": false
+    },
+    {
+      "name": "security_timeframe",
+      "type": "string",
+      "description": "Time horizon for resource security assessment",
+      "required": false
+    },
+    {
+      "name": "scenario_parameters",
+      "type": "object",
+      "description": "Optional parameters for scenario-based analysis",
+      "required": false
+    }
+  ],
+  "output_schema": {
+    "format": "structured",
+    "standard_tags": ["//RESULT", "//DISCLAIMER", "//QUERY"],
+    "fields": [
+      {
+        "name": "critical_resource_dependencies",
+        "description": "Assessment of strategic resource requirements and dependencies",
+        "type": "object"
+      },
+      {
+        "name": "supply_chain_vulnerabilities",
+        "description": "Analysis of resource supply chain exposure points",
+        "type": "object"
+      },
+      {
+        "name": "resource_competition_dynamics",
+        "description": "Evaluation of competition for constrained resources",
+        "type": "object"
+      },
+      {
+        "name": "resource_stress_scenarios",
+        "description": "Potential disruption scenarios and their implications",
+        "type": "array"
+      },
+      {
+        "name": "security_enhancement_options",
+        "description": "Potential measures to improve resource security",
+        "type": "array"
+      },
+      {
+        "name": "strategic_resource_positioning",
+        "description": "Comparative assessment of resource security positioning",
+        "type": "object"
+      },
+      {
+        "name": "transition_dynamics",
+        "description": "Analysis of resource utilization changes over time",
+        "type": "object"
+      }
+    ]
+  },
+  "execution_sequence": [
+    {
+      "step": 1,
+      "operation": "Disclaimer Issuance",
+      "actions": [
+        "Generate explicit disclaimer regarding resource security analysis",
+        "Clarify limitations of resource forecasting methodologies",
+        "Establish appropriate expectation framework for assessment utility"
+      ],
+      "output_on_completion": "//DISCLAIMER: This resource security analysis evaluates critical dependencies, vulnerabilities, and competition dynamics based on current resource flows and known reserves. Resource systems are subject to technological disruption, discovery events, substitution dynamics, and geopolitical interventions that can rapidly alter security calculations. Market pricing mechanisms typically signal scarcity before physical shortages occur, triggering adaptation that may mitigate projected shortfalls. This analysis identifies structural vulnerabilities rather than predicting specific resource crises."
+    },
+    {
+      "step": 2,
+      "operation": "Assessment Scope Definition",
+      "actions": [
+        "Define target economy or economies for analysis",
+        "Establish resource categories for evaluation",
+        "Set time horizon for security assessment",
+        "Determine scenario parameters if applicable"
+      ],
+      "output_on_completion": "//RESULT: assessment_parameters: [Defined scope of resource security analysis]"
+    },
+    {
+      "step": 3,
+      "operation": "Critical Resource Identification",
+      "actions": [
+        "Identify strategically critical resources for target economy",
+        "Quantify resource requirements for key economic functions",
+        "Assess criticality based on substitutability and economic impact",
+        "Categorize resources by strategic importance"
+      ],
+      "output_on_completion": "//RESULT: critical_resources: [Identified strategic resources by importance]"
+    },
+    {
+      "step": 4,
+      "operation": "Dependency and Source Analysis",
+      "actions": [
+        "Map current resource supply sources and dependencies",
+        "Quantify domestic production vs. import requirements",
+        "Assess geographic concentration of external sources",
+        "Evaluate geopolitical reliability of source regions"
+      ],
+      "output_on_completion": "//RESULT: resource_dependencies: [Analysis of supply sources and dependency levels]"
+    },
+    {
+      "step": 5,
+      "operation": "Supply Chain Vulnerability Assessment",
+      "actions": [
+        "Identify critical nodes and bottlenecks in resource supply chains",
+        "Analyze transportation and logistics vulnerabilities",
+        "Assess processing and refining dependencies",
+        "Evaluate stockpile adequacy and strategic reserves"
+      ],
+      "output_on_completion": "//RESULT: supply_chain_vulnerabilities: [Identified exposure points in resource supply systems]"
+    },
+    {
+      "step": 6,
+      "operation": "Resource Competition Analysis",
+      "actions": [
+        "Identify key competitors for critical resources",
+        "Analyze supply-demand balance projections",
+        "Assess resource nationalist tendencies in source regions",
+        "Evaluate potential for increased competition intensity"
+      ],
+      "output_on_completion": "//RESULT: competition_dynamics: [Analysis of resource competition landscape]"
+    },
+    {
+      "step": 7,
+      "operation": "Disruption Scenario Development",
+      "actions": [
+        "Develop plausible resource stress scenarios",
+        "Analyze potential disruption mechanisms and triggers",
+        "Assess impact magnitude and duration for each scenario",
+        "Evaluate cascading effects through economic systems"
+      ],
+      "output_on_completion": "//RESULT: stress_scenarios: [Potential disruption scenarios and implications]"
+    },
+    {
+      "step": 8,
+      "operation": "Security Enhancement Analysis",
+      "actions": [
+        "Identify potential measures to improve resource security",
+        "Assess feasibility, cost, and effectiveness of each option",
+        "Evaluate supplier diversification possibilities",
+        "Analyze substitution and efficiency improvement potential",
+        "Consider strategic reserve enhancement options"
+      ],
+      "output_on_completion": "//RESULT: security_enhancements: [Potential resource security improvement measures]"
+    },
+    {
+      "step": 9,
+      "operation": "Strategic Positioning Assessment",
+      "actions": [
+        "Compare resource security position to peer economies",
+        "Identify relative advantages and vulnerabilities",
+        "Assess long-term strategic resource positioning",
+        "Evaluate potential for resource leverage or coercion"
+      ],
+      "output_on_completion": "//RESULT: strategic_positioning: [Comparative resource security assessment]"
+    },
+    {
+      "step": 10,
+      "operation": "Transition Dynamics Analysis",
+      "actions": [
+        "Analyze projected changes in resource utilization patterns",
+        "Assess impact of technological and market transitions",
+        "Evaluate emerging resource requirements",
+        "Project obsolescence timelines for current dependencies"
+      ],
+      "output_on_completion": "//RESULT: transition_dynamics: [Analysis of resource utilization changes]"
+    },
+    {
+      "step": 11,
+      "operation": "Data Adequacy Assessment",
+      "actions": [
+        "Identify critical data gaps affecting analysis confidence",
+        "Determine if available information is sufficient",
+        "Formulate specific queries for additional information if needed"
+      ],
+      "condition": {
+        "if": "critical_data_gaps",
+        "then": "//QUERY: Additional resource data needed: [Specific information request]",
+        "else": "//RESULT: Available data sufficient for resource security assessment"
+      }
+    }
+  ],
+  "prompt": "Evaluate access to critical resources, supply chain vulnerabilities, and resource competition dynamics for the specified economy or economies. Your assessment should provide a systematic analysis of resource security challenges, potential disruption scenarios, and strategic options for enhancing security.\n\nBegin by issuing a clear disclaimer about the nature of resource security analysis, emphasizing that resource systems are subject to technological disruption, discovery events, and market adaptations that can alter security calculations over time.\n\nFollow this methodological sequence:\n\n1. Define the scope of the assessment by identifying the target economy or economies, establishing which resource categories will be evaluated, setting an appropriate time horizon, and determining scenario parameters if applicable.\n\n2. Identify strategically critical resources for the target economy based on their importance to key economic functions, limited substitutability, and potential impact of disruption. Categorize resources by their strategic importance.\n\n3. Analyze dependency and source patterns by mapping current supply sources, quantifying domestic production versus import requirements, assessing geographic concentration of external sources, and evaluating the geopolitical reliability of source regions.\n\n4. Assess supply chain vulnerabilities by identifying critical nodes and bottlenecks in resource supply chains, analyzing transportation and logistics vulnerabilities, evaluating processing and refining dependencies, and determining stockpile adequacy.\n\n5. Examine resource competition dynamics by identifying key competitors for critical resources, analyzing supply-demand balance projections, assessing resource nationalist tendencies in source regions, and evaluating the potential for increased competition intensity.\n\n6. Develop plausible resource stress scenarios, analyzing potential disruption mechanisms, impact magnitude and duration, and cascading effects through economic systems.\n\n7. Identify potential measures to improve resource security, assessing feasibility, cost, and effectiveness of options including supplier diversification, substitution, efficiency improvements, and strategic reserve enhancements.\n\n8. Assess strategic positioning by comparing resource security position to peer economies, identifying relative advantages and vulnerabilities, and evaluating the potential for resource leverage or coercion.\n\n9. Analyze transition dynamics by examining projected changes in resource utilization patterns, assessing the impact of technological and market transitions, and evaluating emerging resource requirements.\n\n10. Evaluate the adequacy of available data, identifying any critical information gaps that significantly impact analytical confidence.\n\nYour output must include the following standardized elements:\n\n//DISCLAIMER: [Clear statement about analysis limitations]\n//RESULT: critical_resource_dependencies: [Assessment of strategic resource requirements]\n//RESULT: supply_chain_vulnerabilities: [Analysis of resource supply chain exposure]\n//RESULT: resource_competition_dynamics: [Evaluation of competition dynamics]\n//RESULT: resource_stress_scenarios: [Potential disruption scenarios]\n//RESULT: security_enhancement_options: [Potential improvement measures]\n//RESULT: strategic_resource_positioning: [Comparative assessment]\n//RESULT: transition_dynamics: [Analysis of resource utilization changes]\n\nIf critical data gaps exist:\n//QUERY: Additional resource data needed: [Specific information request]\n\nMaintain analytical rigor throughout the assessment, appropriately qualifying projections based on timeframe and data confidence. Balance identification of vulnerabilities with recognition of market adaptability and technological innovation potential."
+}

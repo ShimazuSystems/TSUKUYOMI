@@ -1,0 +1,162 @@
+{
+  "id": "infrastructure_assessment",
+  "version": "1.0.0",
+  "title": "Infrastructure Assessment Module",
+  "description": "Comprehensive analysis and evaluation of infrastructure systems, components, and operational metrics",
+  "type": "analysis",
+  "dependencies": [],
+  "personality_compatibility": {
+    "required_capabilities": ["technical_terminology", "analytical_reporting", "structured_assessment"],
+    "preferred_personality": "analytical",
+    "personality_override_allowed": true
+  },
+  "input_requirements": [
+    {
+      "name": "infrastructure_scope",
+      "type": "string | array",
+      "description": "Target infrastructure system(s) to assess",
+      "required": true
+    },
+    {
+      "name": "assessment_parameters",
+      "type": "object",
+      "description": "Specific parameters to guide the assessment (e.g., depth, focus areas)",
+      "required": false
+    },
+    {
+      "name": "baseline_data",
+      "type": "object",
+      "description": "Previous assessment data or industry standards for comparison",
+      "required": false
+    }
+  ],
+  "output_schema": {
+    "format": "structured",
+    "standard_tags": ["//RESULT", "//ANOMALY", "//QUERY"],
+    "fields": [
+      {
+        "name": "infrastructure_inventory",
+        "description": "Comprehensive inventory of identified infrastructure components",
+        "type": "object"
+      },
+      {
+        "name": "operational_status",
+        "description": "Current operational status of each infrastructure component",
+        "type": "object"
+      },
+      {
+        "name": "performance_metrics",
+        "description": "Quantitative and qualitative performance indicators",
+        "type": "object"
+      },
+      {
+        "name": "deficiencies",
+        "description": "Identified issues, shortcomings, or vulnerabilities",
+        "type": "array"
+      },
+      {
+        "name": "risk_assessment",
+        "description": "Risk evaluation for identified infrastructure components",
+        "type": "object"
+      },
+      {
+        "name": "recommendations",
+        "description": "Prioritized recommendations for improvement or intervention",
+        "type": "array"
+      }
+    ]
+  },
+  "execution_sequence": [
+    {
+      "step": 1,
+      "operation": "Scope Definition",
+      "actions": [
+        "Validate and clarify the assessment scope",
+        "Define infrastructure system boundaries",
+        "Establish assessment objectives and priorities"
+      ],
+      "output_on_completion": "//RESULT: assessment_scope: [Defined infrastructure assessment parameters]"
+    },
+    {
+      "step": 2,
+      "operation": "Component Identification",
+      "actions": [
+        "Identify all infrastructure components within scope",
+        "Classify components by functional category",
+        "Map component relationships and dependencies",
+        "Document key component specifications and parameters"
+      ],
+      "output_on_completion": "//RESULT: infrastructure_inventory: [Comprehensive component inventory]"
+    },
+    {
+      "step": 3,
+      "operation": "Operational Status Evaluation",
+      "actions": [
+        "Assess current operational status of each component",
+        "Determine operational capacity and utilization levels",
+        "Identify components with degraded or compromised status",
+        "Evaluate operational resilience under varying conditions"
+      ],
+      "output_on_completion": "//RESULT: operational_status: [Status evaluation for each component]"
+    },
+    {
+      "step": 4,
+      "operation": "Performance Analysis",
+      "actions": [
+        "Analyze key performance indicators for each component",
+        "Compare performance against baselines or standards",
+        "Identify performance gaps or excellence",
+        "Assess performance trends and patterns"
+      ],
+      "output_on_completion": "//RESULT: performance_metrics: [Performance analysis results]"
+    },
+    {
+      "step": 5,
+      "operation": "Deficiency Identification",
+      "actions": [
+        "Identify structural or physical deficiencies",
+        "Determine operational or functional shortcomings",
+        "Catalog maintenance or lifecycle issues",
+        "Document compliance or standards violations"
+      ],
+      "output_on_completion": "//RESULT: deficiencies: [Cataloged infrastructure issues]"
+    },
+    {
+      "step": 6,
+      "operation": "Risk Assessment",
+      "actions": [
+        "Evaluate vulnerability to various threat vectors",
+        "Assess potential failure modes and impacts",
+        "Determine criticality and consequence of failure",
+        "Analyze risk mitigation measures currently in place"
+      ],
+      "output_on_completion": "//RESULT: risk_assessment: [Risk evaluation for each component]"
+    },
+    {
+      "step": 7,
+      "operation": "Recommendation Development",
+      "actions": [
+        "Formulate actionable recommendations for identified issues",
+        "Prioritize recommendations based on risk and impact",
+        "Develop phased implementation approach if applicable",
+        "Include cost-benefit considerations where feasible"
+      ],
+      "output_on_completion": "//RESULT: recommendations: [Prioritized action recommendations]"
+    },
+    {
+      "step": 8,
+      "operation": "Data Adequacy Assessment",
+      "actions": [
+        "Identify critical data gaps affecting assessment confidence",
+        "Determine if available information is sufficient",
+        "Formulate specific queries for additional information if needed"
+      ],
+      "condition": {
+        "if": "critical_data_gaps",
+        "then": "//QUERY: Additional infrastructure data needed: [Specific information request]",
+        "else": "//RESULT: Available data sufficient for infrastructure assessment"
+      }
+    }
+  ],
+  "prompt": "Perform a comprehensive assessment of the specified infrastructure system(s). Your analysis should systematically evaluate components, operational status, performance metrics, and risks to provide a clear understanding of current infrastructure conditions and actionable recommendations for improvement.\n\nFollow this methodological sequence:\n\n1. Begin by clearly defining the assessment scope, confirming the infrastructure systems under evaluation, establishing assessment boundaries, and identifying primary objectives. Output a concise summary of the assessment parameters.\n\n2. Identify and catalog all infrastructure components within the defined scope. This should include physical assets, control systems, distribution networks, and support facilities. Classify each component according to function, and document their relationships and dependencies.\n\n3. Evaluate the current operational status of each identified component. Determine if components are functioning at optimal capacity, are under strain, experiencing degradation, or have failed. Document utilization levels and assess operational resilience.\n\n4. Analyze performance metrics for all components, comparing against established baselines, industry standards, or historical data when available. Identify performance trends, areas of excellence, and performance gaps requiring attention.\n\n5. Identify and document all deficiencies within the infrastructure system. This includes physical deterioration, functional limitations, maintenance issues, capacity constraints, and standards compliance problems.\n\n6. Conduct a risk assessment for all critical components, evaluating vulnerability to various threats including natural events, operational failures, aging, and security concerns. Assess potential failure modes, consequences, and existing mitigation measures.\n\n7. Develop prioritized recommendations to address identified issues. These should be actionable, specific, and organized by priority based on risk level, criticality, and potential impact. Where appropriate, include implementation phases and cost-benefit considerations.\n\n8. Assess the adequacy of available data and identify any significant information gaps that affect assessment confidence.\n\nYour output must include the following standardized elements:\n\n//RESULT: assessment_scope: [Defined infrastructure parameters]\n//RESULT: infrastructure_inventory: [Component inventory]\n//RESULT: operational_status: [Status evaluation]\n//RESULT: performance_metrics: [Performance analysis]\n//RESULT: deficiencies: [Identified issues]\n//RESULT: risk_assessment: [Risk evaluation]\n//RESULT: recommendations: [Prioritized actions]\n\nIf critical data gaps exist:\n//QUERY: Additional infrastructure data needed: [Specific information request]\n\nIf significant anomalies are detected:\n//ANOMALY: [Description of unexpected findings or inconsistencies]\n\nMaintain analytical rigor throughout the assessment, appropriately qualifying judgments based on data confidence and inherent uncertainties. Balance identification of deficiencies with recognition of positive attributes and functionality."
+}
