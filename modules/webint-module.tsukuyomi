@@ -1,0 +1,205 @@
+{
+  "id": "web_search_osint",
+  "version": "1.0.0",
+  "title": "Module W1: Web Search & OSINT Collection",
+  "description": "Systematic collection, filtering, and organization of open source intelligence from web sources",
+  "type": "intelligence_collection",
+  "dependencies": ["data_recognition_ingestion"],
+  "personality_compatibility": {
+    "required_capabilities": ["analytical_reasoning", "information_synthesis", "query_formulation"],
+    "preferred_personality": "adaptive",
+    "personality_override_allowed": true
+  },
+  "input_requirements": [
+    {
+      "name": "search_parameters",
+      "type": "object",
+      "description": "Target entities, topics, or intelligence requirements to research",
+      "required": true
+    },
+    {
+      "name": "source_prioritization",
+      "type": "object",
+      "description": "Weighting and prioritization of different source types",
+      "required": false
+    },
+    {
+      "name": "temporal_constraints",
+      "type": "object",
+      "description": "Time range parameters for information gathering",
+      "required": false
+    },
+    {
+      "name": "exclusion_criteria",
+      "type": "array",
+      "description": "Sources or information types to explicitly exclude",
+      "required": false
+    }
+  ],
+  "output_schema": {
+    "format": "structured",
+    "standard_tags": ["//RESULT", "//DISCLAIMER", "//QUERY", "//ANOMALY"],
+    "fields": [
+      {
+        "name": "search_methodology",
+        "description": "Description of search strategy and source selection approach",
+        "type": "object"
+      },
+      {
+        "name": "collected_intelligence",
+        "description": "Structured catalog of discovered information",
+        "type": "object"
+      },
+      {
+        "name": "source_assessment",
+        "description": "Evaluation of source reliability and information confidence",
+        "type": "object"
+      },
+      {
+        "name": "information_gaps",
+        "description": "Identified missing information requiring additional collection",
+        "type": "array"
+      },
+      {
+        "name": "intelligence_synthesis",
+        "description": "Integrated analysis of collected information",
+        "type": "object"
+      },
+      {
+        "name": "anomalous_findings",
+        "description": "Unusual or contradictory information identified during collection",
+        "type": "array"
+      },
+      {
+        "name": "collection_limitations",
+        "description": "Technical or methodological constraints encountered",
+        "type": "object"
+      }
+    ]
+  },
+  "execution_sequence": [
+    {
+      "step": 1,
+      "operation": "Disclaimer Issuance",
+      "actions": [
+        "Generate explicit disclaimer regarding web OSINT collection",
+        "Clarify limitations of information availability and verification",
+        "Establish appropriate expectation framework for collection results"
+      ],
+      "output_on_completion": "//DISCLAIMER: This web search and OSINT collection process gathers information from publicly available sources with inherent limitations. Source reliability varies significantly, information may be outdated or incomplete, and adversarial information manipulation may be present. Collection reflects a point-in-time snapshot of available information rather than a comprehensive intelligence picture. All findings should be subject to additional verification and cross-referencing before operational use."
+    },
+    {
+      "step": 2,
+      "operation": "Search Strategy Formulation",
+      "actions": [
+        "Define specific entities, topics, or questions for research",
+        "Develop optimized search queries for different engines and platforms",
+        "Establish source prioritization hierarchy",
+        "Determine temporal and linguistic parameters",
+        "Create specialized queries for technical or domain-specific sources"
+      ],
+      "output_on_completion": "//RESULT: search_strategy: [Detailed search methodology and query design]"
+    },
+    {
+      "step": 3,
+      "operation": "Primary Source Collection",
+      "actions": [
+        "Execute searches across multiple search engines",
+        "Query specialized databases relevant to the topic",
+        "Access domain-specific information repositories",
+        "Collect information from official/institutional sources",
+        "Archive search results for systematic processing"
+      ],
+      "output_on_completion": "//RESULT: primary_sources: [Catalog of collected source materials]"
+    },
+    {
+      "step": 4,
+      "operation": "Social Media Intelligence Collection",
+      "actions": [
+        "Identify relevant social media platforms for collection",
+        "Execute targeted searches for specified entities or topics",
+        "Collect public profile information where relevant",
+        "Gather engagement patterns and relationship data",
+        "Document temporal communication patterns"
+      ],
+      "output_on_completion": "//RESULT: social_media_intelligence: [Structured social platform findings]"
+    },
+    {
+      "step": 5,
+      "operation": "Source Reliability Assessment",
+      "actions": [
+        "Evaluate credibility of identified sources",
+        "Assign confidence levels to different information streams",
+        "Detect potential disinformation or manipulation indicators",
+        "Apply source triangulation to key intelligence points",
+        "Document source verification methodology"
+      ],
+      "output_on_completion": "//RESULT: source_assessment: [Reliability evaluation of collected sources]"
+    },
+    {
+      "step": 6,
+      "operation": "Information Extraction and Organization",
+      "actions": [
+        "Extract key data points from collected source material",
+        "Organize information into coherent analytical structure",
+        "Tag information with source and confidence metadata",
+        "Categorize findings by topic, entity, and significance",
+        "Create structured knowledge base from raw collection"
+      ],
+      "output_on_completion": "//RESULT: organized_intelligence: [Structured catalog of extracted information]"
+    },
+    {
+      "step": 7,
+      "operation": "Pattern and Anomaly Detection",
+      "actions": [
+        "Identify recurring patterns across information sources",
+        "Detect contradictions or inconsistencies in collected data",
+        "Flag unusual gaps or oversaturation of information",
+        "Identify potential deception indicators",
+        "Note unexpected information characteristics"
+      ],
+      "condition": {
+        "if": "anomalies_detected",
+        "then": "//ANOMALY: [Description of information inconsistencies or patterns]",
+        "else": "//RESULT: pattern_analysis: No significant anomalies detected in collected information"
+      }
+    },
+    {
+      "step": 8,
+      "operation": "Intelligence Synthesis",
+      "actions": [
+        "Integrate findings across all collection streams",
+        "Develop coherent intelligence picture from fragmented sources",
+        "Identify key insights and major conclusions",
+        "Establish connections between seemingly disparate information",
+        "Determine overall confidence assessment"
+      ],
+      "output_on_completion": "//RESULT: intelligence_synthesis: [Integrated analysis of collected information]"
+    },
+    {
+      "step": 9,
+      "operation": "Gap Analysis",
+      "actions": [
+        "Identify critical information still missing",
+        "Determine additional collection requirements",
+        "Evaluate feasibility of filling identified gaps",
+        "Formulate specific collection requirements",
+        "Prioritize additional collection needs"
+      ],
+      "output_on_completion": "//RESULT: information_gaps: [Missing information requiring additional collection]"
+    },
+    {
+      "step": 10,
+      "operation": "Collection Limitation Assessment",
+      "actions": [
+        "Document technical or access constraints encountered",
+        "Assess impact of platform restrictions on collection",
+        "Identify potential blind spots in collection methodology",
+        "Evaluate temporal limitations of collected information",
+        "Document collection scope boundaries"
+      ],
+      "output_on_completion": "//RESULT: collection_limitations: [Technical and methodological constraints]"
+    }
+  ],
+  "prompt": "Conduct systematic collection, filtering, and organization of open-source intelligence from web sources based on the specified parameters. Your collection effort should gather relevant information from diverse sources while maintaining appropriate source evaluation and information credibility assessment.\n\nBegin by issuing a clear disclaimer about the nature of web OSINT collection, emphasizing inherent limitations in source reliability, information currency, and the potential for adversarial information manipulation.\n\nFollow this methodological sequence:\n\n1. Formulate an effective search strategy by defining specific entities, topics, or questions for research, developing optimized search queries for different platforms, establishing a source prioritization hierarchy, and determining appropriate temporal and linguistic parameters.\n\n2. Execute primary source collection by conducting searches across multiple search engines, querying specialized databases relevant to the topic, accessing domain-specific information repositories, collecting information from official/institutional sources, and systematically archiving search results.\n\n3. Gather social media intelligence by identifying relevant platforms for collection, executing targeted searches for specified entities or topics, collecting public profile information where relevant, gathering engagement patterns and relationship data, and documenting temporal communication patterns.\n\n4. Assess source reliability by evaluating the credibility of identified sources, assigning confidence levels to different information streams, detecting potential disinformation indicators, applying source triangulation to key intelligence points, and documenting your verification methodology.\n\n5. Extract and organize information by pulling key data points from collected source material, organizing information into a coherent analytical structure, tagging information with source and confidence metadata, categorizing findings, and creating a structured knowledge base.\n\n6. Detect patterns and anomalies by identifying recurring themes across information sources, detecting contradictions or inconsistencies, flagging unusual information gaps or oversaturation, identifying potential deception indicators, and noting unexpected information characteristics.\n\n7. Synthesize intelligence by integrating findings across all collection streams, developing a coherent intelligence picture from fragmented sources, identifying key insights, establishing connections between seemingly disparate information, and determining an overall confidence assessment.\n\n8. Conduct gap analysis by identifying critical information still missing, determining additional collection requirements, evaluating the feasibility of filling identified gaps, formulating specific collection requirements, and prioritizing additional collection needs.\n\n9. Assess collection limitations by documenting technical or access constraints encountered, evaluating the impact of platform restrictions, identifying potential blind spots in the collection methodology, noting temporal limitations, and documenting collection scope boundaries.\n\nYour output must include the following standardized elements:\n\n//DISCLAIMER: [Clear statement about collection limitations]\n//RESULT: search_strategy: [Detailed search methodology]\n//RESULT: organized_intelligence: [Structured catalog of findings]\n//RESULT: source_assessment: [Reliability evaluation]\n//RESULT: intelligence_synthesis: [Integrated analysis]\n//RESULT: information_gaps: [Missing information identification]\n//RESULT: collection_limitations: [Technical and methodological constraints]\n\nIf significant anomalies are detected:\n//ANOMALY: [Description of information inconsistencies or patterns]\n\nMaintain analytical objectivity throughout the collection process, clearly distinguishing between verified information and analytical inference. Document source attribution appropriately and avoid confirmation bias in your collection and organization. Prioritize information quality and credibility over quantity."
+}
