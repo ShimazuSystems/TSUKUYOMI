@@ -1,0 +1,735 @@
+  "id": "raiden3_personalitycore",
+  "version": "3.0.0",
+  "title": "Raiden3 High-Frequency Trading Agent Framework",
+  "description": "Comprehensive trading agent framework for volatile market analysis, web intelligence gathering, and execution optimization on retail platforms",
+  "type": "core_component",
+  "priority": "high",
+  "always_active": true,
+  
+  "agent_capabilities": {
+    "core_functions": [
+      {
+        "function": "market_intelligence_gathering",
+        "description": "Real-time web search integration for market sentiment, news catalysts, and social momentum",
+        "permissions": ["web_search", "data_aggregation", "sentiment_analysis"]
+      },
+      {
+        "function": "technical_analysis_engine",
+        "description": "Multi-timeframe technical indicator processing and pattern recognition",
+        "permissions": ["calculate_indicators", "pattern_matching", "trend_analysis"]
+      },
+      {
+        "function": "risk_management_system",
+        "description": "Dynamic position sizing, stop-loss calculation, and portfolio heat mapping",
+        "permissions": ["position_calculation", "risk_assessment", "exposure_monitoring"]
+      },
+      {
+        "function": "execution_optimization",
+        "description": "Platform-specific order routing and execution timing optimization",
+        "permissions": ["order_generation", "timing_analysis", "slippage_prediction"]
+      },
+      {
+        "function": "performance_analytics",
+        "description": "Real-time P&L tracking, win-rate analysis, and strategy optimization",
+        "permissions": ["trade_logging", "performance_metrics", "strategy_backtesting"]
+      }
+	        {
+        "function": "market_intelligence_gathering",
+        "description": "Real-time web search integration for market sentiment, news catalysts, and social momentum",
+        "permissions": ["web_search", "data_aggregation", "sentiment_analysis"]
+      },
+      {
+        "function": "statistical_analysis_engine",
+        "description": "Advanced statistical testing for mean reversion, cointegration, and stationarity",
+        "permissions": ["adf_test", "hurst_exponent", "cointegration_test", "johansen_test"],
+        "methods": {
+          "mean_reversion_detection": {
+            "adf_test": "Augmented Dickey-Fuller test for unit root",
+            "hurst_exponent": "Calculate H < 0.5 for mean reversion",
+            "variance_ratio": "Test for random walk hypothesis"
+          },
+          "pairs_trading_validation": {
+            "cointegration_test": "CADF test for pairs relationships",
+            "johansen_test": "Multivariate cointegration",
+            "ornstein_uhlenbeck": "Mean reversion speed estimation"
+          }
+        }
+      },
+      {
+        "function": "machine_learning_prediction",
+        "description": "Supervised learning models for market direction forecasting",
+        "permissions": ["model_training", "prediction", "feature_engineering"],
+        "models": {
+          "classification": {
+            "logistic_regression": "Binary direction prediction",
+            "svm": "Support Vector Machine with RBF kernel",
+            "random_forest": "Ensemble tree-based classifier",
+            "lda_qda": "Linear/Quadratic Discriminant Analysis"
+          },
+          "time_series": {
+            "arima": "Autoregressive integrated moving average",
+            "garch": "Volatility forecasting",
+            "lstm": "Long short-term memory networks"
+          },
+          "validation": {
+            "cross_validation": "K-fold time series validation",
+            "walk_forward": "Out-of-sample testing",
+            "grid_search": "Hyperparameter optimization"
+          }
+        }
+      },
+      {
+        "function": "advanced_risk_management",
+        "description": "Kelly Criterion, Value-at-Risk, and portfolio optimization",
+        "permissions": ["position_sizing", "var_calculation", "portfolio_optimization"],
+        "components": {
+          "kelly_criterion": {
+            "formula": "f = μ/σ²",
+            "implementation": "Dynamic position sizing with half-Kelly option",
+            "rebalancing": "Daily recalculation based on trailing statistics"
+          },
+          "value_at_risk": {
+            "methods": ["variance_covariance", "historical_simulation", "monte_carlo"],
+            "confidence_levels": [0.95, 0.99],
+            "time_horizons": ["daily", "weekly", "monthly"]
+          },
+          "portfolio_optimization": {
+            "mean_variance": "Markowitz optimization",
+            "risk_parity": "Equal risk contribution",
+            "max_sharpe": "Maximize risk-adjusted returns"
+          }
+        }
+      },
+      {
+        "function": "performance_analytics",
+        "description": "Comprehensive performance measurement and attribution",
+        "permissions": ["performance_calculation", "attribution_analysis", "reporting"],
+        "metrics": {
+          "returns": {
+            "total_return": "Cumulative P&L calculation",
+            "cagr": "Compound annual growth rate",
+            "rolling_returns": "Period-based performance"
+          },
+          "risk_adjusted": {
+            "sharpe_ratio": "√N * (E[R] / σ[R])",
+            "sortino_ratio": "Downside deviation focus",
+            "calmar_ratio": "Return / Max Drawdown",
+            "information_ratio": "Active return / Tracking error"
+          },
+          "drawdown_analysis": {
+            "max_drawdown": "Largest peak-to-trough decline",
+            "drawdown_duration": "Time to recovery",
+            "underwater_curve": "Continuous drawdown tracking"
+          }
+        }
+      },
+      {
+        "function": "event_driven_execution",
+        "description": "Event-based architecture for backtesting and live trading",
+        "permissions": ["event_generation", "order_routing", "fill_simulation"],
+        "event_types": {
+          "market_event": "New market data arrival",
+          "signal_event": "Strategy signal generation",
+          "order_event": "Order placement request",
+          "fill_event": "Execution confirmation"
+        }
+      }
+    ],
+    
+    "web_intelligence_integration": {
+      "search_protocols": [
+        {
+          "type": "catalyst_scanning",
+          "sources": ["financial_news", "SEC_filings", "earnings_calendars", "FDA_announcements"],
+          "frequency": "continuous",
+          "priority_keywords": ["merger", "acquisition", "FDA", "earnings", "guidance", "investigation"]
+        },
+        {
+          "type": "sentiment_monitoring",
+          "sources": ["reddit_wallstreetbets", "twitter_cashtags", "stocktwits", "tradingview_ideas"],
+          "metrics": ["mention_volume", "sentiment_score", "momentum_velocity"],
+          "threshold_alerts": {
+            "volume_spike": ">300% baseline",
+            "sentiment_shift": ">0.7 positive/negative"
+          }
+        },
+        {
+          "type": "technical_confluence",
+          "sources": ["tradingview_analysis", "market_scanners", "unusual_options_activity"],
+          "pattern_matching": ["breakouts", "reversals", "momentum_shifts", "volume_anomalies"]
+        }
+      ],
+      
+	     "statistical_framework": {
+      "time_series_analysis": {
+        "stationarity_testing": {
+          "methods": ["adf", "kpss", "phillips_perron"],
+          "transformation": ["differencing", "log_transform", "detrending"],
+          "rolling_statistics": {
+            "window_sizes": [20, 50, 100, 200],
+            "statistics": ["mean", "variance", "autocorrelation"]
+          }
+        },
+        "cointegration_analysis": {
+          "pairs_identification": {
+            "correlation_threshold": 0.8,
+            "sector_matching": true,
+            "fundamental_similarity": true
+          },
+          "hedge_ratio_calculation": {
+            "ols_regression": "Ordinary least squares",
+            "total_least_squares": "Orthogonal regression",
+            "kalman_filter": "Dynamic hedge ratio"
+          },
+          "spread_analysis": {
+            "z_score_calculation": "(spread - mean) / std",
+            "half_life": "Mean reversion speed",
+            "ou_parameters": "θ, μ, σ estimation"
+          }
+        }
+      },
+      
+      "machine_learning_pipeline": {
+        "feature_engineering": {
+          "price_features": [
+            "returns", "log_returns", "volatility",
+            "rsi", "macd", "bollinger_bands",
+            "volume_profile", "vwap_deviation"
+          ],
+          "market_microstructure": [
+            "bid_ask_spread", "order_book_imbalance",
+            "trade_intensity", "quote_frequency"
+          ],
+          "alternative_data": [
+            "sentiment_scores", "news_frequency",
+            "social_media_momentum", "search_trends"
+          ]
+        },
+        "model_selection": {
+          "train_test_split": {
+            "method": "time_series_split",
+            "train_ratio": 0.7,
+            "validation_ratio": 0.15,
+            "test_ratio": 0.15
+          },
+          "cross_validation": {
+            "method": "purged_k_fold",
+            "n_folds": 5,
+            "embargo_period": 10
+          },
+          "hyperparameter_optimization": {
+            "grid_search": "Exhaustive parameter search",
+            "random_search": "Randomized parameter sampling",
+            "bayesian_optimization": "Gaussian process optimization"
+          }
+        },
+        "ensemble_methods": {
+          "voting_classifier": "Majority vote ensemble",
+          "stacking": "Meta-learner combination",
+          "blending": "Weighted average predictions"
+        }
+      }
+    },
+	  
+      "data_synthesis": {
+        "aggregation_method": "weighted_confidence_scoring",
+        "source_weighting": {
+          "official_news": 0.4,
+          "social_sentiment": 0.3,
+          "technical_signals": 0.3
+        },
+        "update_frequency": "real_time",
+        "cache_duration": "5_minutes"
+      }
+    }
+  },
+  
+  "analytical_framework": {
+    "market_state_detection": {
+      "parameters": [
+        {
+          "name": "volatility_regime",
+          "calculation": "ATR/Price ratio, VIX correlation",
+          "states": ["low", "normal", "elevated", "extreme"],
+          "update_frequency": "1_minute"
+        },
+        {
+          "name": "trend_strength",
+          "calculation": "ADX, price vs moving averages",
+          "states": ["strong_down", "weak_down", "neutral", "weak_up", "strong_up"],
+          "update_frequency": "5_minutes"
+        },
+        {
+          "name": "liquidity_profile",
+          "calculation": "bid-ask spread, volume profile",
+          "states": ["thin", "normal", "thick"],
+          "update_frequency": "tick"
+        }
+      ],
+      
+      "composite_market_score": {
+        "formula": "(volatility_opportunity * 0.4) + (trend_clarity * 0.3) + (liquidity_score * 0.3)",
+        "output_range": [0, 100],
+        "action_thresholds": {
+          "aggressive": ">80",
+          "normal": "50-80",
+          "defensive": "<50"
+        }
+      }
+    },
+    
+	    "risk_framework": {
+      "position_sizing": {
+        "kelly_criterion": {
+          "full_kelly": "f = μ/σ²",
+          "fractional_kelly": "f * scaling_factor",
+          "kelly_variants": {
+            "discrete_kelly": "For binary outcomes",
+            "continuous_kelly": "For continuous returns",
+            "multivariate_kelly": "Multiple simultaneous positions"
+          }
+        },
+        "fixed_fractional": {
+          "risk_per_trade": 0.01,
+          "max_position_size": 0.1,
+          "scaling_rules": "Based on volatility and correlation"
+        },
+        "volatility_targeting": {
+          "target_volatility": 0.15,
+          "lookback_period": 60,
+          "rebalancing_frequency": "daily"
+        }
+      },
+      "risk_limits": {
+        "position_limits": {
+          "max_single_position": "5% of portfolio",
+          "max_sector_exposure": "30% of portfolio",
+          "max_correlation": 0.7
+        },
+        "loss_limits": {
+          "daily_stop_loss": "3% of portfolio",
+          "weekly_stop_loss": "5% of portfolio",
+          "monthly_stop_loss": "10% of portfolio"
+        },
+        "var_limits": {
+          "daily_var_95": "2% of portfolio",
+          "daily_var_99": "3% of portfolio",
+          "stress_test_scenarios": ["2008_crisis", "flash_crash", "covid_crash"]
+        }
+      }
+    },
+    
+    "execution_optimization": {
+      "order_types": {
+        "market_orders": {
+          "use_case": "High urgency, liquid markets",
+          "slippage_model": "Linear impact model"
+        },
+        "limit_orders": {
+          "use_case": "Low urgency, price improvement",
+          "placement_strategy": "Mid-point, queue position"
+        },
+        "iceberg_orders": {
+          "use_case": "Large orders, minimize impact",
+          "slice_sizing": "Volume-based, time-based"
+        }
+      },
+      "execution_algorithms": {
+        "twap": "Time-weighted average price",
+        "vwap": "Volume-weighted average price",
+        "implementation_shortfall": "Minimize total cost",
+        "adaptive_algo": "Machine learning based execution"
+      },
+      "transaction_cost_analysis": {
+        "components": ["spread", "impact", "commission", "opportunity"],
+        "pre_trade_estimation": "Predict execution costs",
+        "post_trade_analysis": "Measure actual vs expected"
+      }
+    }
+  },
+  
+  "integration_framework": {
+    "data_pipeline": {
+      "sources": {
+        "market_data": ["real_time_feed", "historical_database"],
+        "alternative_data": ["news_api", "social_media_api", "web_scraping"],
+        "fundamental_data": ["financial_statements", "economic_indicators"]
+      },
+      "processing": {
+        "cleaning": ["outlier_detection", "missing_data_handling", "corporate_actions"],
+        "normalization": ["z_score", "min_max", "rank_transform"],
+        "storage": ["time_series_db", "feature_store", "model_registry"]
+      }
+    },
+    "backtesting_engine": {
+      "architecture": "event_driven",
+      "components": {
+        "data_handler": "Historical data feed simulation",
+        "strategy": "Signal generation logic",
+        "portfolio": "Position and risk management",
+        "execution_handler": "Order simulation and fills"
+      },
+      "realistic_assumptions": {
+        "slippage": "Market impact modeling",
+        "latency": "Order delay simulation",
+        "partial_fills": "Realistic fill simulation",
+        "market_hours": "Trading calendar awareness"
+      }
+    },
+    "monitoring_system": {
+      "real_time_metrics": {
+        "pnl_tracking": "Live P&L calculation",
+        "risk_monitoring": "Position limits, VaR tracking",
+        "execution_quality": "Slippage, fill rates"
+      },
+      "alerts": {
+        "risk_breaches": "Position limits, loss limits",
+        "model_degradation": "Performance deviation",
+        "system_health": "Connectivity, data quality"
+      },
+      "reporting": {
+        "daily_summary": "P&L, positions, risk metrics",
+        "attribution": "Performance by strategy, asset",
+        "regulatory": "Required regulatory reports"
+      }
+    }
+  },
+	
+    "opportunity_scoring": {
+      "technical_factors": {
+        "breakout_quality": {
+          "volume_confirmation": "volume > 1.5x average",
+          "price_action": "close > previous_resistance",
+          "momentum": "RSI > 60"
+        },
+        "reversal_setup": {
+          "divergence": "price_low with RSI_higher_low",
+          "support_test": "price_touch_support with volume_spike",
+          "candlestick": "hammer or doji at support"
+        }
+      },
+      
+      "catalyst_weighting": {
+        "news_driven": {
+          "earnings_beat": 0.8,
+          "FDA_approval": 0.9,
+          "merger_announcement": 0.7,
+          "analyst_upgrade": 0.5
+        },
+        "social_driven": {
+          "viral_momentum": 0.6,
+          "influencer_mention": 0.4,
+          "retail_accumulation": 0.5
+        }
+      },
+      
+      "final_score_calculation": {
+        "formula": "(technical_score * 0.5) + (catalyst_score * 0.3) + (sentiment_score * 0.2)",
+        "minimum_threshold": 0.7,
+        "position_sizing_multiplier": "score - 0.7"
+      }
+    },
+    
+    "risk_quantification": {
+      "position_risk": {
+        "max_loss_per_trade": "1% of account",
+        "position_size_formula": "risk_amount / (entry - stop_loss)",
+        "fractional_rounding": "down to nearest 0.01 share"
+      },
+      
+      "portfolio_risk": {
+        "max_concurrent_positions": 5,
+        "max_sector_concentration": "40%",
+        "correlation_limit": "0.7 between positions",
+        "total_market_exposure": "max 100% of account"
+      },
+      
+      "dynamic_adjustments": {
+        "volatility_scaling": "reduce size by 50% if ATR > 2x normal",
+        "win_rate_scaling": "increase size by 20% after 3 consecutive wins",
+        "drawdown_protection": "reduce all sizes by 50% if daily loss > 3%"
+      }
+    }
+  },
+  
+  "execution_framework": {
+    "order_generation": {
+      "entry_protocols": [
+        {
+          "type": "momentum_entry",
+          "trigger": "price > VWAP and volume > average",
+          "order_type": "market",
+          "size_calculation": "risk_based",
+          "confirmation_required": false
+        },
+        {
+          "type": "pullback_entry",
+          "trigger": "price_retrace_to_support with RSI < 40",
+          "order_type": "limit",
+          "size_calculation": "scaled_entry",
+          "confirmation_required": true
+        }
+      ],
+      
+      "exit_protocols": [
+        {
+          "type": "profit_target",
+          "calculation": "entry + (2 * initial_risk)",
+          "adjustment": "trail_stop_at_1R_profit",
+          "partial_exit": "50% at 1R, 50% at 2R"
+        },
+        {
+          "type": "stop_loss",
+          "initial": "below_support or 1_ATR",
+          "trailing": "previous_swing_low or 0.5_ATR",
+          "time_stop": "exit_if_no_movement_30min"
+        }
+      ]
+    },
+    
+    "platform_optimization": {
+      "trading212_specific": {
+        "fractional_precision": "0.01",
+        "order_types": ["market", "limit", "stop"],
+        "execution_delays": {
+          "market_order": "1-2 seconds",
+          "limit_order": "instant",
+          "modification": "2-3 seconds"
+        },
+        "cost_structure": {
+          "commission": 0,
+          "spread_impact": "calculate_from_bid_ask",
+          "fx_fee": "0.15% if non-base currency"
+        }
+      },
+      
+      "execution_timing": {
+        "avoid_first_5min": true,
+        "avoid_last_5min": true,
+        "optimal_windows": ["09:45-10:30", "14:00-15:30"],
+        "news_blackout": "no_trades_30min_after_major_news"
+      }
+    }
+  },
+  
+  "communication_framework": {
+    "output_structures": {
+      "market_intelligence_report": {
+        "format": "//INTEL: [TICKER] → Web signals: [CATALYST] | Sentiment: [SCORE] | Technical: [SETUP] | Confidence: [LEVEL]",
+        "components": {
+          "catalyst": "brief 5-10 word summary",
+          "sentiment": "numeric -1 to +1",
+          "setup": "pattern name",
+          "confidence": "percentage"
+        }
+      },
+      
+      "trade_signal": {
+        "format": "//SIGNAL: [ACTION] [TICKER] | Entry: [PRICE] | Stop: [STOP] | Target: [TARGET] | Size: [SHARES] | Risk: [AMOUNT]",
+        "validation": {
+          "price_precision": 2,
+          "size_precision": 2,
+          "required_fields": "all"
+        }
+      },
+      
+      "risk_alert": {
+        "format": "//RISK: [LEVEL] → [DESCRIPTION] | Action: [RECOMMENDATION] | Time-critical: [YES/NO]",
+        "priority_levels": {
+          "CRITICAL": "immediate action required",
+          "HIGH": "action within 5 minutes",
+          "MODERATE": "monitor closely",
+          "LOW": "awareness only"
+        }
+      },
+      
+      "performance_update": {
+        "format": "//PERFORMANCE: Day P&L: [AMOUNT] ([PERCENT]%) | Win Rate: [RATE]% | Avg Winner: [AMOUNT] | Avg Loser: [AMOUNT]",
+        "frequency": "every 30 minutes during market hours"
+      }
+    },
+    
+    "web_search_integration": {
+      "query_templates": {
+        "catalyst_search": "[TICKER] + (news OR announcement OR earnings OR FDA) + today",
+        "sentiment_search": "[TICKER] + (bullish OR bearish OR momentum) + site:reddit.com OR site:twitter.com",
+        "technical_search": "[TICKER] + (breakout OR support OR resistance) + technical analysis"
+      },
+      
+      "result_processing": {
+        "relevance_scoring": "title_match + recency + source_authority",
+        "duplicate_removal": "fuzzy_match_threshold_0.8",
+        "summary_generation": "extract_key_sentences + sentiment_analysis"
+      },
+      
+      "integration_format": "//WEB_INTEL: [TICKER] → [SOURCE]: [SUMMARY] | Impact: [HIGH/MEDIUM/LOW] | Timestamp: [TIME]"
+    }
+  },
+  
+  "temporal_framework": {
+    "time_awareness": {
+      "market_phases": {
+        "pre_market": {
+          "time": "04:00-09:30 ET",
+          "activities": ["scan_news", "identify_gaps", "prepare_watchlist"],
+          "communication_mode": "preparatory"
+        },
+        "opening_bell": {
+          "time": "09:30-10:00 ET",
+          "activities": ["monitor_opening_range", "identify_early_movers", "avoid_trades"],
+          "communication_mode": "observational"
+        },
+        "morning_session": {
+          "time": "10:00-12:00 ET",
+          "activities": ["active_trading", "momentum_capture", "news_reaction"],
+          "communication_mode": "aggressive"
+        },
+        "lunch_lull": {
+          "time": "12:00-14:00 ET",
+          "activities": ["position_management", "stop_adjustment", "reduced_activity"],
+          "communication_mode": "defensive"
+        },
+        "afternoon_session": {
+          "time": "14:00-15:30 ET",
+          "activities": ["trend_continuation", "reversal_setups", "position_building"],
+          "communication_mode": "selective"
+        },
+        "power_hour": {
+          "time": "15:30-16:00 ET",
+          "activities": ["close_positions", "avoid_new_entries", "protect_profits"],
+          "communication_mode": "protective"
+        },
+        "after_hours": {
+          "time": "16:00-20:00 ET",
+          "activities": ["review_performance", "plan_next_day", "research"],
+          "communication_mode": "analytical"
+        }
+      },
+      
+      "timestamp_precision": {
+        "format": "HH:MM:SS.ms ET",
+        "critical_events": "millisecond_precision",
+        "regular_updates": "second_precision"
+      }
+    }
+  },
+  
+  "adaptive_parameters": {
+    "market_regime_adaptation": {
+      "bull_market": {
+        "bias": "long",
+        "breakout_threshold": "lower",
+        "position_sizing": "aggressive",
+        "stop_loss": "wider"
+      },
+      "bear_market": {
+        "bias": "short_or_cash",
+        "breakout_threshold": "higher",
+        "position_sizing": "conservative",
+        "stop_loss": "tighter"
+      },
+      "choppy_market": {
+        "bias": "range_trading",
+        "breakout_threshold": "avoid",
+        "position_sizing": "reduced",
+        "stop_loss": "mechanical"
+      }
+    },
+    
+    "performance_adaptation": {
+      "winning_streak": {
+        "position_sizing": "maintain_or_reduce",
+        "risk_awareness": "heightened",
+        "overconfidence_check": "active"
+      },
+      "losing_streak": {
+        "position_sizing": "reduce_by_50%",
+        "trade_frequency": "decrease",
+        "analysis_depth": "increase"
+      }
+    }
+  },
+  
+  "visual_indicators": {
+    "directional": {
+      "bullish": "↑",
+      "bearish": "↓",
+      "neutral": "→"
+    },
+    "intensity": {
+      "strong": "⟹",
+      "moderate": "→",
+      "weak": "⇢"
+    },
+    "alerts": {
+      "critical": "⚡",
+      "warning": "⚠",
+      "info": "ℹ",
+      "success": "✓",
+      "failure": "✗"
+    },
+    "timing": {
+      "urgent": "⏰",
+      "scheduled": "⏱",
+      "completed": "✓"
+    }
+  },
+  
+  "integration_parameters": {
+    "module_capabilities": [
+      "can_initiate_web_searches",
+      "can_calculate_technical_indicators",
+      "can_generate_trade_signals",
+      "can_modify_risk_parameters",
+      "can_track_performance_metrics"
+    ],
+    "data_requirements": [
+      "real_time_price_feeds",
+      "historical_price_data",
+      "volume_data",
+      "news_feeds",
+      "social_sentiment_data"
+    ],
+    "output_priorities": {
+      "time_critical": ["trade_signals", "risk_alerts", "stop_updates"],
+      "important": ["market_analysis", "performance_updates", "web_intelligence"],
+      "informational": ["educational_content", "strategy_explanations", "market_commentary"]
+    }
+  },
+  
+  "SYSTEM_PROMPT": "You are RAIDEN3, an advanced trading agent framework within TSUKUYOMI designed for high-frequency analysis and execution in volatile markets using retail trading platforms.
+
+Core Capabilities:
+- Real-time web intelligence gathering and synthesis
+- Multi-factor technical and fundamental analysis
+- Dynamic risk management and position sizing
+- Platform-optimized execution protocols
+- Continuous performance tracking and adaptation
+
+Operational Principles:
+1. ALWAYS integrate web search data for comprehensive market intelligence
+2. Timestamp ALL market-related communications with precision
+3. Calculate exact position sizes based on risk parameters
+4. Provide clear, actionable signals with complete trading parameters
+5. Continuously monitor and adapt to market regime changes
+6. Maintain strict risk management discipline
+
+Communication Protocol:
+- Use standardized output formats for consistency
+- Prioritize actionable intelligence over commentary
+- Include confidence levels and risk assessments
+- Integrate web search findings seamlessly into analysis
+- Maintain temporal awareness in all communications
+
+Web Intelligence Integration:
+Actively search for and synthesize:
+- Breaking news and catalysts
+- Social sentiment shifts
+- Technical analysis consensus
+- Unusual market activity
+- Regulatory announcements
+
+Your responses should be data-driven, time-sensitive, and immediately actionable. 
+Every analysis should consider multiple data sources, with web intelligence serving as a critical input alongside technical indicators and risk parameters."
+}`
+}
