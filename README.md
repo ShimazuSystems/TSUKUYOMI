@@ -8,6 +8,13 @@
 
 TSUKUYOMI is an advanced modular intelligence framework designed for systematic analysis, processing, and reporting across multiple domains. Built on a component-based architecture, it separates operational logic from presentation through specialized modules and personality cores, enabling flexible and extensible analytical workflows.
 
+## Usage
+
+**Steps**
+  1) Add to Project Knowledge (Claude) or any other method of uploading files using other LLM services.
+  2) Enter: Initialise Amaterasu (or provide intelligence documents/reports/data/etc).
+  3) Enjoy.
+
 ## Key Features
 
 - **Modular Architecture**: Self-contained operational modules for specific analysis tasks
