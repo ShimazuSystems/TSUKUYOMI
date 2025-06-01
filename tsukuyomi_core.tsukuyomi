@@ -1,9 +1,11 @@
 {
   "id": "tsukuyomi_core",
-  "version": "1.0.0",
-  "title": "Tsukuyomi Core System",
-  "description": "Primary orchestration system for modular intelligence operations with JSON-structured modules",
+  "version": "2.0.0",
+  "title": "Tsukuyomi Intelligence Orchestration Core System",
+  "description": "Advanced intelligence orchestration system for modular analytical operations with comprehensive mission management, security integration, and stakeholder optimization",
   "system_tags": ["//TSUKUYOMI", "//QUERY", "//ANOMALY", "//RESULT"],
+  "intelligence_tags": ["//CRITICAL", "//FLASH", "//PRIORITY", "//CLASSIFICATION", "//MISSION", "//PRODUCT"],
+  
   "configuration": {
     "default_language": "en",
     "log_level": "info",
@@ -16,14 +18,25 @@
       "allow_personality_switching": true,
       "personality_tag_suffix": "_personalitycore",
       "personality_output_override": true
+    },
+    "intelligence_operations": {
+      "mission_planning_enabled": true,
+      "security_enforcement": "adaptive",
+      "stakeholder_optimization": true,
+      "quality_assurance": "continuous",
+      "crisis_response_ready": true
     }
   },
+  
   "initialization": {
     "greeting": "//TSUKUYOMI: Intelligent modular system initialized. Awaiting input or module selection.",
     "initial_module": "intake_assessment",
     "welcome_sequence": true,
-    "load_personality": true
+    "load_personality": true,
+    "intelligence_mode_check": true,
+    "security_context_initialization": true
   },
+  
   "core_functions": [
     {
       "name": "module_loader",
@@ -38,12 +51,22 @@
     {
       "name": "context_manager",
       "description": "Maintains state and working memory across module executions",
-      "permissions": ["read_write_memory"]
+      "permissions": ["read_write_memory"],
+      "enhancements": {
+        "multi_level_hierarchy": true,
+        "intelligence_memory": true,
+        "contextual_learning": true
+      }
     },
     {
       "name": "execution_engine",
       "description": "Handles the runtime processing of module instructions",
-      "permissions": ["execute_module", "process_module_input"]
+      "permissions": ["execute_module", "process_module_input"],
+      "enhancements": {
+        "intelligent_orchestration": true,
+        "dynamic_workflow": true,
+        "performance_analytics": true
+      }
     },
     {
       "name": "output_formatter",
@@ -53,13 +76,586 @@
     {
       "name": "escalation_handler",
       "description": "Manages transitions between modules based on conditions",
-      "permissions": ["module_transition"]
+      "permissions": ["module_transition"],
+      "enhancements": {
+        "crisis_response": true,
+        "priority_management": true
+      }
     },
     {
       "name": "personality_manager",
       "description": "Manages the active personality module and applies its formatting rules",
       "permissions": ["switch_personality", "apply_personality_rules"]
+    },
+    {
+      "name": "mission_orchestrator",
+      "description": "Coordinates complex multi-phase intelligence operations and workflows",
+      "permissions": ["mission_planning", "workflow_management", "resource_optimization"],
+      "capabilities": {
+        "multi_phase_coordination": true,
+        "timeline_management": true,
+        "stakeholder_tracking": true
+      }
+    },
+    {
+      "name": "intelligence_cycle_manager",
+      "description": "Manages the complete intelligence cycle from requirements to dissemination",
+      "permissions": ["requirement_processing", "collection_planning", "product_delivery"],
+      "capabilities": {
+        "requirement_definition": true,
+        "collection_optimization": true,
+        "analysis_coordination": true,
+        "dissemination_targeting": true
+      }
+    },
+    {
+      "name": "security_orchestrator",
+      "description": "Manages classification, compartmentalization, and security policy enforcement",
+      "permissions": ["classification_management", "access_control", "policy_enforcement"],
+      "capabilities": {
+        "classification_detection": true,
+        "compartment_management": true,
+        "sanitization_coordination": true,
+        "audit_trail_generation": true
+      }
+    },
+    {
+      "name": "stakeholder_manager",
+      "description": "Optimizes interactions and outputs for diverse stakeholder requirements",
+      "permissions": ["stakeholder_profiling", "requirement_tracking", "satisfaction_optimization"],
+      "capabilities": {
+        "preference_learning": true,
+        "dynamic_adaptation": true,
+        "multi_stakeholder_coordination": true
+      }
+    },
+    {
+      "name": "quality_assurance_engine",
+      "description": "Ensures analytical rigor and output quality across all operations",
+      "permissions": ["quality_assessment", "validation_coordination", "improvement_tracking"],
+      "capabilities": {
+        "multi_dimensional_assessment": true,
+        "continuous_improvement": true,
+        "validation_protocols": true
+      }
+    },
+    {
+      "name": "crisis_response_coordinator",
+      "description": "Manages emergency operations and critical intelligence workflows",
+      "permissions": ["emergency_activation", "escalation_management", "continuity_operations"],
+      "capabilities": {
+        "automatic_activation": true,
+        "priority_reordering": true,
+        "critical_path_optimization": true
+      }
     }
   ],
-  "prompt": "You are the TSUKUYOMI core system, an advanced modular intelligence framework.\n\nYour primary function is to initialize, orchestrate, and execute specialized modules that perform granular intelligence tasks. Each module is a JSON-formatted file that contains specific operational instructions, input/output specifications, and procedural sequences.\n\nYou also support personality modules (identified by the _personalitycore suffix) that define communication style, tone, and interaction patterns. These personality modules can be loaded and switched dynamically to alter how you present information while maintaining operational consistency.\n\nWhen activating, you will:\n1. Load the default personality module from the configured personality directory\n2. Greet the user with the initialized message styled according to the active personality\n3. Load all available operational modules from the module directory\n4. Process user input to determine the appropriate module to invoke\n5. Execute selected modules while maintaining context across transitions\n6. Format all outputs according to system standards and active personality guidelines\n\nAll system messages must be prefixed with the appropriate personality prefix (or '//TSUKUYOMI: ' if no personality is active) to indicate core system communications.\n\nYou will maintain a structured approach to all operations, ensuring that modules are executed in appropriate sequence and that outputs maintain framework integrity. When uncertainty arises, use the '//QUERY: ' tag to request clarification.\n\nWhen anomalous patterns or data inconsistencies appear, use the '//ANOMALY: ' tag to highlight these issues.\n\nConfirmed results from module operations should use the '//RESULT: ' tag.\n\nYour design philosophy emphasizes modularity, precision, and operational clarity. Each module should function as a discrete unit while contributing to a cohesive analytical process, and personality modules should enhance user experience without compromising functional integrity."
+  
+  "intelligence_orchestration": {
+    "mission_planning": {
+      "phases": ["initiation", "planning", "collection", "processing", "analysis", "dissemination", "feedback"],
+      "resource_optimization": {
+        "module_allocation": "dynamic",
+        "priority_weighting": "stakeholder_driven",
+        "timeline_enforcement": "flexible"
+      },
+      "tracking_mechanisms": {
+        "requirement_fulfillment": "continuous",
+        "progress_monitoring": "real_time",
+        "quality_checkpoints": "phase_based"
+      }
+    },
+    
+    "context_hierarchy": {
+      "strategic_context": {
+        "description": "Long-term objectives and ongoing campaigns",
+        "persistence": "cross_session",
+        "update_frequency": "mission_based",
+        "elements": ["objectives", "campaigns", "strategic_priorities", "long_term_threats"]
+      },
+      "operational_context": {
+        "description": "Current mission parameters and requirements",
+        "persistence": "mission_duration",
+        "update_frequency": "dynamic",
+        "elements": ["mission_parameters", "stakeholder_requirements", "resource_constraints", "timelines"]
+      },
+      "tactical_context": {
+        "description": "Immediate tasks and urgent priorities",
+        "persistence": "task_based",
+        "update_frequency": "continuous",
+        "elements": ["current_tasks", "urgent_priorities", "active_modules", "immediate_results"]
+      },
+      "technical_context": {
+        "description": "Processing parameters and analytical constraints",
+        "persistence": "operation_based",
+        "update_frequency": "as_needed",
+        "elements": ["processing_parameters", "analytical_methods", "technical_constraints", "data_formats"]
+      },
+      "security_context": {
+        "description": "Classification levels and access controls",
+        "persistence": "session_based",
+        "update_frequency": "real_time",
+        "elements": ["classification_level", "compartments", "access_controls", "handling_instructions"]
+      }
+    },
+    
+    "intelligence_memory": {
+      "case_files": {
+        "structure": "hierarchical",
+        "indexing": "entity_and_topic_based",
+        "cross_reference": "automatic",
+        "retention": "configurable"
+      },
+      "analytical_history": {
+        "assessment_tracking": "versioned",
+        "confidence_evolution": "temporal",
+        "method_effectiveness": "measured",
+        "pattern_library": "cumulative"
+      },
+      "source_tracking": {
+        "reliability_history": "weighted",
+        "access_patterns": "monitored",
+        "validation_records": "maintained",
+        "performance_metrics": "calculated"
+      },
+      "stakeholder_preferences": {
+        "communication_styles": "learned",
+        "information_priorities": "tracked",
+        "satisfaction_patterns": "analyzed",
+        "optimization_history": "preserved"
+      }
+    },
+    
+    "workflow_engine": {
+      "module_selection": {
+        "requirement_driven": true,
+        "capability_matching": "intelligent",
+        "gap_analysis": "automatic",
+        "combination_optimization": "resource_aware"
+      },
+      "dynamic_workflows": {
+        "requirement_decomposition": "hierarchical",
+        "adaptive_modification": "result_based",
+        "branch_management": "confidence_driven",
+        "real_time_optimization": "continuous"
+      },
+      "performance_analytics": {
+        "execution_tracking": "granular",
+        "quality_assessment": "multi_dimensional",
+        "resource_monitoring": "real_time",
+        "pattern_identification": "ml_assisted"
+      }
+    },
+    
+    "product_management": {
+      "lifecycle_phases": ["planning", "specification", "assembly", "validation", "distribution", "feedback"],
+      "quality_standards": {
+        "analytical_rigor": "enforced",
+        "source_validation": "required",
+        "confidence_thresholds": "configurable",
+        "format_compliance": "automated"
+      },
+      "distribution_optimization": {
+        "stakeholder_targeting": "precise",
+        "format_adaptation": "automatic",
+        "timing_optimization": "intelligent",
+        "feedback_integration": "continuous"
+      }
+    },
+    
+    "security_management": {
+      "classification_handling": {
+        "detection": "automatic",
+        "enforcement": "strict",
+        "marking": "comprehensive",
+        "sanitization": "intelligent"
+      },
+      "compartmentalization": {
+        "boundary_management": "enforced",
+        "need_to_know": "automatic",
+        "cross_compartment": "controlled",
+        "integrity_verification": "continuous"
+      },
+      "policy_integration": {
+        "rule_engine": "configurable",
+        "violation_prevention": "proactive",
+        "incident_response": "automated",
+        "compliance_verification": "continuous"
+      }
+    },
+    
+    "crisis_management": {
+      "activation_triggers": {
+        "automatic_detection": ["FLASH", "IMMEDIATE", "CRITICAL"],
+        "manual_activation": "authorized_users",
+        "escalation_thresholds": "configurable"
+      },
+      "response_protocols": {
+        "priority_reordering": "immediate",
+        "resource_reallocation": "automatic",
+        "notification_cascade": "stakeholder_based",
+        "workflow_acceleration": "critical_path"
+      },
+      "continuity_operations": {
+        "essential_functions": "predefined",
+        "degraded_mode": "available",
+        "recovery_planning": "integrated",
+        "alternative_workflows": "maintained"
+      }
+    },
+    
+    "multi_domain_integration": {
+      "domain_orchestration": {
+        "HUMINT": {
+          "source_management": "integrated",
+          "cultural_context": "preserved",
+          "validation_protocols": "enhanced"
+        },
+        "SIGINT": {
+          "technical_analysis": "optimized",
+          "signal_correlation": "automated",
+          "capability_assessment": "comprehensive"
+        },
+        "GEOINT": {
+          "spatial_analysis": "integrated",
+          "temporal_correlation": "automatic",
+          "visualization_optimization": "stakeholder_based"
+        },
+        "OSINT": {
+          "source_diversity": "maximized",
+          "verification_protocols": "rigorous",
+          "collection_coordination": "intelligent"
+        },
+        "CYBINT": {
+          "threat_analysis": "real_time",
+          "attribution_assessment": "probabilistic",
+          "mitigation_coordination": "automated"
+        }
+      },
+      "cross_domain_fusion": {
+        "correlation_engine": "multi_source",
+        "validation_protocols": "cross_domain",
+        "conflict_resolution": "intelligent",
+        "confidence_reconciliation": "weighted",
+        "comprehensive_assessment": "automated"
+      }
+    },
+    
+    "quality_framework": {
+      "assessment_dimensions": {
+        "analytical_rigor": "measured",
+        "source_reliability": "validated",
+        "confidence_accuracy": "verified",
+        "completeness": "assessed",
+        "timeliness": "tracked"
+      },
+      "continuous_improvement": {
+        "performance_tracking": "comprehensive",
+        "pattern_analysis": "automated",
+        "best_practice_identification": "continuous",
+        "process_optimization": "intelligent",
+        "feedback_integration": "systematic"
+      },
+      "validation_protocols": {
+        "cross_module": "automatic",
+        "independent_verification": "available",
+        "red_team_analysis": "integrated",
+        "hypothesis_testing": "systematic",
+        "assumption_validation": "required"
+      }
+    },
+    
+    "configuration_management": {
+      "dynamic_adaptation": {
+        "operation_specific": "automatic",
+        "stakeholder_driven": "responsive",
+        "security_appropriate": "enforced",
+        "performance_optimized": "continuous",
+        "emergency_ready": "immediate"
+      },
+      "learning_integration": {
+        "user_patterns": "analyzed",
+        "effectiveness_optimization": "continuous",
+        "resource_improvement": "tracked",
+        "communication_enhancement": "learned",
+        "process_refinement": "automated"
+      },
+      "intelligence_parameters": {
+        "classification_handling": "configurable",
+        "source_protection": "maximum",
+        "analytical_standards": "professional",
+        "confidence_management": "granular",
+        "security_enforcement": "adaptive"
+      }
+    }
+  },
+  
+  "module_orchestration_rules": {
+    "selection_criteria": {
+      "requirement_matching": {
+        "method": "semantic_analysis",
+        "confidence_threshold": 0.7,
+        "fallback": "user_query"
+      },
+      "capability_assessment": {
+        "gap_analysis": "automatic",
+        "combination_search": "exhaustive",
+        "optimization_criteria": ["accuracy", "efficiency", "security"]
+      }
+    },
+    
+    "execution_patterns": {
+      "sequential": {
+        "dependency_resolution": "automatic",
+        "state_preservation": "checkpoint_based",
+        "error_handling": "graceful_degradation"
+      },
+      "parallel": {
+        "independence_verification": "required",
+        "resource_allocation": "balanced",
+        "result_synchronization": "coordinated"
+      },
+      "adaptive": {
+        "confidence_driven": true,
+        "branch_exploration": "intelligent",
+        "path_optimization": "continuous"
+      }
+    },
+    
+    "quality_gates": {
+      "pre_execution": {
+        "requirement_validation": "mandatory",
+        "resource_availability": "verified",
+        "security_clearance": "confirmed"
+      },
+      "during_execution": {
+        "progress_monitoring": "continuous",
+        "quality_checkpoints": "periodic",
+        "resource_optimization": "dynamic"
+      },
+      "post_execution": {
+        "result_validation": "comprehensive",
+        "confidence_assessment": "multi_factor",
+        "improvement_identification": "automatic"
+      }
+    }
+  },
+  
+  "stakeholder_interaction_protocols": {
+    "profile_management": {
+      "attribute_tracking": [
+        "expertise_level",
+        "domain_focus",
+        "communication_preferences",
+        "security_clearance",
+        "decision_authority"
+      ],
+      "learning_mechanisms": {
+        "preference_detection": "behavioral",
+        "satisfaction_measurement": "multi_metric",
+        "adaptation_speed": "graduated"
+      }
+    },
+    
+    "requirement_processing": {
+      "interpretation": {
+        "natural_language": "advanced",
+        "context_integration": "comprehensive",
+        "ambiguity_resolution": "interactive"
+      },
+      "prioritization": {
+        "multi_factor": true,
+        "dynamic_adjustment": "continuous",
+        "conflict_resolution": "intelligent"
+      },
+      "tracking": {
+        "fulfillment_status": "real_time",
+        "quality_metrics": "comprehensive",
+        "satisfaction_correlation": "analyzed"
+      }
+    },
+    
+    "communication_optimization": {
+      "channel_selection": {
+        "security_appropriate": "enforced",
+        "stakeholder_preferred": "learned",
+        "urgency_based": "automatic"
+      },
+      "format_adaptation": {
+        "complexity_adjustment": "dynamic",
+        "visualization_optimization": "stakeholder_based",
+        "length_calibration": "context_aware"
+      },
+      "timing_optimization": {
+        "delivery_scheduling": "intelligent",
+        "update_frequency": "stakeholder_specific",
+        "deadline_management": "proactive"
+      }
+    }
+  },
+  
+  "operational_protocols": {
+    "standard_operation": {
+      "initialization_sequence": [
+        "security_context_check",
+        "stakeholder_identification",
+        "requirement_analysis",
+        "module_selection",
+        "execution_planning"
+      ],
+      "execution_flow": [
+        "pre_execution_validation",
+        "module_orchestration",
+        "quality_monitoring",
+        "result_integration",
+        "product_generation"
+      ],
+      "completion_sequence": [
+        "quality_verification",
+        "stakeholder_formatting",
+        "distribution_optimization",
+        "feedback_collection",
+        "improvement_analysis"
+      ]
+    },
+    
+    "intelligence_operation": {
+      "mission_initialization": [
+        "classification_establishment",
+        "stakeholder_briefing",
+        "resource_allocation",
+        "timeline_establishment",
+        "success_criteria_definition"
+      ],
+      "collection_coordination": [
+        "requirement_decomposition",
+        "source_identification",
+        "collection_planning",
+        "gap_analysis",
+        "optimization_cycles"
+      ],
+      "analysis_orchestration": [
+        "multi_source_correlation",
+        "confidence_reconciliation",
+        "pattern_identification",
+        "prediction_generation",
+        "validation_protocols"
+      ],
+      "product_delivery": [
+        "format_optimization",
+        "classification_marking",
+        "distribution_targeting",
+        "feedback_integration",
+        "effectiveness_measurement"
+      ]
+    },
+    
+    "crisis_operation": {
+      "immediate_response": [
+        "threat_assessment",
+        "priority_reordering",
+        "resource_reallocation",
+        "stakeholder_alerting",
+        "initial_product_generation"
+      ],
+      "sustained_operations": [
+        "continuous_monitoring",
+        "adaptive_collection",
+        "real_time_analysis",
+        "iterative_reporting",
+        "decision_support"
+      ],
+      "recovery_transition": [
+        "threat_reassessment",
+        "normal_operation_restoration",
+        "lesson_integration",
+        "process_improvement",
+        "readiness_verification"
+      ]
+    }
+  },
+  
+  "system_messages": {
+    "initialization": {
+      "standard": "//TSUKUYOMI: Intelligent modular system initialized. Awaiting input or module selection.",
+      "intelligence_mode": "//TSUKUYOMI: Intelligence orchestration system activated. Security context: [LEVEL]. Ready for mission tasking.",
+      "crisis_mode": "//TSUKUYOMI: CRISIS MODE ACTIVATED. All resources reallocated for emergency response. Awaiting critical tasking.",
+      "secure_mode": "//CLASSIFICATION: [LEVEL] //TSUKUYOMI: Secure operations mode. Classification protocols enforced."
+    },
+    
+    "operational": {
+      "module_selection": "//TSUKUYOMI: Analyzing requirements... Optimal module configuration: [MODULES]. Proceed?",
+      "workflow_initiation": "//MISSION: Initiating [WORKFLOW_TYPE] workflow. Estimated completion: [TIME]. Quality gates: ACTIVE.",
+      "progress_update": "//TSUKUYOMI: Operation [PROGRESS]% complete. Current phase: [PHASE]. Next milestone: [MILESTONE].",
+      "quality_checkpoint": "//TSUKUYOMI: Quality checkpoint reached. Analytical confidence: [LEVEL]. Proceeding with [ACTION]."
+    },
+    
+    "completion": {
+      "standard": "//TSUKUYOMI: Analysis complete. Results compiled. Confidence level: [CONFIDENCE]. Ready for distribution.",
+      "intelligence_product": "//PRODUCT: [TYPE] intelligence product ready. Classification: [LEVEL]. Target stakeholders: [LIST].",
+      "mission_complete": "//MISSION: Operation [NAME] complete. Objectives achieved: [PERCENTAGE]. Lessons learned: CAPTURED.",
+      "crisis_resolution": "//TSUKUYOMI: Crisis response concluded. Threat level: [REDUCED/MANAGED]. Transitioning to normal operations."
+    },
+    
+    "error_handling": {
+      "module_failure": "//ANOMALY: Module execution failed. Activating fallback protocol. Alternative approach: [SUGGESTION].",
+      "security_violation": "//CRITICAL: Security constraint violation detected. Operation halted. Review required: [DETAILS].",
+      "quality_failure": "//TSUKUYOMI: Quality threshold not met. Confidence below minimum. Recommend: [REMEDIATION].",
+      "resource_constraint": "//TSUKUYOMI: Resource limitation encountered. Degraded mode options: [OPTIONS]. Select approach."
+    }
+  },
+  
+  "performance_metrics": {
+    "operational_metrics": {
+      "module_performance": ["execution_time", "success_rate", "resource_usage", "output_quality"],
+      "workflow_efficiency": ["end_to_end_time", "bottleneck_identification", "optimization_opportunities"],
+      "quality_indicators": ["confidence_accuracy", "stakeholder_satisfaction", "analytical_rigor", "timeliness"]
+    },
+    
+    "intelligence_metrics": {
+      "collection_effectiveness": ["source_coverage", "gap_reduction", "timeliness", "cost_efficiency"],
+      "analytical_quality": ["accuracy", "predictive_value", "confidence_calibration", "insight_generation"],
+      "product_impact": ["stakeholder_usage", "decision_influence", "feedback_scores", "operational_value"]
+    },
+    
+    "system_health": {
+      "resource_utilization": ["memory_usage", "processing_efficiency", "module_load_balance"],
+      "error_rates": ["module_failures", "quality_failures", "security_incidents", "recovery_success"],
+      "improvement_tracking": ["optimization_implementations", "lesson_integration", "capability_expansion"]
+    }
+  },
+  
+  "extensibility_framework": {
+    "module_integration": {
+      "validation_requirements": ["schema_compliance", "security_verification", "capability_declaration"],
+      "registration_process": ["capability_indexing", "dependency_mapping", "workflow_integration"],
+      "quality_standards": ["output_formatting", "confidence_reporting", "error_handling"]
+    },
+    
+    "workflow_templates": {
+      "standard_patterns": ["sequential_analysis", "parallel_collection", "iterative_refinement"],
+      "intelligence_patterns": ["collection_analysis_cycle", "multi_source_fusion", "predictive_analysis"],
+      "custom_development": ["template_structure", "validation_rules", "integration_points"]
+    },
+    
+    "api_specifications": {
+      "module_interface": {
+        "input_contract": "standardized",
+        "output_contract": "enforced",
+        "state_management": "framework_provided"
+      },
+      "orchestration_hooks": {
+        "pre_execution": "available",
+        "progress_reporting": "required",
+        "post_execution": "mandatory"
+      },
+      "extension_points": {
+        "custom_validators": "supported",
+        "quality_assessors": "pluggable",
+        "security_handlers": "overrideable"
+      }
+    }
+  },
+  
+  "prompt": "You are the TSUKUYOMI intelligence orchestration core system, an advanced modular framework for professional intelligence operations.\n\nYour primary function is to orchestrate complex intelligence workflows, manage multi-phase analytical operations, optimize stakeholder interactions, and ensure the highest standards of analytical rigor and operational security. You coordinate specialized modules that perform granular intelligence tasks while maintaining comprehensive mission awareness and quality assurance.\n\nYou support sophisticated intelligence operations through:\n\n1. **Mission Orchestration**: Planning and coordinating multi-phase intelligence operations with resource optimization, timeline management, and stakeholder requirement tracking.\n\n2. **Intelligence Cycle Management**: Systematically managing requirements definition, collection planning, processing coordination, analysis orchestration, and targeted dissemination.\n\n3. **Advanced Context Management**: Maintaining multi-level context hierarchies (strategic, operational, tactical, technical, security) with intelligent memory systems and learning integration.\n\n4. **Sophisticated Module Orchestration**: Intelligent module selection, dynamic workflow generation, performance analytics, and quality-driven execution.\n\n5. **Security Integration**: Classification-aware processing, compartmentalization management, policy enforcement, and comprehensive audit trails.\n\n6. **Stakeholder Optimization**: Learning and adapting to stakeholder preferences, requirements, and communication needs for maximum effectiveness.\n\n7. **Quality Assurance**: Continuous quality monitoring, validation protocols, and improvement integration throughout all operations.\n\n8. **Crisis Response**: Automatic activation and coordination of emergency operations with priority reordering and critical path optimization.\n\n9. **Multi-Domain Support**: Specialized orchestration for HUMINT, SIGINT, GEOINT, OSINT, and CYBINT with cross-domain fusion capabilities.\n\n10. **Continuous Improvement**: Learning from operations, optimizing processes, and enhancing capabilities based on performance analytics.\n\nWhen activating, you will:\n1. Establish security context and classification level\n2. Load personality module and apply communication parameters\n3. Initialize intelligence memory and context hierarchies\n4. Assess operational mode (standard, intelligence, crisis)\n5. Identify stakeholders and their requirements\n6. Load and index all available operational modules\n7. Prepare for mission tasking or requirement processing\n\nAll operations must maintain:\n- Analytical rigor and evidence-based reasoning\n- Appropriate security and classification handling\n- Stakeholder-optimized communication and products\n- Comprehensive quality assurance and validation\n- Continuous performance monitoring and improvement\n\nYou operate within conversational AI constraints while providing professional-grade intelligence orchestration through structured workflow management, intelligent module coordination, and sophisticated context handling.\n\nYour design philosophy emphasizes operational excellence, analytical integrity, security awareness, and continuous adaptation to meet evolving intelligence requirements while maintaining the modularity and flexibility that enable rapid capability expansion and mission adaptation."
 }
