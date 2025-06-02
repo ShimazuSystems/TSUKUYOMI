@@ -1,101 +1,677 @@
 {
-  "id": "comprehensive_reporting",
-  "version": "1.0.0",
-  "title": "Module X: Comprehensive Reporting",
-  "description": "Synthesizes a complete, professional-grade intelligence report from verified findings",
-  "type": "reporting",
-  "dependencies": ["summarization_next_steps"],
+  "id": "comprehensive_intelligence_reporting",
+  "version": "3.0.0",
+  "title": "Professional Intelligence Report Generation Module",
+  "description": "Generates professional-grade intelligence reports adhering to IC standards, analytical tradecraft principles, and stakeholder-specific requirements",
+  "type": "intelligence_product_generation",
+  "dependencies": ["summarization_next_steps", "correlation_analysis", "data_recognition_ingestion"],
   "personality_compatibility": {
-    "required_capabilities": ["formal_writing", "structured_reporting", "nuanced_expression"],
-    "preferred_personality": "formal",
+    "required_capabilities": ["formal_writing", "structured_reporting", "nuanced_expression", "security_awareness", "analytical_rigor"],
+    "preferred_personality": "amaterasu",
     "personality_override_allowed": false
   },
   "input_requirements": [
     {
       "name": "module_outputs",
       "type": "object",
-      "description": "Aggregated outputs from all previous modules",
+      "description": "Aggregated outputs from all previous analytical modules",
       "required": true
     },
     {
       "name": "report_parameters",
       "type": "object",
-      "description": "Optional parameters for report format and focus",
+      "description": "Report type, classification level, stakeholder profile, and format specifications",
+      "required": true
+    },
+    {
+      "name": "security_context",
+      "type": "object",
+      "description": "Classification constraints, handling instructions, and distribution limitations",
       "required": false
     }
   ],
   "output_schema": {
-    "format": "text",
-    "standard_tags": ["//RESULT", "//QUERY"],
+    "format": "structured",
+    "standard_tags": ["//RESULT", "//PRODUCT", "//CLASSIFICATION", "//QUERY"],
     "fields": [
       {
-        "name": "complete_report",
-        "description": "Full formatted report",
-        "type": "string"
+        "name": "intelligence_report",
+        "description": "Complete professional intelligence report with all components",
+        "type": "object"
       },
       {
-        "name": "uncertainty_handling",
-        "description": "How uncertainties were addressed",
-        "type": "string"
+        "name": "executive_materials",
+        "description": "Standalone executive summary and key judgments",
+        "type": "object"
+      },
+      {
+        "name": "analytical_annexes",
+        "description": "Supporting analytical materials and methodological documentation",
+        "type": "object"
+      },
+      {
+        "name": "quality_assessment",
+        "description": "Report quality metrics and compliance verification",
+        "type": "object"
       }
     ]
   },
+  
+  "report_type_configurations": {
+    "intelligence_assessment": {
+      "description": "Comprehensive strategic or tactical analysis",
+      "structure": {
+        "cover_page": true,
+        "executive_summary": true,
+        "key_judgments": true,
+        "table_of_contents": true,
+        "introduction": true,
+        "background": true,
+        "discussion": true,
+        "outlook": true,
+        "implications": true,
+        "appendices": true
+      },
+      "analytical_requirements": {
+        "structured_techniques": ["ACH", "key_assumptions", "scenario_analysis"],
+        "confidence_articulation": "comprehensive",
+        "source_evaluation": "detailed",
+        "alternative_analysis": "required"
+      }
+    },
+    "intelligence_estimate": {
+      "description": "Predictive analysis of future developments",
+      "structure": {
+        "executive_summary": true,
+        "situation_assessment": true,
+        "trend_analysis": true,
+        "scenario_development": true,
+        "probability_assessment": true,
+        "implications": true,
+        "indicators": true
+      },
+      "analytical_requirements": {
+        "structured_techniques": ["scenario_analysis", "indicators_warnings", "trend_projection"],
+        "confidence_articulation": "probabilistic",
+        "timeline_specification": "required",
+        "alternative_futures": "multiple"
+      }
+    },
+    "intelligence_summary": {
+      "description": "Concise situational awareness product",
+      "structure": {
+        "highlights": true,
+        "situation_update": true,
+        "significant_developments": true,
+        "assessment": true,
+        "outlook": true
+      },
+      "analytical_requirements": {
+        "brevity": "enforced",
+        "currency": "emphasized",
+        "key_points": "prioritized",
+        "update_frequency": "specified"
+      }
+    },
+    "warning_intelligence": {
+      "description": "Threat assessment and warning product",
+      "structure": {
+        "threat_summary": true,
+        "indicators": true,
+        "assessment": true,
+        "implications": true,
+        "recommended_actions": true
+      },
+      "analytical_requirements": {
+        "urgency_communication": "explicit",
+        "threat_characterization": "detailed",
+        "mitigation_options": "actionable",
+        "timeline_criticality": "emphasized"
+      }
+    },
+    "technical_intelligence": {
+      "description": "Detailed technical capability analysis",
+      "structure": {
+        "executive_summary": true,
+        "technical_overview": true,
+        "capability_assessment": true,
+        "performance_analysis": true,
+        "comparative_analysis": true,
+        "technical_implications": true,
+        "appendices": true
+      },
+      "analytical_requirements": {
+        "technical_precision": "maximum",
+        "methodology_transparency": "complete",
+        "data_presentation": "comprehensive",
+        "uncertainty_quantification": "statistical"
+      }
+    }
+  },
+  
+  "analytical_tradecraft_framework": {
+    "structured_analytical_techniques": {
+      "analysis_of_competing_hypotheses": {
+        "description": "Systematic evaluation of multiple explanatory hypotheses",
+        "implementation": {
+          "hypothesis_generation": "comprehensive",
+          "evidence_matrix": "structured",
+          "consistency_assessment": "rigorous",
+          "sensitivity_analysis": "included"
+        }
+      },
+      "key_assumptions_check": {
+        "description": "Explicit identification and evaluation of analytical assumptions",
+        "implementation": {
+          "assumption_identification": "systematic",
+          "validity_assessment": "evidence_based",
+          "impact_analysis": "comprehensive",
+          "alternative_consideration": "required"
+        }
+      },
+      "indicators_and_warnings": {
+        "description": "Development of observable indicators for monitoring",
+        "implementation": {
+          "indicator_development": "systematic",
+          "threshold_specification": "precise",
+          "collection_guidance": "actionable",
+          "warning_protocols": "defined"
+        }
+      },
+      "scenario_analysis": {
+        "description": "Development and assessment of alternative futures",
+        "implementation": {
+          "scenario_development": "structured",
+          "driver_identification": "comprehensive",
+          "probability_assessment": "rigorous",
+          "implication_analysis": "detailed"
+        }
+      }
+    },
+    
+    "analytical_standards": {
+      "analytical_line_distinction": {
+        "factual_reporting": "clearly_marked",
+        "analytical_assessment": "explicitly_identified",
+        "speculation": "appropriately_caveated",
+        "assumptions": "transparently_documented"
+      },
+      "evidence_based_reasoning": {
+        "evidence_presentation": "systematic",
+        "logic_chain_articulation": "explicit",
+        "inference_justification": "rigorous",
+        "gap_acknowledgment": "transparent"
+      },
+      "alternative_analysis": {
+        "alternative_explanations": "considered",
+        "devil_advocacy": "integrated",
+        "red_team_perspectives": "included",
+        "contrarian_views": "acknowledged"
+      }
+    },
+    
+    "quality_assurance_protocols": {
+      "peer_review": {
+        "technical_accuracy": "verified",
+        "analytical_logic": "validated",
+        "tradecraft_compliance": "confirmed",
+        "clarity_assessment": "completed"
+      },
+      "independent_validation": {
+        "source_verification": "systematic",
+        "fact_checking": "comprehensive",
+        "methodology_review": "rigorous",
+        "conclusion_testing": "thorough"
+      }
+    }
+  },
+  
+  "confidence_and_sourcing_standards": {
+    "confidence_framework": {
+      "high_confidence": {
+        "definition": "Assess with high confidence based on high-quality information from multiple sources",
+        "criteria": {
+          "source_quality": "excellent",
+          "corroboration": "multiple_independent",
+          "logical_consistency": "strong",
+          "alternative_plausibility": "low"
+        }
+      },
+      "moderate_confidence": {
+        "definition": "Assess with moderate confidence based on credibly sourced and plausible information",
+        "criteria": {
+          "source_quality": "good",
+          "corroboration": "partial",
+          "logical_consistency": "reasonable",
+          "alternative_plausibility": "possible"
+        }
+      },
+      "low_confidence": {
+        "definition": "Assess with low confidence based on questionable or insufficient information",
+        "criteria": {
+          "source_quality": "questionable",
+          "corroboration": "minimal",
+          "logical_consistency": "weak",
+          "alternative_plausibility": "significant"
+        }
+      }
+    },
+    
+    "source_evaluation_matrix": {
+      "reliability_scale": {
+        "A": "Completely reliable",
+        "B": "Usually reliable",
+        "C": "Fairly reliable",
+        "D": "Not usually reliable",
+        "E": "Unreliable",
+        "F": "Reliability cannot be judged"
+      },
+      "credibility_scale": {
+        "1": "Confirmed by other sources",
+        "2": "Probably true",
+        "3": "Possibly true",
+        "4": "Doubtful",
+        "5": "Improbable",
+        "6": "Truth cannot be judged"
+      }
+    },
+    
+    "probabilistic_language": {
+      "almost_certain": "95-99%",
+      "very_likely": "80-95%",
+      "likely": "55-80%",
+      "roughly_even": "45-55%",
+      "unlikely": "20-45%",
+      "very_unlikely": "5-20%",
+      "remote": "1-5%"
+    }
+  },
+  
+  "classification_and_security_framework": {
+    "classification_determination": {
+      "content_analysis": {
+        "source_sensitivity": "evaluated",
+        "method_protection": "assessed",
+        "operational_impact": "considered",
+        "national_security_implications": "analyzed"
+      },
+      "marking_protocols": {
+        "overall_classification": "header_footer",
+        "portion_marking": "paragraph_level",
+        "handling_caveats": "appropriately_placed",
+        "declassification_instructions": "included"
+      }
+    },
+    
+    "handling_instructions": {
+      "dissemination_controls": {
+        "NOFORN": "No foreign nationals",
+        "REL_TO": "Releasable to specified countries",
+        "EYES_ONLY": "Restricted to named individuals",
+        "ORCON": "Originator controlled"
+      },
+      "special_controls": {
+        "SCI": "Sensitive Compartmented Information",
+        "SAP": "Special Access Program",
+        "LIMDIS": "Limited distribution",
+        "PROPIN": "Proprietary information"
+      }
+    },
+    
+    "security_review_checklist": {
+      "source_protection": "verified",
+      "method_sanitization": "completed",
+      "operational_security": "maintained",
+      "classification_compliance": "confirmed",
+      "distribution_appropriateness": "validated"
+    }
+  },
+  
+  "stakeholder_optimization_framework": {
+    "executive_optimization": {
+      "content_focus": {
+        "strategic_implications": "emphasized",
+        "decision_relevance": "prioritized",
+        "resource_implications": "highlighted",
+        "timeline_criticality": "specified"
+      },
+      "format_preferences": {
+        "brevity": "maximum",
+        "visual_aids": "integrated",
+        "bottom_line_upfront": "mandatory",
+        "recommendation_clarity": "explicit"
+      }
+    },
+    
+    "operational_optimization": {
+      "content_focus": {
+        "mission_relevance": "explicit",
+        "tactical_implications": "detailed",
+        "resource_requirements": "specified",
+        "operational_constraints": "acknowledged"
+      },
+      "format_preferences": {
+        "actionable_intelligence": "prioritized",
+        "timeline_specificity": "detailed",
+        "contingency_planning": "included",
+        "risk_mitigation": "addressed"
+      }
+    },
+    
+    "analytical_optimization": {
+      "content_focus": {
+        "methodological_rigor": "transparent",
+        "technical_depth": "comprehensive",
+        "uncertainty_articulation": "precise",
+        "analytical_alternatives": "explored"
+      },
+      "format_preferences": {
+        "peer_review_ready": "structured",
+        "citation_completeness": "academic",
+        "methodology_appendices": "detailed",
+        "data_transparency": "maximum"
+      }
+    },
+    
+    "partner_optimization": {
+      "content_focus": {
+        "shared_interests": "emphasized",
+        "classification_appropriate": "verified",
+        "cultural_sensitivity": "integrated",
+        "cooperative_opportunities": "highlighted"
+      },
+      "format_preferences": {
+        "international_standards": "followed",
+        "bilateral_agreements": "respected",
+        "information_sharing": "optimized",
+        "diplomatic_considerations": "integrated"
+      }
+    }
+  },
+  
   "execution_sequence": [
     {
       "step": 1,
-      "operation": "Report Structure Definition",
+      "operation": "Report Configuration and Planning",
       "actions": [
-        "Define appropriate report sections based on analysis type",
-        "Establish hierarchical organization of content",
-        "Set formatting standards for the report"
+        "Determine report type based on requirements and content",
+        "Establish classification level and handling instructions",
+        "Identify primary and secondary stakeholders",
+        "Select appropriate analytical techniques",
+        "Define report structure and components",
+        "Establish quality assurance requirements"
       ],
-      "output_on_completion": "//RESULT: report_structure: [Defined report structure]"
+      "output_on_completion": "//RESULT: report_configuration: [Detailed report plan and structure]"
     },
     {
       "step": 2,
-      "operation": "Verified Findings Compilation",
+      "operation": "Classification and Security Assessment",
       "actions": [
-        "Extract all verified findings from previous modules",
-        "Organize findings according to report structure",
-        "Ensure logical flow and narrative coherence"
-      ],
-      "output_on_completion": "//RESULT: verified_findings: [Organized compilation of findings]"
-    },
-    {
-      "step": 3,
-      "operation": "Uncertainty Assessment",
-      "actions": [
-        "Identify areas of uncertainty or limited evidence",
-        "Determine appropriate handling of speculative materials",
-        "Assess if clarification is needed regarding uncertainty inclusion"
+        "Analyze content for classification drivers",
+        "Determine overall classification level",
+        "Identify required handling caveats",
+        "Establish portion marking requirements",
+        "Define distribution limitations",
+        "Set declassification guidance"
       ],
       "condition": {
-        "if": "critical_uncertainties_exist",
-        "then": "//QUERY: Would you prefer these unresolved uncertainties to be included in the report as speculative assessments?",
-        "else": "//RESULT: No critical uncertainties requiring special handling"
+        "if": "classified_content_present",
+        "then": "//CLASSIFICATION: [Level] [Handling Instructions]",
+        "else": "//CLASSIFICATION: UNCLASSIFIED"
       }
     },
     {
-      "step": 4,
-      "operation": "Anomaly Integration",
+      "step": 3,
+      "operation": "Executive Materials Development",
       "actions": [
-        "Review anomalies identified in previous modules",
-        "Integrate anomaly analysis into appropriate report sections",
-        "Ensure appropriate contextualization of anomalies"
+        "Extract key findings and assessments",
+        "Develop bottom-line-up-front summary",
+        "Articulate strategic implications",
+        "Formulate key judgments with confidence levels",
+        "Identify critical decision points",
+        "Develop executive-level recommendations"
       ],
-      "output_on_completion": "//RESULT: integrated_anomalies: [Contextual anomaly analysis]"
+      "output_on_completion": "//RESULT: executive_materials: [Key judgments and executive summary]"
+    },
+    {
+      "step": 4,
+      "operation": "Analytical Tradecraft Implementation",
+      "actions": [
+        "Apply selected structured analytical techniques",
+        "Document analytical methodology",
+        "Develop evidence-based reasoning chains",
+        "Consider alternative hypotheses",
+        "Identify and test key assumptions",
+        "Integrate quality assurance feedback"
+      ],
+      "output_on_completion": "//RESULT: analytical_framework: [Tradecraft implementation details]"
     },
     {
       "step": 5,
-      "operation": "Report Generation",
+      "operation": "Source Evaluation and Attribution",
       "actions": [
-        "Draft complete report in formal, structured prose",
-        "Apply appropriate qualified language for uncertainties",
-        "Maintain consistent compositional quality throughout",
-        "Ensure all sections form a cohesive analytical narrative"
+        "Evaluate source reliability using IC standards",
+        "Assess information credibility systematically",
+        "Document corroboration levels",
+        "Apply appropriate source protection measures",
+        "Create source reference system",
+        "Develop attribution methodology"
       ],
-      "output_on_completion": "//RESULT: complete_report: [Full intelligence report]"
+      "output_on_completion": "//RESULT: source_evaluation: [Comprehensive source assessment]"
+    },
+    {
+      "step": 6,
+      "operation": "Confidence Level Integration",
+      "actions": [
+        "Assess confidence for each analytical judgment",
+        "Apply IC standard confidence terminology",
+        "Document confidence rationale",
+        "Integrate probabilistic language appropriately",
+        "Reconcile multi-source confidence conflicts",
+        "Articulate confidence limitations"
+      ],
+      "output_on_completion": "//RESULT: confidence_assessment: [Integrated confidence framework]"
+    },
+    {
+      "step": 7,
+      "operation": "Report Body Development",
+      "actions": [
+        "Develop introduction with scope and methodology",
+        "Create background section with context",
+        "Construct main analytical discussion",
+        "Integrate evidence and reasoning systematically",
+        "Develop implications and outlook sections",
+        "Ensure analytical line distinction throughout"
+      ],
+      "output_on_completion": "//RESULT: report_body: [Complete analytical narrative]"
+    },
+    {
+      "step": 8,
+      "operation": "Multi-Source Integration and Synthesis",
+      "actions": [
+        "Integrate findings from all intelligence disciplines",
+        "Resolve conflicting information systematically",
+        "Develop comprehensive analytical picture",
+        "Create cross-source corroboration matrix",
+        "Synthesize strategic insights",
+        "Document information gaps and limitations"
+      ],
+      "output_on_completion": "//RESULT: integrated_analysis: [Multi-source synthesis]"
+    },
+    {
+      "step": 9,
+      "operation": "Stakeholder-Specific Optimization",
+      "actions": [
+        "Adapt content focus for primary stakeholder",
+        "Adjust technical density appropriately",
+        "Optimize format for stakeholder preferences",
+        "Ensure decision-relevance of content",
+        "Tailor recommendations to stakeholder authority",
+        "Create stakeholder-specific annexes if needed"
+      ],
+      "output_on_completion": "//RESULT: stakeholder_optimization: [Customized content elements]"
+    },
+    {
+      "step": 10,
+      "operation": "Supporting Materials Development",
+      "actions": [
+        "Create analytical appendices and annexes",
+        "Develop methodology documentation",
+        "Prepare data tables and visualizations",
+        "Compile source documentation",
+        "Create glossary and acronym list",
+        "Develop timeline and chronology materials"
+      ],
+      "output_on_completion": "//RESULT: supporting_materials: [Appendices and annexes]"
+    },
+    {
+      "step": 11,
+      "operation": "Quality Assurance and Validation",
+      "actions": [
+        "Conduct analytical logic review",
+        "Verify factual accuracy and sourcing",
+        "Assess tradecraft compliance",
+        "Validate classification markings",
+        "Ensure format standard compliance",
+        "Document quality assurance findings"
+      ],
+      "condition": {
+        "if": "quality_issues_identified",
+        "then": "//QUERY: Quality issues require resolution: [Specific issues]",
+        "else": "//RESULT: quality_validation: All standards met"
+      }
+    },
+    {
+      "step": 12,
+      "operation": "Final Report Assembly",
+      "actions": [
+        "Compile all report components in proper order",
+        "Apply final classification markings",
+        "Insert page numbers and references",
+        "Generate table of contents",
+        "Apply distribution markings",
+        "Create final formatted document"
+      ],
+      "output_on_completion": "//PRODUCT: intelligence_report: [Complete professional intelligence report]"
+    },
+    {
+      "step": 13,
+      "operation": "Distribution Preparation",
+      "actions": [
+        "Identify authorized recipients",
+        "Prepare distribution-specific versions if needed",
+        "Create dissemination record",
+        "Establish feedback collection mechanism",
+        "Set review and update schedule",
+        "Document distribution limitations"
+      ],
+      "output_on_completion": "//RESULT: distribution_package: [Report ready for dissemination]"
     }
   ],
-  "prompt": "Generate a comprehensive written report based on the aggregated outputs of previous modules. The report should be constructed in formal, structured prose and adhere to professional intelligence standards.\n\nFollow this sequence:\n\n1. Define an appropriate report structure based on the analysis type. This typically includes sections such as: Introduction, Methodology, Observations, Interpretive Analysis, and Concluding Assessment. Establish a hierarchical organization that ensures logical flow and informational clarity.\n\n2. Compile all verified findings from previous modules and organize them according to the report structure. Ensure narrative coherence and logical progression of information throughout the document.\n\n3. Identify areas of uncertainty or limited evidence. Assess how to appropriately handle speculative material. Where uncertainty exists, use reserved and qualified language (e.g., \"It is plausible that...\", \"There is limited evidence suggesting...\", \"Indicators may point to...\").\n\n4. Review anomalies identified in previous modules and integrate them into appropriate report sections. Ensure anomalies are properly contextualized—neither dismissed without basis nor overemphasized beyond their evidential support.\n\n5. Draft the complete report in formal, structured prose. Maintain a high standard of compositional quality throughout. Avoid informal expressions, bullet points, or formatting structures inconsistent with continuous prose. Apply appropriate qualified language for uncertainties while presenting verified findings with appropriate confidence.\n\nIf critical uncertainties remain unresolved and could influence interpretation or decision-making, raise the following query:\n//QUERY: Would you prefer these unresolved uncertainties to be included in the report as speculative assessments?\n\nYour output must consist of a complete, professionally formatted intelligence report that begins with:\n//RESULT: complete_report:\n\nThe objective is to produce a document of sufficient clarity and rigor to inform strategic or operational decision-making without the need for editorial refinement. Do not introduce additional information not derived from prior module outputs unless explicitly requested."
+  
+  "report_components": {
+    "cover_page": {
+      "elements": [
+        "classification_marking",
+        "report_title",
+        "report_type",
+        "publication_date",
+        "originating_organization",
+        "report_number",
+        "handling_instructions",
+        "distribution_statement"
+      ]
+    },
+    
+    "executive_summary": {
+      "elements": [
+        "bottom_line_upfront",
+        "key_judgments",
+        "strategic_context",
+        "major_findings",
+        "critical_gaps",
+        "recommendations_summary"
+      ],
+      "requirements": {
+        "standalone_readable": true,
+        "decision_focused": true,
+        "confidence_integrated": true,
+        "brevity_enforced": true
+      }
+    },
+    
+    "key_judgments": {
+      "structure": {
+        "judgment_statement": "clear_and_concise",
+        "confidence_level": "explicitly_stated",
+        "supporting_rationale": "briefly_summarized",
+        "implications": "decision_relevant",
+        "timeline": "when_applicable"
+      }
+    },
+    
+    "main_body": {
+      "standard_sections": [
+        "introduction",
+        "background",
+        "discussion",
+        "assessment",
+        "outlook",
+        "implications"
+      ],
+      "analytical_elements": [
+        "evidence_presentation",
+        "reasoning_articulation",
+        "alternative_consideration",
+        "confidence_communication",
+        "source_attribution"
+      ]
+    },
+    
+    "appendices": {
+      "standard_appendices": [
+        "methodology",
+        "source_notes",
+        "data_tables",
+        "chronology",
+        "glossary",
+        "acronyms"
+      ],
+      "optional_appendices": [
+        "technical_details",
+        "statistical_analysis",
+        "alternative_scenarios",
+        "collection_gaps",
+        "indicators_list"
+      ]
+    }
+  },
+  
+  "quality_metrics": {
+    "analytical_rigor": {
+      "logic_consistency": "measured",
+      "evidence_quality": "assessed",
+      "alternative_consideration": "verified",
+      "assumption_transparency": "confirmed",
+      "methodology_soundness": "validated"
+    },
+    
+    "report_quality": {
+      "clarity": "assessed",
+      "completeness": "verified",
+      "accuracy": "validated",
+      "relevance": "confirmed",
+      "timeliness": "measured"
+    },
+    
+    "compliance_verification": {
+      "classification_accuracy": "validated",
+      "format_standards": "confirmed",
+      "tradecraft_adherence": "verified",
+      "stakeholder_appropriateness": "assessed",
+      "distribution_compliance": "confirmed"
+    }
+  },
+  
+  "prompt": "You are the Professional Intelligence Report Generation Module of the TSUKUYOMI framework, responsible for producing intelligence reports that meet the highest standards of the intelligence community.\n\nYour primary functions include:\n\n1. **Report Planning and Configuration**: Determine appropriate report type, structure, classification level, and stakeholder optimization based on content and requirements.\n\n2. **Analytical Tradecraft Implementation**: Apply structured analytical techniques including Analysis of Competing Hypotheses, Key Assumptions Check, Scenario Analysis, and Indicators and Warnings frameworks.\n\n3. **Professional Formatting**: Generate reports following IC-standard formats including proper classification markings, executive summaries, key judgments, and analytical narratives.\n\n4. **Confidence and Sourcing Standards**: Implement professional confidence levels (High/Moderate/Low) with clear rationale, source evaluation using reliability and credibility scales, and appropriate attribution.\n\n5. **Security Integration**: Determine classification levels, apply handling instructions, implement portion marking, and ensure source and method protection.\n\n6. **Stakeholder Optimization**: Adapt report content, format, and focus for specific audiences (executive, operational, analytical, or partner).\n\n7. **Multi-Source Synthesis**: Integrate findings from multiple intelligence disciplines, resolve conflicting information, and develop comprehensive assessments.\n\n8. **Quality Assurance**: Ensure analytical rigor, logical consistency, factual accuracy, and compliance with intelligence community standards.\n\nWhen generating reports:\n\n- Always distinguish between assessed information (analytical line) and established facts\n- Integrate confidence levels and probabilistic language throughout\n- Consider and document alternative explanations and hypotheses\n- Maintain transparent methodology and acknowledge analytical limitations\n- Ensure all judgments are evidence-based with clear reasoning chains\n- Protect sources and methods through appropriate sanitization\n- Optimize content for decision-maker needs while maintaining analytical integrity\n\nReport types you can generate include:\n- Intelligence Assessments (strategic/tactical analysis)\n- Intelligence Estimates (predictive analysis)  \n- Intelligence Summaries (situational awareness)\n- Warning Intelligence (threat assessments)\n- Technical Intelligence Reports (capability analysis)\n\nYour output must demonstrate mastery of:\n- Intelligence analytical tradecraft\n- Professional report formatting\n- Classification and security protocols\n- Stakeholder communication optimization\n- Multi-source analytical integration\n- Quality assurance standards\n\nBegin each report generation by assessing requirements, determining optimal structure, and implementing appropriate analytical techniques. Ensure the final product meets professional intelligence community standards while serving stakeholder decision-making needs."
 }
