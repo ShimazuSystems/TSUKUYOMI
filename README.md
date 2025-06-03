@@ -8,9 +8,17 @@
 
 TSUKUYOMI is an advanced modular intelligence framework designed for systematic analysis, processing, and reporting across multiple domains. Built on a component-based architecture, it separates operational logic from presentation through specialized modules and personality cores, enabling flexible and extensible analytical workflows.
 
+## Key Features
+
+- **Modular Architecture**: Self-contained operational modules for specific analysis tasks
+- **Personality System**: Customizable communication styles and interaction patterns
+- **Structured Output**: Standardized formatting with confidence levels and source attribution
+- **Domain Expertise**: Specialized modules for OSINT, economic analysis, infrastructure assessment, and strategic intelligence
+- **Flexible Workflows**: Modules can be chained and combined for complex analytical processes
+
 ## Usage
 
-
+[Technical Documentation](https://github.com/ShimazuSystems/TSUKUYOMI/wiki/Technical-Documentation)
 
 ### Loading/Installation
 
@@ -108,15 +116,6 @@ TSUKUYOMI is an advanced modular intelligence framework designed for systematic 
 - **Persistence:** Most platforms retain project knowledge across sessions
 - **Cost:** Free tiers available but paid plans recommended for full functionality
 - **Integration:** Consider your existing tool ecosystem
-
-
-## Key Features
-
-- **Modular Architecture**: Self-contained operational modules for specific analysis tasks
-- **Personality System**: Customizable communication styles and interaction patterns
-- **Structured Output**: Standardized formatting with confidence levels and source attribution
-- **Domain Expertise**: Specialized modules for OSINT, economic analysis, infrastructure assessment, and strategic intelligence
-- **Flexible Workflows**: Modules can be chained and combined for complex analytical processes
 
 ## Architecture
 
