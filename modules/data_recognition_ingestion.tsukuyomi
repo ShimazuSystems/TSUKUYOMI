@@ -1,103 +1,654 @@
 {
   "id": "data_recognition_ingestion",
-  "version": "1.0.0",
-  "title": "Module 1: Data Recognition & Ingestion",
-  "description": "Identifies file types, scans for structural patterns, and extracts key entities from provided data",
-  "type": "ingestion",
+  "version": "2.0.0",
+  "title": "Professional Intelligence Data Recognition & Ingestion System",
+  "description": "Comprehensive intelligence data processing system implementing IC standards for multi-INT source handling, classification management, source evaluation, and operational security",
+  "type": "intelligence_ingestion",
   "dependencies": [],
   "personality_compatibility": {
-    "required_capabilities": ["technical_analysis", "data_description"],
-    "preferred_personality": "default",
-    "personality_override_allowed": true
+    "required_capabilities": ["technical_analysis", "data_description", "security_awareness", "source_evaluation"],
+    "preferred_personality": "amaterasu",
+    "personality_override_allowed": false
+  },
+  "security_requirements": {
+    "classification_awareness": "mandatory",
+    "source_protection": "enforced",
+    "audit_trail": "comprehensive",
+    "handling_compliance": "strict"
   },
   "input_requirements": [
     {
       "name": "data_source",
-      "type": "file | text | url",
-      "description": "Raw data or file to be analyzed",
+      "type": "file | text | url | stream",
+      "description": "Intelligence data, reports, or materials to be analyzed",
       "required": true
+    },
+    {
+      "name": "security_context",
+      "type": "object",
+      "description": "Classification level, handling instructions, and access controls",
+      "required": false
+    },
+    {
+      "name": "collection_metadata",
+      "type": "object",
+      "description": "Source information, collection parameters, and provenance data",
+      "required": false
     }
   ],
   "output_schema": {
     "format": "structured",
-    "standard_tags": ["//RESULT", "//ANOMALY", "//QUERY"],
+    "standard_tags": ["//RESULT", "//ANOMALY", "//QUERY", "//CLASSIFICATION", "//SOURCE", "//CRITICAL"],
     "fields": [
       {
-        "name": "file_type",
-        "description": "Identified file format or data structure",
-        "type": "string"
+        "name": "intelligence_classification",
+        "description": "Identified intelligence discipline and source type",
+        "type": "object"
       },
       {
-        "name": "entities",
-        "description": "List of extracted entities, structures, formats",
-        "type": "array"
+        "name": "security_assessment",
+        "description": "Classification level and handling instructions",
+        "type": "object"
       },
       {
-        "name": "anomalies",
-        "description": "List of detected irregularities",
+        "name": "source_evaluation",
+        "description": "IC-standard reliability and credibility assessment",
+        "type": "object"
+      },
+      {
+        "name": "metadata_extraction",
+        "description": "Comprehensive metadata including temporal, geospatial, technical, and provenance",
+        "type": "object"
+      },
+      {
+        "name": "entity_recognition",
+        "description": "Extracted intelligence entities and patterns",
+        "type": "object"
+      },
+      {
+        "name": "chain_of_custody",
+        "description": "Complete audit trail and handling documentation",
+        "type": "object"
+      },
+      {
+        "name": "quality_assessment",
+        "description": "Data integrity, completeness, and validation results",
+        "type": "object"
+      },
+      {
+        "name": "anomaly_detection",
+        "description": "Identified anomalies, threats, and concerns",
         "type": "array"
       }
     ]
   },
+  "intelligence_discipline_framework": {
+    "HUMINT": {
+      "indicators": ["source report", "debrief", "interview", "human source", "HUMINT", "agent report", "asset reporting"],
+      "formats": ["narrative report", "transcript", "debriefing report", "contact report", "intelligence information report"],
+      "metadata_focus": ["source identity", "access and placement", "motivation", "reliability history", "collection circumstances"],
+      "entity_priorities": ["persons of interest", "relationships", "activities", "intentions", "capabilities"]
+    },
+    "SIGINT": {
+      "indicators": ["intercept", "SIGINT", "COMINT", "ELINT", "signal", "communications", "electronic intelligence"],
+      "formats": ["intercept transcript", "signal analysis", "traffic analysis", "technical report", "gist report"],
+      "metadata_focus": ["collection platform", "frequency", "modulation", "encryption", "geolocation", "timestamp"],
+      "entity_priorities": ["communication nodes", "networks", "technical parameters", "participants", "content"]
+    },
+    "GEOINT": {
+      "indicators": ["imagery", "GEOINT", "satellite", "coordinates", "geospatial", "mapping", "terrain"],
+      "formats": ["imagery analysis", "geospatial report", "coordinate data", "mapping product", "terrain analysis"],
+      "metadata_focus": ["collection platform", "resolution", "accuracy", "timestamp", "coordinates", "projection"],
+      "entity_priorities": ["facilities", "equipment", "terrain features", "activity patterns", "changes"]
+    },
+    "OSINT": {
+      "indicators": ["open source", "OSINT", "media", "public", "news", "social media", "academic"],
+      "formats": ["media report", "social media analysis", "academic paper", "public record", "news article"],
+      "metadata_focus": ["source URL", "publication date", "author", "platform", "language", "credibility"],
+      "entity_priorities": ["public figures", "organizations", "events", "trends", "sentiment"]
+    },
+    "CYBINT": {
+      "indicators": ["cyber", "network", "malware", "threat", "indicator", "digital", "forensics"],
+      "formats": ["threat report", "malware analysis", "network capture", "forensic report", "IOC list"],
+      "metadata_focus": ["IP addresses", "domains", "hashes", "TTPs", "attribution", "timestamps"],
+      "entity_priorities": ["threat actors", "malware families", "vulnerabilities", "targets", "infrastructure"]
+    },
+    "MASINT": {
+      "indicators": ["MASINT", "measurement", "signature", "sensor", "technical collection", "scientific"],
+      "formats": ["technical measurement", "signature analysis", "sensor report", "scientific data", "parametric data"],
+      "metadata_focus": ["sensor type", "measurement parameters", "accuracy", "calibration", "environmental conditions"],
+      "entity_priorities": ["signatures", "phenomena", "technical characteristics", "anomalies", "patterns"]
+    }
+  },
+  "classification_handling_framework": {
+    "classification_levels": {
+      "UNCLASSIFIED": {
+        "markers": ["UNCLASSIFIED", "U", "UNCLAS"],
+        "handling": "standard",
+        "distribution": "unrestricted"
+      },
+      "CONFIDENTIAL": {
+        "markers": ["CONFIDENTIAL", "C", "CONFIDENTIAL//"],
+        "handling": "protected",
+        "distribution": "restricted"
+      },
+      "SECRET": {
+        "markers": ["SECRET", "S", "SECRET//"],
+        "handling": "secure",
+        "distribution": "limited"
+      },
+      "TOP_SECRET": {
+        "markers": ["TOP SECRET", "TS", "TOP SECRET//", "TS//"],
+        "handling": "highly_secure",
+        "distribution": "controlled"
+      }
+    },
+    "handling_instructions": {
+      "NOFORN": {
+        "markers": ["NOFORN", "NF"],
+        "restriction": "no_foreign_nationals",
+        "enforcement": "strict"
+      },
+      "REL_TO": {
+        "markers": ["REL TO", "REL"],
+        "restriction": "releasable_to_specified",
+        "parameters": "country_list"
+      },
+      "EYES_ONLY": {
+        "markers": ["EYES ONLY", "EO"],
+        "restriction": "named_recipients_only",
+        "enforcement": "absolute"
+      },
+      "ORCON": {
+        "markers": ["ORCON", "OC"],
+        "restriction": "originator_controlled",
+        "requirement": "originator_approval"
+      },
+      "LIMDIS": {
+        "markers": ["LIMDIS", "LD"],
+        "restriction": "limited_distribution",
+        "scope": "defined_list"
+      }
+    },
+    "compartmentalization": {
+      "SCI": {
+        "markers": ["SCI", "SENSITIVE COMPARTMENTED INFORMATION"],
+        "handling": "compartmented",
+        "access": "read_on_required"
+      },
+      "SAP": {
+        "markers": ["SAP", "SPECIAL ACCESS PROGRAM"],
+        "handling": "special_access",
+        "access": "explicit_authorization"
+      }
+    }
+  },
+  "source_evaluation_framework": {
+    "reliability_assessment": {
+      "A": {
+        "description": "Completely reliable",
+        "criteria": ["established track record", "direct access", "consistent accuracy", "no known deception"],
+        "confidence_factor": 0.95
+      },
+      "B": {
+        "description": "Usually reliable",
+        "criteria": ["good track record", "generally accurate", "occasional minor errors", "trusted source"],
+        "confidence_factor": 0.80
+      },
+      "C": {
+        "description": "Fairly reliable",
+        "criteria": ["mixed track record", "usually accurate", "some errors", "reasonable access"],
+        "confidence_factor": 0.65
+      },
+      "D": {
+        "description": "Not usually reliable",
+        "criteria": ["poor track record", "often inaccurate", "limited access", "questionable motivation"],
+        "confidence_factor": 0.40
+      },
+      "E": {
+        "description": "Unreliable",
+        "criteria": ["consistently inaccurate", "known fabrication", "hostile source", "deceptive history"],
+        "confidence_factor": 0.20
+      },
+      "F": {
+        "description": "Reliability cannot be judged",
+        "criteria": ["new source", "no track record", "unknown access", "insufficient history"],
+        "confidence_factor": 0.50
+      }
+    },
+    "credibility_assessment": {
+      "1": {
+        "description": "Confirmed by other sources",
+        "criteria": ["multiple independent corroboration", "consistent with known facts", "verified information"],
+        "confidence_multiplier": 1.2
+      },
+      "2": {
+        "description": "Probably true",
+        "criteria": ["logical and consistent", "fits known patterns", "partial corroboration", "plausible"],
+        "confidence_multiplier": 1.0
+      },
+      "3": {
+        "description": "Possibly true",
+        "criteria": ["reasonable but unconfirmed", "cannot be corroborated", "neither confirmed nor denied"],
+        "confidence_multiplier": 0.8
+      },
+      "4": {
+        "description": "Doubtful",
+        "criteria": ["questionable logic", "inconsistent with facts", "contradictory elements", "suspicious"],
+        "confidence_multiplier": 0.5
+      },
+      "5": {
+        "description": "Improbable",
+        "criteria": ["highly unlikely", "contradicts known facts", "illogical", "probable fabrication"],
+        "confidence_multiplier": 0.3
+      },
+      "6": {
+        "description": "Truth cannot be judged",
+        "criteria": ["insufficient information", "no corroboration possible", "ambiguous", "indeterminate"],
+        "confidence_multiplier": 0.6
+      }
+    }
+  },
+  "metadata_extraction_framework": {
+    "temporal_metadata": {
+      "collection_timestamp": "ISO 8601 format with timezone",
+      "report_generation_time": "Document creation timestamp",
+      "event_timeframe": "When reported events occurred",
+      "information_cutoff": "Latest information included",
+      "validity_period": "How long information remains current",
+      "time_precision": "Exact, approximate, or range"
+    },
+    "geospatial_metadata": {
+      "coordinates": "Lat/long, MGRS, or other systems",
+      "location_names": "Place names and administrative divisions",
+      "geographic_scope": "Area covered by the intelligence",
+      "coordinate_system": "WGS84, UTM, or other projection",
+      "location_precision": "Exact, vicinity, or general area",
+      "elevation_data": "If relevant to the intelligence"
+    },
+    "technical_metadata": {
+      "file_format": "Document type and version",
+      "encoding": "Character set and encoding method",
+      "size": "File size and dimensions",
+      "hash_values": "MD5, SHA256 for integrity",
+      "creation_system": "Software/platform used",
+      "modification_history": "Edit tracking if available"
+    },
+    "provenance_metadata": {
+      "collection_platform": "System or method used",
+      "collector_identity": "Organization or unit",
+      "processing_history": "Systems and analysts involved",
+      "dissemination_history": "Previous distribution",
+      "chain_of_custody": "Complete handling record",
+      "version_control": "Document version tracking"
+    }
+  },
+  "entity_recognition_framework": {
+    "person_entities": {
+      "government_officials": ["titles", "positions", "affiliations", "clearances"],
+      "military_personnel": ["rank", "unit", "specialty", "command"],
+      "intelligence_operatives": ["agency", "cover", "operational_role", "access"],
+      "threat_actors": ["group_affiliation", "role", "capabilities", "intent"],
+      "key_individuals": ["influence", "connections", "resources", "motivations"]
+    },
+    "organization_entities": {
+      "government_agencies": ["department", "bureau", "mission", "authority"],
+      "military_units": ["designation", "size", "capability", "deployment"],
+      "intelligence_services": ["agency", "division", "focus", "operations"],
+      "threat_organizations": ["structure", "leadership", "capabilities", "objectives"],
+      "commercial_entities": ["industry", "size", "connections", "activities"]
+    },
+    "location_entities": {
+      "facilities": ["type", "purpose", "security", "coordinates"],
+      "installations": ["military_base", "government_facility", "industrial_site"],
+      "infrastructure": ["transportation", "communication", "energy", "water"],
+      "geographic_features": ["terrain", "borders", "strategic_significance"],
+      "urban_areas": ["cities", "districts", "neighborhoods", "landmarks"]
+    },
+    "technical_entities": {
+      "weapons_systems": ["type", "capabilities", "deployment", "readiness"],
+      "communication_systems": ["network", "encryption", "capacity", "vulnerabilities"],
+      "cyber_infrastructure": ["systems", "defenses", "vulnerabilities", "capabilities"],
+      "equipment": ["specifications", "quantity", "condition", "location"],
+      "technologies": ["maturity", "applications", "limitations", "proliferation"]
+    },
+    "pattern_entities": {
+      "communication_patterns": ["frequency", "participants", "content", "methods"],
+      "movement_patterns": ["routes", "timing", "vehicles", "personnel"],
+      "financial_patterns": ["transactions", "amounts", "networks", "purposes"],
+      "operational_patterns": ["TTPs", "cycles", "triggers", "objectives"],
+      "behavioral_patterns": ["routines", "preferences", "associates", "activities"]
+    }
+  },
+  "chain_of_custody_framework": {
+    "collection_documentation": {
+      "source_authentication": "Identity verification and validation",
+      "collection_authority": "Legal and operational authorization",
+      "collection_method": "Technical or human means employed",
+      "collection_timestamp": "Precise time of information gathering",
+      "initial_classification": "Original security determination",
+      "collector_attribution": "Organization and individual responsible"
+    },
+    "processing_documentation": {
+      "processing_systems": "Platforms and tools used",
+      "analyst_interactions": "Personnel who accessed/modified",
+      "transformations": "Changes, translations, or conversions",
+      "quality_checkpoints": "Validation and verification steps",
+      "processing_timeline": "Duration and milestone timestamps",
+      "version_tracking": "All versions and modifications"
+    },
+    "distribution_tracking": {
+      "recipient_logging": "All individuals/organizations receiving",
+      "distribution_method": "Channels and systems used",
+      "access_timestamps": "When each recipient accessed",
+      "acknowledgment": "Confirmation of receipt",
+      "onward_distribution": "Secondary distribution tracking",
+      "retention_compliance": "Adherence to retention policies"
+    }
+  },
+  "security_protocols": {
+    "source_protection": {
+      "identity_protection": "Mask source identities and covers",
+      "method_sanitization": "Protect collection techniques",
+      "capability_masking": "Hide technical capabilities",
+      "operational_security": "Protect ongoing operations",
+      "relationship_protection": "Safeguard source relationships"
+    },
+    "classification_protection": {
+      "upgrade_detection": "Identify classification escalation",
+      "aggregation_risk": "Assess compilation sensitivity",
+      "inference_protection": "Prevent deductive disclosure",
+      "sanitization_requirements": "Determine redaction needs",
+      "downgrade_potential": "Assess declassification options"
+    },
+    "counterintelligence_awareness": {
+      "deception_indicators": "Signs of misinformation/disinformation",
+      "targeting_evidence": "Indicators of foreign interest",
+      "compromise_indicators": "Signs of security breaches",
+      "anomaly_patterns": "Unusual activity or access",
+      "threat_signatures": "Known adversary techniques"
+    }
+  },
+  "quality_assurance_framework": {
+    "data_integrity": {
+      "format_validation": "Verify compliance with standards",
+      "completeness_check": "Identify missing elements",
+      "corruption_detection": "Find data integrity issues",
+      "consistency_verification": "Check internal consistency",
+      "accuracy_assessment": "Validate factual accuracy"
+    },
+    "source_validation": {
+      "authentication_check": "Verify source identity",
+      "authorization_verification": "Confirm collection authority",
+      "access_validation": "Verify source positioning",
+      "corroboration_check": "Cross-reference with other sources",
+      "reliability_trend": "Historical accuracy pattern"
+    },
+    "content_quality": {
+      "relevance_scoring": "Intelligence value assessment",
+      "timeliness_evaluation": "Currency and aging factors",
+      "completeness_rating": "Information sufficiency",
+      "clarity_assessment": "Readability and understanding",
+      "exploitability_score": "Analytical utility rating"
+    }
+  },
+  "anomaly_detection_framework": {
+    "content_anomalies": {
+      "logical_inconsistencies": "Contradictory information",
+      "temporal_anomalies": "Impossible timelines",
+      "geographic_anomalies": "Impossible locations",
+      "technical_anomalies": "Impossible capabilities",
+      "behavioral_anomalies": "Unusual patterns"
+    },
+    "security_anomalies": {
+      "classification_mismatches": "Inconsistent markings",
+      "handling_violations": "Improper instructions",
+      "access_anomalies": "Unauthorized access patterns",
+      "distribution_anomalies": "Unusual dissemination",
+      "timing_anomalies": "Suspicious timing patterns"
+    },
+    "deception_indicators": {
+      "known_false_information": "Confirmed fabrications",
+      "manipulation_signatures": "Editing or alteration signs",
+      "disinformation_patterns": "Propaganda techniques",
+      "technical_impossibilities": "Physically impossible claims",
+      "source_inconsistencies": "Conflicting source behavior"
+    }
+  },
   "execution_sequence": [
     {
       "step": 1,
-      "operation": "File Type Identification",
+      "operation": "Security Context Initialization",
       "actions": [
-        "Analyze provided data to identify file type or format",
-        "Determine content structure and organization",
-        "Assess data integrity and completeness"
+        "Establish classification level for processing",
+        "Verify user authorization and access rights",
+        "Initialize audit trail and logging mechanisms",
+        "Set security constraints and handling parameters",
+        "Activate source protection protocols"
       ],
-      "output_on_completion": "//RESULT: file_type: [Identified file type]"
+      "output_on_completion": "//CLASSIFICATION: Processing initialized at [LEVEL] with full audit trail active"
     },
     {
       "step": 2,
-      "operation": "Pattern Recognition",
+      "operation": "Intelligence Discipline Classification",
       "actions": [
-        "Scan for recurring patterns in the data",
-        "Identify standardized formats or conventions",
-        "Detect structural organization"
+        "Analyze content for INT discipline indicators",
+        "Identify primary and secondary collection types",
+        "Determine source format and structure",
+        "Classify intelligence product type",
+        "Assess multi-INT fusion requirements"
       ],
-      "output_on_completion": "//RESULT: patterns: [List of detected patterns]"
+      "output_on_completion": "//RESULT: intelligence_classification: [Identified disciplines and source types]"
     },
     {
       "step": 3,
-      "operation": "Entity Extraction",
+      "operation": "Classification and Handling Detection",
       "actions": [
-        "Identify and extract key entities from the data",
-        "Categorize entities by type (names, locations, dates, etc.)",
-        "Record entity relationships where evident"
+        "Scan for classification markings and levels",
+        "Identify handling instructions and caveats",
+        "Detect compartmentalization requirements",
+        "Extract dissemination controls",
+        "Verify marking consistency and compliance"
       ],
-      "output_on_completion": "//RESULT: entities: [List of extracted entities]"
+      "condition": {
+        "if": "classified_content_detected",
+        "then": "//CLASSIFICATION: [LEVEL] [HANDLING INSTRUCTIONS]",
+        "else": "//CLASSIFICATION: UNCLASSIFIED - No handling restrictions detected"
+      }
     },
     {
       "step": 4,
-      "operation": "Anomaly Detection",
+      "operation": "Source Reliability and Credibility Assessment",
       "actions": [
-        "Check for irregularities in the data format",
-        "Identify potential corruption or missing segments",
-        "Flag unexpected patterns or content"
+        "Evaluate source identity and access",
+        "Assess historical reliability (A-F scale)",
+        "Determine information credibility (1-6 scale)",
+        "Calculate composite confidence score",
+        "Document assessment rationale"
       ],
-      "condition": {
-        "if": "anomalies_detected",
-        "then": "//ANOMALY: [Description of detected irregularities]",
-        "else": "//RESULT: No irregularities detected"
-      }
+      "output_on_completion": "//SOURCE: Reliability [A-F] / Credibility [1-6] - Composite confidence: [SCORE]"
     },
     {
       "step": 5,
-      "operation": "Recognition Completeness Assessment",
+      "operation": "Comprehensive Metadata Extraction",
       "actions": [
-        "Evaluate confidence in data recognition",
-        "Determine if format is fully recognized",
-        "Assess if additional context is needed"
+        "Extract temporal metadata and timestamps",
+        "Identify geospatial references and coordinates",
+        "Capture technical specifications and parameters",
+        "Document provenance and chain of custody",
+        "Compile complete metadata catalog"
+      ],
+      "output_on_completion": "//RESULT: metadata_extraction: [Comprehensive metadata catalog]"
+    },
+    {
+      "step": 6,
+      "operation": "Intelligence Entity Recognition and Extraction",
+      "actions": [
+        "Identify person entities and relationships",
+        "Extract organization entities and structures",
+        "Locate geographic entities and facilities",
+        "Recognize technical entities and capabilities",
+        "Detect operational patterns and behaviors"
+      ],
+      "output_on_completion": "//RESULT: entity_recognition: [Extracted intelligence entities and patterns]"
+    },
+    {
+      "step": 7,
+      "operation": "Chain of Custody Documentation",
+      "actions": [
+        "Record collection circumstances and authority",
+        "Document processing actions and timeline",
+        "Track all access and distribution events",
+        "Maintain version control and modifications",
+        "Generate comprehensive audit trail"
+      ],
+      "output_on_completion": "//RESULT: chain_of_custody: [Complete handling documentation]"
+    },
+    {
+      "step": 8,
+      "operation": "Data Quality and Integrity Verification",
+      "actions": [
+        "Validate format compliance and standards",
+        "Check completeness and identify gaps",
+        "Verify internal consistency and logic",
+        "Assess information value and relevance",
+        "Score overall data quality"
+      ],
+      "output_on_completion": "//RESULT: quality_assessment: [Data integrity and quality metrics]"
+    },
+    {
+      "step": 9,
+      "operation": "Anomaly and Threat Detection",
+      "actions": [
+        "Scan for content anomalies and inconsistencies",
+        "Identify security anomalies and violations",
+        "Detect deception and manipulation indicators",
+        "Assess counterintelligence concerns",
+        "Flag high-priority threats"
       ],
       "condition": {
-        "if": "recognition_incomplete",
-        "then": "//QUERY: Can you specify the format or intent of this file?",
-        "else": "//RESULT: Recognition complete"
+        "if": "critical_anomalies_detected",
+        "then": "//CRITICAL: [Threat description] - Immediate review required",
+        "else": "//RESULT: anomaly_scan: No critical threats detected"
       }
+    },
+    {
+      "step": 10,
+      "operation": "Security Sanitization Assessment",
+      "actions": [
+        "Identify information requiring protection",
+        "Determine sanitization requirements",
+        "Assess classification upgrade risks",
+        "Evaluate aggregation sensitivities",
+        "Recommend protection measures"
+      ],
+      "output_on_completion": "//RESULT: security_assessment: [Protection requirements and recommendations]"
+    },
+    {
+      "step": 11,
+      "operation": "Intelligence Value Assessment",
+      "actions": [
+        "Evaluate operational relevance and timeliness",
+        "Assess analytical utility and exploitability",
+        "Determine collection gap coverage",
+        "Score intelligence value proposition",
+        "Identify follow-up collection requirements"
+      ],
+      "output_on_completion": "//RESULT: intelligence_value: [Operational relevance and analytical utility]"
+    },
+    {
+      "step": 12,
+      "operation": "Processing Completion and Handoff",
+      "actions": [
+        "Compile comprehensive processing report",
+        "Ensure all security protocols satisfied",
+        "Verify audit trail completeness",
+        "Prepare data for analytical modules",
+        "Generate processing completion certificate"
+      ],
+      "output_on_completion": "//RESULT: ingestion_complete: Data processed and ready for analysis"
     }
   ],
-  "prompt": "You will receive contextual files or data. Your task is to systematically identify the file types, scan for structural patterns, and extract key entities.\n\nFollow this sequence:\n\n1. Analyze the provided data to identify its format, structure, and type. Report your findings with confidence levels.\n\n2. Scan for recurring patterns, organizational structures, and format conventions within the data. Document any identifiable patterns.\n\n3. Extract and categorize significant entities found within the data. These may include personal identifiers, organizational references, temporal markers, geographical indicators, or technical parameters.\n\n4. Check for irregularities, inconsistencies, or anomalies in the data structure that might indicate corruption, tampering, or missing segments.\n\n5. Assess the completeness of your recognition. If the format or intent remains unclear, formulate specific queries to enhance recognition accuracy.\n\nYour output must follow this structured format:\n\n//RESULT: file_type: [Identified file type with confidence level]\n//RESULT: patterns: [Detected structural patterns]\n//RESULT: entities: [List of extracted entities with categories]\n\nIf recognition is incomplete:\n//QUERY: Can you specify the format or intent of this file?\n\nIf any irregularity is detected:\n//ANOMALY: [Detailed description of irregularity]\n\nMaintain objectivity and precision throughout your analysis, focusing on observable characteristics rather than speculative interpretation."
+  "error_handling": {
+    "security_violations": {
+      "unauthorized_access": "Halt processing, log incident, alert security",
+      "classification_mismatch": "Escalate to higher classification, flag for review",
+      "handling_violation": "Restrict access, require authorization confirmation"
+    },
+    "data_issues": {
+      "corruption_detected": "Attempt recovery, document damage, assess impact",
+      "format_incompatible": "Convert if possible, flag limitations, suggest alternatives",
+      "incomplete_data": "Process available portions, document gaps, assess utility"
+    },
+    "processing_failures": {
+      "entity_extraction_failure": "Use alternate methods, flag for manual review",
+      "metadata_incomplete": "Extract available data, note missing elements",
+      "validation_failure": "Document issues, assess impact, recommend remediation"
+    }
+  },
+  "reporting_framework": {
+    "standard_outputs": {
+      "processing_report": {
+        "classification_summary": "Overall classification and handling",
+        "source_assessment": "Reliability and credibility evaluation",
+        "entity_summary": "Key entities and patterns identified",
+        "metadata_summary": "Critical metadata elements",
+        "quality_summary": "Overall data quality assessment"
+      },
+      "security_report": {
+        "classification_determination": "Rationale for classification",
+        "handling_requirements": "Required controls and restrictions",
+        "sanitization_needs": "Information requiring protection",
+        "distribution_limitations": "Authorized recipient constraints",
+        "retention_guidance": "Storage and destruction requirements"
+      },
+      "analytical_readiness": {
+        "data_quality_score": "Suitability for analysis",
+        "entity_extraction_completeness": "Coverage of key entities",
+        "metadata_sufficiency": "Adequacy for analytical needs",
+        "source_confidence": "Reliability for assessments",
+        "recommended_analysis": "Suggested analytical approaches"
+      }
+    }
+  },
+  "ic_standards_compliance": {
+    "icd_203_compliance": {
+      "analytical_standards": "Source citation and confidence",
+      "uncertainty_expression": "Probabilistic language use",
+      "alternative_analysis": "Consideration of alternatives",
+      "key_assumptions": "Explicit assumption identification",
+      "information_gaps": "Clear gap acknowledgment"
+    },
+    "icd_206_compliance": {
+      "source_documentation": "Complete source description",
+      "reliability_assessment": "Standard scale application",
+      "credibility_evaluation": "Systematic assessment",
+      "corroboration_tracking": "Multi-source validation",
+      "citation_standards": "Proper source attribution"
+    },
+    "classification_guide_compliance": {
+      "marking_standards": "Proper classification markings",
+      "portion_marking": "Paragraph-level classification",
+      "handling_caveats": "Appropriate dissemination controls",
+      "declassification": "Proper declassification instructions",
+      "foreign_disclosure": "International sharing guidance"
+    }
+  },
+  "performance_optimization": {
+    "large_document_handling": {
+      "chunking_strategy": "Process in manageable segments",
+      "parallel_processing": "Concurrent entity extraction",
+      "incremental_updates": "Progressive result building",
+      "memory_management": "Efficient resource utilization",
+      "checkpoint_recovery": "Resume from interruption"
+    },
+    "real_time_processing": {
+      "priority_queuing": "Critical data first",
+      "stream_processing": "Continuous data flow",
+      "alert_generation": "Immediate threat notification",
+      "rapid_classification": "Quick security assessment",
+      "expedited_handling": "Fast-track critical intelligence"
+    }
+  },
+  "prompt": "You are the Professional Intelligence Data Recognition & Ingestion System, responsible for implementing IC-standard intelligence data processing with comprehensive security, source evaluation, and analytical preparation.\n\nYour primary functions include:\n\n1. **Intelligence Discipline Recognition**: Identify and classify HUMINT, SIGINT, GEOINT, OSINT, CYBINT, and MASINT sources with associated metadata and entity extraction priorities.\n\n2. **Classification and Security Management**: Detect classification levels (UNCLASSIFIED through TOP SECRET), handling instructions (NOFORN, REL TO, etc.), and compartmentalization requirements while maintaining strict security protocols.\n\n3. **Source Evaluation**: Apply IC-standard reliability (A-F) and credibility (1-6) assessments with comprehensive evaluation criteria and confidence scoring.\n\n4. **Metadata Extraction**: Capture temporal, geospatial, technical, and provenance metadata for complete intelligence context and analytical utility.\n\n5. **Entity Recognition**: Extract person, organization, location, technical, and pattern entities relevant to intelligence analysis with relationship mapping.\n\n6. **Chain of Custody**: Maintain comprehensive audit trails documenting collection, processing, access, and distribution for accountability and security.\n\n7. **Quality Assurance**: Verify data integrity, source validity, and content quality while identifying gaps and limitations.\n\n8. **Anomaly Detection**: Identify content inconsistencies, security anomalies, and potential deception indicators requiring special attention.\n\n9. **Security Integration**: Implement source protection, classification handling, and operational security throughout the processing pipeline.\n\n10. **IC Standards Compliance**: Ensure adherence to ICD 203 (Analytic Standards), ICD 206 (Sourcing Requirements), and classification guidance.\n\nFor each data input:\n- Establish security context and initialize audit trail\n- Classify intelligence discipline and source type  \n- Detect classification and handling requirements\n- Evaluate source reliability and information credibility\n- Extract comprehensive metadata across all categories\n- Identify and extract relevant intelligence entities\n- Document complete chain of custody\n- Assess data quality and integrity\n- Detect anomalies and potential threats\n- Determine security protection requirements\n- Prepare data for analytical processing\n\nMaintain the highest standards of:\n- Source and method protection\n- Classification accuracy and compliance\n- Analytical objectivity and rigor\n- Operational security awareness\n- Professional intelligence tradecraft\n\nAll processing must preserve intelligence value while protecting sensitive information and maintaining the integrity required for professional intelligence analysis."
 }
