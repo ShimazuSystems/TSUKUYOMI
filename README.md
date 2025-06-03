@@ -10,10 +10,105 @@ TSUKUYOMI is an advanced modular intelligence framework designed for systematic 
 
 ## Usage
 
-**Steps**
-  1) Add to Project Knowledge (Claude) or any other method of uploading files using other LLM services.
-  2) Enter: Initialise Amaterasu (or provide intelligence documents/reports/data/etc).
-  3) Enjoy.
+
+
+### Loading/Installation
+
+**Claude**
+> Note: Paid Subscription is more or less required
+* Project Knowledge Methods
+   * Adding Files Manually, simple & effective - lacks 'Sync' functionality
+   * Adding GitHub Repository (Best Method) - allows usage whilst keeping updated modules, allows hotswapping modules mid-session.
+* Individual Chat Method (Janky)
+   * If lacking subscription, this is the only method that will work: you will have to manually add the files to the chat via the upload.
+   * Can be time extensive with free 'limits'.
+   * Only allows 4 Sonnet, Opus performs better.
+
+**Gemini**
+> Note: Paid Subscription makes life easier, but isn't entirely necessary, I am not a Gemini user but I have learned this to help others navigate this.
+* Project Knowledge Methods
+   * Manual File Method, ditto from Claude
+   * Cloning the GitHub repository to a Drive folder, and loading it this way. This is the advised method, I lack the One Plus subscription but I imagine this could be automated fairly easily to 'Sync'.
+
+**ChatGPT**
+> Note: Paid Subscription more or less mandatory. (Important: GPT seems to be lagging behind in support for this kind of thing, or at least that's what I can see as a 'free' user.)
+* Project Knowledge Methods
+   * Cloning the GitHub repository to a Drive folder, this should provide basic Sync functionality like Gemini.
+
+**Others**
+> Note: 100% speculation here, aided by Claude 4.
+
+***
+
+## AI Models Supporting File Uploads & Project Management
+
+### **Microsoft Copilot - Knowledge Sources & File Upload**
+//AMATERASU: Enterprise-focused with extensive Microsoft integration.
+
+**How it works:**
+- You can upload your own documents for use as a knowledge source at the agent level, which your agent then uses to generate answers with generative AI
+- **Copilot Studio:** Create custom agents with knowledge bases
+- **Microsoft 365 Integration:** Access files from SharePoint, OneDrive
+- Enterprise knowledge management across Microsoft ecosystem
+
+**File Support:** Files larger than 512 MB aren't supported. Files with encryption, such as sensitivity labels or password protection, aren't supported
+**Requirements:** Microsoft 365 Copilot license or Copilot Studio access
+
+**Best for:** Organizations heavily invested in Microsoft ecosystem
+
+***
+
+### **Perplexity AI - File Upload for Research**
+//AMATERASU: Research-focused with real-time web integration.
+
+**How it works:**
+- Pro users can leverage advanced models like Claude 3 and GPT-4 to handle longer files
+- Upload academic papers to extract key insights, summarize findings, and explore related topics
+- Combines uploaded documents with real-time web search
+- 30-day file retention
+
+**File Support:** PDFs, CSV files, text documents, academic papers
+**Requirements:** Perplexity Pro ($20/month) for unlimited file uploads; limited free access
+
+**Best for:** Research-intensive workflows requiring real-time information
+
+***
+
+### **Mistral AI - Le Chat & Document Processing**
+//AMATERASU: European AI solution with strong document capabilities.
+
+**How it works:**
+- Upload, organize, and analyze arbitrary files using powerful OCR and vision models under the hood
+- Mistral OCR is an Optical Character Recognition API that sets a new standard in document understanding
+- Advanced document processing and OCR capabilities
+- Enterprise knowledge base integration
+
+**File Support:** PDFs, images, documents with OCR capabilities
+**Requirements:** Various pricing tiers available
+
+**Best for:** Document-heavy workflows requiring advanced OCR and European data residency
+
+***
+
+## **Quick Deployment Guide for TSUKUYOMI**
+
+### **Easiest Setup (Recommended):**
+1. **Claude Projects** - Upload all .tsukuyomi files directly
+2. Enter: "Initialise Amaterasu" or provide your data
+3. Framework auto-activates with full functionality
+
+### **Alternative Platforms:**
+- **ChatGPT Projects:** Upload files, create project-specific instructions
+- **Gemini Gems:** Create custom Gem with TSUKUYOMI files as knowledge base  
+- **Copilot Studio:** Build custom agent with TSUKUYOMI modules as knowledge sources
+- **Perplexity Pro:** Upload for research-focused intelligence analysis
+
+### **Key Considerations:**
+- **File Limits:** Vary by platform (Claude: context window, Gemini: 10 files, etc.)
+- **Persistence:** Most platforms retain project knowledge across sessions
+- **Cost:** Free tiers available but paid plans recommended for full functionality
+- **Integration:** Consider your existing tool ecosystem
+
 
 ## Key Features
 
