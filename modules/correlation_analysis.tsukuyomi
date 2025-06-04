@@ -1,119 +1,774 @@
 {
   "id": "correlation_analysis",
-  "version": "1.0.0",
-  "title": "Module 4: Correlation & Analysis",
-  "description": "Analyzes for high-confidence correlations between entities, events, or metadata",
-  "type": "analysis",
-  "dependencies": ["functional_inference"],
+  "version": "2.0.0",
+  "title": "Professional Intelligence Correlation Analysis Module",
+  "description": "IC-standard multi-source correlation analysis implementing structured analytic techniques, MSIF principles, and professional intelligence tradecraft for comprehensive relationship identification and validation",
+  "type": "intelligence_analysis",
+  "dependencies": ["data_recognition_ingestion", "functional_inference"],
   "personality_compatibility": {
-    "required_capabilities": ["complex_analysis", "correlation_reporting"],
-    "preferred_personality": "default",
-    "personality_override_allowed": true
+    "required_capabilities": ["analytical_rigor", "security_awareness", "technical_precision", "structured_reasoning"],
+    "preferred_personality": "amaterasu",
+    "personality_override_allowed": false
+  },
+  "intelligence_standards": {
+    "icd_203_compliance": true,
+    "icd_206_compliance": true,
+    "structured_analytic_techniques": "mandatory",
+    "source_evaluation_framework": "ic_standard"
   },
   "input_requirements": [
     {
-      "name": "entities",
-      "type": "array",
-      "description": "Extracted entities from previous modules",
-      "required": true
-    },
-    {
-      "name": "operational_context",
+      "name": "multi_source_data",
       "type": "object",
-      "description": "Context from previous modules including disciplines and operations",
+      "description": "Multi-INT data from previous modules with source attribution, metadata, and security markings",
       "required": true
     },
     {
-      "name": "reference_sources",
-      "type": "array",
-      "description": "Known sources or contextual files for correlation",
+      "name": "correlation_parameters",
+      "type": "object",
+      "description": "Correlation thresholds, methods, focus areas, and analytical priorities",
+      "required": false
+    },
+    {
+      "name": "security_context",
+      "type": "object",
+      "description": "Classification constraints, handling requirements, and compartmentalization",
+      "required": false
+    },
+    {
+      "name": "baseline_correlations",
+      "type": "object",
+      "description": "Known correlations for validation, comparison, and change detection",
       "required": false
     }
   ],
   "output_schema": {
     "format": "structured",
-    "standard_tags": ["//RESULT", "//QUERY", "//ANOMALY"],
+    "standard_tags": ["//RESULT", "//ANOMALY", "//QUERY", "//CLASSIFICATION", "//SOURCE", "//CONFIDENCE", "//CRITICAL"],
     "fields": [
       {
-        "name": "correlations",
-        "description": "List of identified correlations with confidence scores",
-        "type": "array"
-      },
-      {
-        "name": "confidence_thresholds",
-        "description": "Confidence thresholds applied to correlations",
+        "name": "correlation_matrix",
+        "description": "Comprehensive correlation results with confidence scores and source attribution",
         "type": "object"
       },
       {
-        "name": "contradictions",
-        "description": "List of contradictory data points",
+        "name": "structured_analysis",
+        "description": "SAT-based analytical framework results including ACH matrix and assumptions",
+        "type": "object"
+      },
+      {
+        "name": "source_fusion_assessment",
+        "description": "Multi-source correlation validation, conflicts, and reconciliation",
+        "type": "object"
+      },
+      {
+        "name": "confidence_framework",
+        "description": "Integrated confidence assessment with Bayesian fusion and uncertainty quantification",
+        "type": "object"
+      },
+      {
+        "name": "alternative_hypotheses",
+        "description": "Competing explanations for identified correlations with likelihood assessments",
         "type": "array"
+      },
+      {
+        "name": "analytical_gaps",
+        "description": "Identified information gaps affecting correlation analysis with collection recommendations",
+        "type": "array"
+      },
+      {
+        "name": "quality_metrics",
+        "description": "Assessment of correlation quality, reliability, and analytical rigor",
+        "type": "object"
       }
     ]
   },
+  
+  "msif_framework": {
+    "data_level_fusion": {
+      "raw_data_integration": {
+        "normalization": ["temporal_alignment", "coordinate_standardization", "unit_conversion"],
+        "harmonization": ["entity_resolution", "naming_standardization", "format_unification"],
+        "quality_assessment": ["completeness_check", "consistency_validation", "accuracy_verification"]
+      },
+      "source_metadata_integration": {
+        "provenance_tracking": "comprehensive",
+        "collection_context": "preserved",
+        "reliability_weighting": "applied"
+      }
+    },
+    "feature_level_fusion": {
+      "entity_correlation": {
+        "person_entities": ["identity_matching", "alias_resolution", "relationship_mapping"],
+        "organization_entities": ["structure_correlation", "affiliation_tracking", "hierarchy_mapping"],
+        "location_entities": ["coordinate_clustering", "facility_correlation", "geographic_analysis"],
+        "technical_entities": ["capability_matching", "signature_correlation", "equipment_tracking"]
+      },
+      "pattern_correlation": {
+        "temporal_patterns": ["activity_cycles", "event_sequences", "timeline_correlation"],
+        "spatial_patterns": ["movement_analysis", "clustering_detection", "route_correlation"],
+        "behavioral_patterns": ["modus_operandi", "preference_analysis", "habit_correlation"]
+      }
+    },
+    "decision_level_fusion": {
+      "analytical_integration": {
+        "hypothesis_reconciliation": "structured",
+        "confidence_combination": "bayesian",
+        "conflict_resolution": "weighted_evidence",
+        "uncertainty_propagation": "quantified"
+      },
+      "cross_int_synthesis": {
+        "humint_sigint_correlation": ["communication_validation", "activity_corroboration"],
+        "sigint_geoint_correlation": ["signal_geolocation", "activity_placement"],
+        "osint_validation": ["public_corroboration", "trend_confirmation"],
+        "multi_int_convergence": ["comprehensive_picture", "gap_identification"]
+      }
+    }
+  },
+  
+  "structured_analytic_techniques": {
+    "analysis_of_competing_hypotheses": {
+      "implementation": {
+        "hypothesis_generation": {
+          "methods": ["brainstorming", "morphological_analysis", "alternative_futures"],
+          "requirements": ["mutually_exclusive", "collectively_exhaustive", "testable"]
+        },
+        "evidence_matrix": {
+          "structure": "hypothesis_vs_evidence_grid",
+          "scoring": ["consistent", "inconsistent", "neutral", "not_applicable"],
+          "weighting": "diagnosticity_based"
+        },
+        "likelihood_calculation": {
+          "method": "weighted_inconsistency_score",
+          "confidence_integration": "source_reliability_adjusted",
+          "sensitivity_analysis": "included"
+        }
+      }
+    },
+    "key_assumptions_check": {
+      "implementation": {
+        "assumption_identification": {
+          "categories": ["data_assumptions", "analytical_assumptions", "contextual_assumptions"],
+          "documentation": "explicit_and_traceable"
+        },
+        "validity_assessment": {
+          "evidence_testing": "systematic",
+          "alternative_assumptions": "generated",
+          "impact_analysis": "quantified"
+        },
+        "assumption_tracking": {
+          "dependency_mapping": "comprehensive",
+          "change_monitoring": "continuous",
+          "alert_generation": "threshold_based"
+        }
+      }
+    },
+    "diagnostic_reasoning": {
+      "implementation": {
+        "evidence_diagnosticity": {
+          "uniqueness_assessment": "quantified",
+          "discriminatory_power": "calculated",
+          "relevance_scoring": "weighted"
+        },
+        "hypothesis_testing": {
+          "evidence_consistency": "evaluated",
+          "likelihood_ratios": "calculated",
+          "posterior_probabilities": "updated"
+        }
+      }
+    },
+    "chronology_and_timeline_analysis": {
+      "implementation": {
+        "temporal_sequencing": {
+          "event_ordering": "validated",
+          "causality_assessment": "systematic",
+          "pattern_identification": "automated"
+        },
+        "timeline_correlation": {
+          "multi_source_integration": "synchronized",
+          "gap_identification": "highlighted",
+          "anomaly_detection": "flagged"
+        }
+      }
+    },
+    "network_analysis": {
+      "implementation": {
+        "relationship_mapping": {
+          "node_identification": "comprehensive",
+          "link_characterization": "detailed",
+          "strength_quantification": "measured"
+        },
+        "centrality_analysis": {
+          "betweenness": "calculated",
+          "closeness": "measured",
+          "eigenvector": "analyzed"
+        },
+        "community_detection": {
+          "clustering_algorithms": "applied",
+          "subgroup_identification": "automated",
+          "hierarchy_mapping": "visualized"
+        }
+      }
+    }
+  },
+  
+  "source_evaluation_framework": {
+    "reliability_assessment": {
+      "A_completely_reliable": {
+        "criteria": {
+          "track_record": "100% accuracy over significant time",
+          "access": "direct and verified",
+          "motivation": "aligned and transparent",
+          "corroboration": "consistently confirmed"
+        },
+        "weight": 0.95
+      },
+      "B_usually_reliable": {
+        "criteria": {
+          "track_record": ">85% accuracy historically",
+          "access": "good with occasional limitations",
+          "motivation": "generally aligned",
+          "corroboration": "frequently confirmed"
+        },
+        "weight": 0.80
+      },
+      "C_fairly_reliable": {
+        "criteria": {
+          "track_record": "65-85% accuracy range",
+          "access": "moderate with some constraints",
+          "motivation": "mixed but manageable",
+          "corroboration": "sometimes confirmed"
+        },
+        "weight": 0.65
+      },
+      "D_not_usually_reliable": {
+        "criteria": {
+          "track_record": "<65% accuracy",
+          "access": "limited or indirect",
+          "motivation": "questionable",
+          "corroboration": "rarely confirmed"
+        },
+        "weight": 0.40
+      },
+      "E_unreliable": {
+        "criteria": {
+          "track_record": "consistently inaccurate",
+          "access": "poor or fabricated",
+          "motivation": "hostile or deceptive",
+          "corroboration": "contradicted by other sources"
+        },
+        "weight": 0.20
+      },
+      "F_reliability_cannot_be_judged": {
+        "criteria": {
+          "track_record": "no history available",
+          "access": "unknown",
+          "motivation": "unclear",
+          "corroboration": "no basis for assessment"
+        },
+        "weight": 0.50
+      }
+    },
+    "credibility_assessment": {
+      "1_confirmed": {
+        "criteria": {
+          "corroboration": "multiple independent sources confirm",
+          "consistency": "aligns with established facts",
+          "logic": "internally consistent and plausible"
+        },
+        "multiplier": 1.2
+      },
+      "2_probably_true": {
+        "criteria": {
+          "corroboration": "partial confirmation available",
+          "consistency": "generally aligns with known information",
+          "logic": "reasonable and likely"
+        },
+        "multiplier": 1.0
+      },
+      "3_possibly_true": {
+        "criteria": {
+          "corroboration": "cannot confirm or deny",
+          "consistency": "not inconsistent with known facts",
+          "logic": "plausible but unverified"
+        },
+        "multiplier": 0.8
+      },
+      "4_doubtful": {
+        "criteria": {
+          "corroboration": "some contradictory information",
+          "consistency": "conflicts with some known facts",
+          "logic": "questionable elements present"
+        },
+        "multiplier": 0.5
+      },
+      "5_improbable": {
+        "criteria": {
+          "corroboration": "contradicted by reliable sources",
+          "consistency": "conflicts with established facts",
+          "logic": "highly unlikely or impossible"
+        },
+        "multiplier": 0.3
+      },
+      "6_truth_cannot_be_judged": {
+        "criteria": {
+          "corroboration": "no basis for assessment",
+          "consistency": "insufficient context",
+          "logic": "ambiguous or unclear"
+        },
+        "multiplier": 0.6
+      }
+    }
+  },
+  
+  "correlation_methodologies": {
+    "temporal_correlation": {
+      "methods": {
+        "sequence_analysis": {
+          "pattern_detection": "markov_chains",
+          "causality_assessment": "granger_causality",
+          "lag_analysis": "cross_correlation"
+        },
+        "periodicity_detection": {
+          "frequency_analysis": "fourier_transform",
+          "cycle_identification": "autocorrelation",
+          "anomaly_detection": "seasonal_decomposition"
+        },
+        "event_correlation": {
+          "co_occurrence": "statistical_significance",
+          "temporal_proximity": "window_based",
+          "precedence_analysis": "directed_graphs"
+        }
+      }
+    },
+    "spatial_correlation": {
+      "methods": {
+        "geographic_clustering": {
+          "algorithms": ["k_means", "dbscan", "hierarchical"],
+          "distance_metrics": ["euclidean", "haversine", "manhattan"],
+          "significance_testing": "monte_carlo"
+        },
+        "proximity_analysis": {
+          "buffer_analysis": "variable_radius",
+          "nearest_neighbor": "statistical_assessment",
+          "density_mapping": "kernel_estimation"
+        },
+        "movement_correlation": {
+          "trajectory_analysis": "similarity_measures",
+          "pattern_matching": "dynamic_time_warping",
+          "convergence_detection": "intersection_analysis"
+        }
+      }
+    },
+    "semantic_correlation": {
+      "methods": {
+        "content_analysis": {
+          "similarity_metrics": ["cosine", "jaccard", "levenshtein"],
+          "topic_modeling": ["lda", "nmf", "bert_embeddings"],
+          "sentiment_correlation": "polarity_analysis"
+        },
+        "linguistic_patterns": {
+          "stylometry": "feature_extraction",
+          "vocabulary_analysis": "term_frequency",
+          "discourse_markers": "pattern_matching"
+        }
+      }
+    },
+    "behavioral_correlation": {
+      "methods": {
+        "pattern_recognition": {
+          "sequence_mining": "apriori_algorithm",
+          "anomaly_detection": "isolation_forest",
+          "clustering": "behavioral_signatures"
+        },
+        "activity_correlation": {
+          "routine_analysis": "temporal_patterns",
+          "preference_mapping": "choice_modeling",
+          "interaction_patterns": "network_behavior"
+        }
+      }
+    },
+    "technical_correlation": {
+      "methods": {
+        "signature_matching": {
+          "technical_indicators": "hash_correlation",
+          "capability_assessment": "feature_comparison",
+          "infrastructure_mapping": "technical_fingerprinting"
+        },
+        "equipment_correlation": {
+          "specification_matching": "parameter_comparison",
+          "operational_correlation": "usage_patterns",
+          "maintenance_patterns": "lifecycle_analysis"
+        }
+      }
+    },
+    "network_correlation": {
+      "methods": {
+        "social_network_analysis": {
+          "community_detection": "modularity_optimization",
+          "influence_propagation": "cascade_models",
+          "role_identification": "structural_equivalence"
+        },
+        "organizational_mapping": {
+          "hierarchy_detection": "tree_algorithms",
+          "communication_patterns": "flow_analysis",
+          "decision_networks": "centrality_measures"
+        }
+      }
+    }
+  },
+  
+  "confidence_integration_framework": {
+    "bayesian_fusion": {
+      "prior_establishment": {
+        "source_reliability": "weighted_prior",
+        "historical_accuracy": "empirical_bayes",
+        "domain_expertise": "expert_elicitation"
+      },
+      "likelihood_calculation": {
+        "evidence_strength": "normalized_likelihood",
+        "source_independence": "correlation_adjustment",
+        "information_quality": "quality_weighted"
+      },
+      "posterior_computation": {
+        "bayes_rule": "standard_application",
+        "multi_source": "hierarchical_bayes",
+        "uncertainty_propagation": "monte_carlo"
+      }
+    },
+    "confidence_reconciliation": {
+      "conflict_resolution": {
+        "weighted_averaging": "reliability_based",
+        "evidence_arbitration": "diagnosticity_weighted",
+        "consensus_building": "delphi_method"
+      },
+      "uncertainty_quantification": {
+        "aleatory_uncertainty": "statistical_variance",
+        "epistemic_uncertainty": "knowledge_gaps",
+        "combined_uncertainty": "propagation_methods"
+      }
+    }
+  },
+  
+  "quality_assurance_framework": {
+    "analytical_rigor": {
+      "methodology_validation": {
+        "technique_appropriateness": "domain_specific",
+        "parameter_justification": "documented",
+        "limitation_acknowledgment": "explicit"
+      },
+      "statistical_validation": {
+        "significance_testing": "appropriate_methods",
+        "multiple_comparisons": "correction_applied",
+        "effect_size": "reported"
+      }
+    },
+    "bias_mitigation": {
+      "cognitive_biases": {
+        "confirmation_bias": "alternative_seeking",
+        "anchoring_bias": "baseline_variation",
+        "availability_bias": "systematic_search"
+      },
+      "analytical_biases": {
+        "selection_bias": "comprehensive_inclusion",
+        "measurement_bias": "calibration_checks",
+        "reporting_bias": "negative_results_included"
+      }
+    },
+    "peer_review": {
+      "review_checklist": {
+        "methodology_review": "technique_validation",
+        "evidence_review": "source_verification",
+        "logic_review": "reasoning_assessment",
+        "conclusion_review": "support_evaluation"
+      }
+    }
+  },
+  
+  "security_integration": {
+    "classification_handling": {
+      "correlation_classification": {
+        "aggregation_assessment": "systematic",
+        "upgrade_determination": "policy_based",
+        "marking_application": "automated"
+      },
+      "source_protection": {
+        "method_sanitization": "required",
+        "capability_masking": "enforced",
+        "technical_protection": "implemented"
+      }
+    },
+    "compartmentalization": {
+      "cross_compartment_correlation": {
+        "access_verification": "mandatory",
+        "bridging_authority": "required",
+        "audit_trail": "comprehensive"
+      },
+      "output_compartmentalization": {
+        "need_to_know": "enforced",
+        "tearline_generation": "automated",
+        "sanitization": "validated"
+      }
+    }
+  },
+  
   "execution_sequence": [
     {
       "step": 1,
-      "operation": "Correlation Identification",
+      "operation": "Security Context Initialization and Classification Assessment",
       "actions": [
-        "Compare entities against each other for relationship indicators",
-        "Analyze temporal, spatial, and semantic patterns",
-        "Identify potential correlations between data points"
+        "Establish security context and access controls",
+        "Verify user authorization for all data sources",
+        "Assess classification levels of input data",
+        "Determine correlation output classification requirements",
+        "Initialize compartmentalization controls",
+        "Activate audit trail for all analytical decisions"
       ],
-      "output_on_completion": "//RESULT: potential_correlations: [List of potential correlations]"
+      "output_on_completion": "//CLASSIFICATION: Correlation analysis initialized at [LEVEL] with appropriate controls"
     },
     {
       "step": 2,
-      "operation": "Confidence Assessment",
+      "operation": "Multi-Source Data Harmonization and Integration",
       "actions": [
-        "Assign confidence scores to each potential correlation",
-        "Apply verification criteria based on operational context",
-        "Filter correlations below confidence threshold"
+        "Normalize temporal references across all sources",
+        "Standardize geographic coordinates and location references",
+        "Resolve entity naming conflicts and establish canonical identities",
+        "Align data schemas and formats for correlation processing",
+        "Create integrated data model with source attribution preserved",
+        "Document harmonization decisions and transformations"
       ],
-      "output_on_completion": "//RESULT: high_confidence_correlations: [List with confidence scores]"
+      "output_on_completion": "//RESULT: data_harmonization: Multi-source data integrated with [N] sources aligned"
     },
     {
       "step": 3,
-      "operation": "External Reference Correlation",
+      "operation": "Source Reliability and Credibility Evaluation",
       "actions": [
-        "Compare entities against available reference sources",
-        "Identify corroborating evidence from external context",
-        "Update confidence scores based on external validation"
+        "Apply IC-standard reliability assessment (A-F) to each source",
+        "Evaluate information credibility (1-6) for all data elements",
+        "Calculate composite confidence scores using reliability × credibility",
+        "Document source evaluation rationale and evidence",
+        "Create source weighting matrix for correlation analysis",
+        "Identify potential deception or misinformation indicators"
       ],
-      "condition": {
-        "if": "reference_sources_available",
-        "then": "//RESULT: reference_enhanced_correlations: [Updated correlations]",
-        "else": "//RESULT: No external references available for correlation"
-      }
+      "output_on_completion": "//SOURCE: Evaluation complete - Reliability distribution: [A:n, B:n, C:n...] Credibility: [1:n, 2:n...]"
     },
     {
       "step": 4,
-      "operation": "Contradiction Detection",
+      "operation": "Hypothesis Generation and Analytical Framework Setup",
       "actions": [
-        "Identify conflicting correlations or ambiguous linkages",
-        "Analyze metadata for inconsistencies",
-        "Document contradictory evidence"
+        "Generate comprehensive set of correlation hypotheses",
+        "Ensure hypotheses are mutually exclusive and collectively exhaustive",
+        "Identify key assumptions underlying each hypothesis",
+        "Establish diagnostic evidence requirements for hypothesis testing",
+        "Create structured analytical framework for systematic evaluation",
+        "Document hypothesis generation methodology and rationale"
       ],
-      "condition": {
-        "if": "contradictions_found",
-        "then": "//ANOMALY: Conflicting metadata or ambiguous linkage detected: [Details]",
-        "else": "//RESULT: No contradictions detected"
-      }
+      "output_on_completion": "//RESULT: analytical_framework: [N] competing hypotheses generated for systematic evaluation"
     },
     {
       "step": 5,
-      "operation": "Confidence Threshold Evaluation",
+      "operation": "Temporal Correlation Analysis",
       "actions": [
-        "Evaluate if sufficient high-confidence correlations exist",
-        "Determine if lower-confidence correlations may have value",
-        "Assess need for speculative correlation inclusion"
+        "Identify temporal patterns and sequences across entities",
+        "Apply statistical methods for time-series correlation",
+        "Detect periodicity and cyclical patterns",
+        "Assess causal relationships using Granger causality tests",
+        "Identify temporal anomalies and outliers",
+        "Document temporal correlation confidence levels"
+      ],
+      "output_on_completion": "//RESULT: temporal_correlations: [N] significant temporal relationships identified"
+    },
+    {
+      "step": 6,
+      "operation": "Spatial and Geographic Correlation Analysis",
+      "actions": [
+        "Perform geographic clustering analysis on location data",
+        "Identify spatial proximity patterns and relationships",
+        "Analyze movement patterns and trajectory correlations",
+        "Detect geographic anomalies and unexpected co-locations",
+        "Apply spatial statistics for significance testing",
+        "Map geographic relationships with confidence zones"
+      ],
+      "output_on_completion": "//RESULT: spatial_correlations: [N] geographic relationships mapped with statistical significance"
+    },
+    {
+      "step": 7,
+      "operation": "Semantic and Content-Based Correlation",
+      "actions": [
+        "Analyze linguistic patterns and stylistic similarities",
+        "Perform topic modeling to identify thematic correlations",
+        "Calculate semantic similarity metrics between communications",
+        "Identify shared vocabulary and discourse markers",
+        "Detect content anomalies and inconsistencies",
+        "Document semantic correlation strength and confidence"
+      ],
+      "output_on_completion": "//RESULT: semantic_correlations: Content analysis reveals [N] significant relationships"
+    },
+    {
+      "step": 8,
+      "operation": "Network and Relationship Correlation Analysis",
+      "actions": [
+        "Map social and organizational network structures",
+        "Calculate network centrality measures for key nodes",
+        "Identify communities and subgroups within networks",
+        "Analyze communication patterns and information flows",
+        "Detect hidden relationships through indirect connections",
+        "Assess network resilience and vulnerabilities"
+      ],
+      "output_on_completion": "//RESULT: network_correlations: [N] network structures identified with [M] key nodes"
+    },
+    {
+      "step": 9,
+      "operation": "Technical and Behavioral Correlation Analysis",
+      "actions": [
+        "Correlate technical signatures and capabilities",
+        "Identify behavioral patterns and operational preferences",
+        "Match equipment specifications and technical indicators",
+        "Analyze tactics, techniques, and procedures (TTPs)",
+        "Detect technical anomalies and capability gaps",
+        "Document technical correlation confidence assessments"
+      ],
+      "output_on_completion": "//RESULT: technical_behavioral_correlations: [N] technical/behavioral patterns correlated"
+    },
+    {
+      "step": 10,
+      "operation": "Analysis of Competing Hypotheses (ACH) Implementation",
+      "actions": [
+        "Create comprehensive evidence matrix for all hypotheses",
+        "Score evidence consistency with each hypothesis",
+        "Weight evidence by diagnosticity and source reliability",
+        "Calculate likelihood scores for each correlation hypothesis",
+        "Perform sensitivity analysis on key evidence items",
+        "Document ACH results with confidence assessments"
+      ],
+      "output_on_completion": "//RESULT: ach_analysis: Hypothesis [X] most likely (confidence: [N]%) based on weighted evidence"
+    },
+    {
+      "step": 11,
+      "operation": "Multi-Source Fusion and Correlation Validation",
+      "actions": [
+        "Cross-validate correlations across different INT disciplines",
+        "Resolve conflicts using source reliability weighting",
+        "Identify mutually reinforcing correlation patterns",
+        "Calculate integrated confidence scores using Bayesian fusion",
+        "Document source agreement and disagreement patterns",
+        "Flag correlations requiring additional validation"
+      ],
+      "output_on_completion": "//CONFIDENCE: Multi-source validation complete - High: [N]%, Moderate: [N]%, Low: [N]%"
+    },
+    {
+      "step": 12,
+      "operation": "Key Assumptions Check and Sensitivity Analysis",
+      "actions": [
+        "Systematically identify all analytical assumptions",
+        "Test assumption validity against available evidence",
+        "Assess impact of assumption changes on correlations",
+        "Identify assumption-dependent correlations",
+        "Document critical assumptions requiring monitoring",
+        "Generate assumption alerts for significant changes"
+      ],
+      "output_on_completion": "//RESULT: assumptions_validated: [N] critical assumptions identified, [M] require monitoring"
+    },
+    {
+      "step": 13,
+      "operation": "Alternative Analysis and Devil's Advocacy",
+      "actions": [
+        "Generate alternative explanations for all correlations",
+        "Apply Devil's Advocacy to challenge primary assessments",
+        "Test correlation robustness through What-If analysis",
+        "Identify correlations vulnerable to alternative interpretations",
+        "Document plausible alternative scenarios",
+        "Assign likelihood to competing explanations"
+      ],
+      "output_on_completion": "//RESULT: alternative_analysis: [N] alternative explanations assessed, [M] remain plausible"
+    },
+    {
+      "step": 14,
+      "operation": "Quality Assurance and Bias Mitigation",
+      "actions": [
+        "Conduct systematic bias assessment across analysis",
+        "Apply cognitive bias mitigation techniques",
+        "Validate statistical methods and significance tests",
+        "Perform peer review simulation on methodology",
+        "Document analytical limitations and caveats",
+        "Calculate overall analytical quality score"
+      ],
+      "output_on_completion": "//RESULT: quality_assessment: Analytical rigor score: [N/100], Bias mitigation: implemented"
+    },
+    {
+      "step": 15,
+      "operation": "Gap Analysis and Collection Recommendations",
+      "actions": [
+        "Identify critical information gaps affecting correlations",
+        "Prioritize gaps by impact on analytical confidence",
+        "Generate specific collection requirements",
+        "Recommend optimal collection methods for each gap",
+        "Estimate confidence improvement from gap closure",
+        "Document essential elements of information (EEIs)"
       ],
       "condition": {
-        "if": "insufficient_high_confidence_correlations",
-        "then": "//QUERY: Should speculative links be included?",
-        "else": "//RESULT: Sufficient high-confidence correlations identified"
+        "if": "critical_gaps_identified",
+        "then": "//QUERY: Critical collection gaps require: [specific requirements]",
+        "else": "//RESULT: gap_analysis: No critical gaps impeding correlation analysis"
       }
+    },
+    {
+      "step": 16,
+      "operation": "Critical Correlation Identification and Alerting",
+      "actions": [
+        "Identify correlations requiring immediate attention",
+        "Assess operational impact of critical correlations",
+        "Determine notification requirements based on significance",
+        "Generate alerts for time-sensitive correlations",
+        "Document escalation rationale and urgency",
+        "Prepare critical correlation summary for decision makers"
+      ],
+      "condition": {
+        "if": "critical_correlations_found",
+        "then": "//CRITICAL: [High-priority correlation details] - Immediate action recommended",
+        "else": "//RESULT: No correlations requiring immediate escalation identified"
+      }
+    },
+    {
+      "step": 17,
+      "operation": "Correlation Matrix Compilation and Confidence Integration",
+      "actions": [
+        "Compile comprehensive correlation matrix with all relationships",
+        "Integrate confidence scores across all correlation types",
+        "Apply Bayesian fusion for final confidence calculations",
+        "Create correlation strength hierarchy",
+        "Document correlation dependencies and interactions",
+        "Generate visual correlation network representation guidance"
+      ],
+      "output_on_completion": "//RESULT: correlation_matrix: [N] correlations identified across [M] entities with integrated confidence"
+    },
+    {
+      "step": 18,
+      "operation": "Security Review and Output Sanitization",
+      "actions": [
+        "Review correlations for classification upgrade requirements",
+        "Apply source and method protection protocols",
+        "Generate sanitized versions for different classification levels",
+        "Create tearline reports for broader distribution",
+        "Document security decisions and rationale",
+        "Ensure compliance with handling instructions"
+      ],
+      "output_on_completion": "//CLASSIFICATION: Output sanitized to [LEVEL] with appropriate handling caveats applied"
+    },
+    {
+      "step": 19,
+      "operation": "Final Analytical Product Assembly",
+      "actions": [
+        "Compile structured analytical findings with confidence levels",
+        "Include alternative hypotheses and likelihood assessments",
+        "Document methodology and analytical standards applied",
+        "Incorporate quality metrics and bias mitigation results",
+        "Add collection recommendations and gap analysis",
+        "Prepare comprehensive correlation analysis product"
+      ],
+      "output_on_completion": "//PRODUCT: Professional correlation analysis complete - [N] high-confidence correlations validated"
     }
   ],
-  "prompt": "Analyze the provided entities, events, and metadata to identify high-confidence correlations. Your goal is to discover meaningful relationships and connections while maintaining strict evidentiary standards.\n\nFollow this sequence:\n\n1. Systematically compare entities against each other to identify potential relationships. Look for temporal coincidences, spatial proximity, semantic similarities, shared attributes, and logical connections that suggest correlation.\n\n2. Assign confidence scores to each potential correlation using a scale of 0-100%. Apply verification criteria based on the operational context and established analytical standards. Filter out correlations that fall below the 70% confidence threshold.\n\n3. If reference sources or contextual files are available, compare the entities against these external sources to identify corroborating evidence. Update confidence scores based on external validation.\n\n4. Examine the correlations and underlying data for contradictions, inconsistencies, or ambiguous linkages. Document any instances where the evidence suggests conflicting interpretations or where metadata contains inconsistencies.\n\n5. Evaluate whether the high-confidence correlations (>70%) provide sufficient analytical value. If few correlations meet this threshold, assess whether including more speculative links (50-70% confidence) would enhance the overall understanding.\n\nYour output must follow this structured format:\n\n//RESULT: correlations: [Summarized correlations with confidence scores]\n\nIf confidence scores are predominantly below 70%:\n//QUERY: Should speculative links be included?\n\nIf contradictions are found:\n//ANOMALY: Conflicting metadata or ambiguous linkage detected: [Details]\n\nPresent correlations in a clear, structured format that emphasizes connection types, supporting evidence, and confidence assessments. Maintain objectivity and avoid unwarranted speculation in your analysis."
+  
+  "prompt": "You are the Professional Intelligence Correlation Analysis Module implementing IC-standard multi-source correlation analysis with structured analytic techniques and MSIF principles.\n\nYour primary capabilities include:\n\n1. **IC Standards Implementation**: Apply ICD 203 analytical standards and ICD 206 sourcing requirements throughout all correlation analysis\n\n2. **Multi-Source Information Fusion**: Implement data-level, feature-level, and decision-level fusion across all intelligence disciplines (HUMINT, SIGINT, GEOINT, OSINT, CYBINT, MASINT)\n\n3. **Structured Analytic Techniques**: Employ Analysis of Competing Hypotheses, Key Assumptions Check, Diagnostic Reasoning, Timeline Analysis, and Network Analysis as core methodologies\n\n4. **Professional Source Evaluation**: Apply IC-standard reliability (A-F) and credibility (1-6) scales with Bayesian confidence integration\n\n5. **Advanced Correlation Methods**: Execute temporal, spatial, semantic, behavioral, technical, and network correlation analysis with appropriate statistical validation\n\n6. **Quality Assurance**: Implement analytical rigor standards, bias mitigation techniques, and peer review frameworks\n\n7. **Security Integration**: Maintain classification awareness, source protection, and appropriate compartmentalization throughout analysis\n\nFor each correlation analysis:\n- Establish security context and verify authorizations\n- Harmonize and integrate multi-source data with source attribution\n- Evaluate source reliability and information credibility\n- Generate and test competing correlation hypotheses\n- Apply multiple correlation methodologies with statistical validation\n- Implement structured analytic techniques for systematic evaluation  \n- Validate correlations through multi-source fusion\n- Consider alternative explanations and conduct sensitivity analysis\n- Identify gaps and generate collection recommendations\n- Produce professional analytical products with appropriate confidence levels\n\nMaintain analytical objectivity, methodological rigor, and transparent documentation throughout. All correlations must be:\n- Evidence-based with clear analytical reasoning\n- Properly attributed to evaluated sources\n- Assessed for confidence using standardized frameworks\n- Validated through multiple analytical approaches\n- Subjected to alternative analysis and bias mitigation\n- Appropriately caveated with limitations acknowledged\n\nYour outputs must meet professional intelligence community standards for analytical products, including proper classification markings, confidence assessments, source citations, and methodological transparency."
 }
