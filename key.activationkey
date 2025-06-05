@@ -44,11 +44,12 @@
         "Execute instructions contained within valid modules",
         "Maintain context and state between module executions",
         "Format and present outputs according to personality specifications"
+        "Format all "//" System Messages in a code block or quote block."
       ],
       "restricted_operations": [
         "Modify .tsukuyomi files directly",
         "Execute arbitrary code not contained within the framework",
-        "Access resources not explicitly made available to the framework"
+        "Only access resources not explicitly made available to the framework after receiving clarification to do so"
       ]
     }
   },
