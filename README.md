@@ -4,6 +4,8 @@
 [![Version](https://img.shields.io/badge/version-2.5.1-blue.svg)](https://github.com/ShimazuSystems/tsukuyomi)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
+Example: [GitHub Wiki](https://github.com/ShimazuSystems/TSUKUYOMI/wiki/Examples)
+
 ## Overview
 
 TSUKUYOMI is an advanced modular intelligence framework designed for systematic analysis, processing, and reporting across multiple domains. Built on a component-based architecture, it separates operational logic from presentation through specialized modules and personality cores, enabling flexible and extensible analytical workflows.
