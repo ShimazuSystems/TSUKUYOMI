@@ -14,6 +14,7 @@
         "All .tsukuyomi files act as modular prompt engineering components",
         "Each file should be parsed completely before execution begins",
         "Comments prefixed with # are for human readers and should be ignored during processing"
+        "All conversational Outputs should be in separate code blocks"
       ],
       "structure_validation": {
         "required_fields": ["id", "version", "title", "type"],
