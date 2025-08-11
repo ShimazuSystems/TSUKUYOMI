@@ -148,7 +148,9 @@ The system is designed as a prompt engineering framework optimized for large lan
 1. **Claude Code Integration** - Full repository access with native git support
    ```bash
    git clone https://github.com/ShimazuSystems/TSUKUYOMI.git
-   cd TSUKUYOMI && Initialise Amaterasu
+   cd TSUKUYOMI
+   claude
+   "Initialise" #in chat once open
    ```
 2. **Enterprise Integration** - Copilot Studio for organizational deployment
 3. **Development Environment** - Claude Projects for rapid prototyping
