@@ -1,7 +1,7 @@
 # TSUKUYOMI
 **Intelligent Modular Framework for Structured Analysis and Processing**
 
-[![Version](https://img.shields.io/badge/version-2.6.0-blue.svg)](https://github.com/ShimazuSystems/tsukuyomi)
+[![Version](https://img.shields.io/badge/version-2.6.0-blue.svg)](https://github.com/ShimazuSystems/TSUKUYOMI/releases/tag/2.6.0)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 [![Compatibility](https://img.shields.io/badge/AI-Claude%20%7C%20GPT%20%7C%20Gemini-blue.svg)](https://github.com/ShimazuSystems/TSUKUYOMI)
 [![Compatibility](https://img.shields.io/badge/Functionality-IntelFramework-red.svg)](https://github.com/ShimazuSystems/TSUKUYOMI)
