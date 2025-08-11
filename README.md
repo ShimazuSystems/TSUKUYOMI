@@ -1,7 +1,7 @@
 # TSUKUYOMI
 **Intelligent Modular Framework for Structured Analysis and Processing**
 
-[![Version](https://img.shields.io/badge/version-2.5.1-blue.svg)](https://github.com/ShimazuSystems/tsukuyomi)
+[![Version](https://img.shields.io/badge/version-2.6.0-blue.svg)](https://github.com/ShimazuSystems/tsukuyomi)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
 Example: [GitHub Wiki](https://github.com/ShimazuSystems/TSUKUYOMI/wiki/Examples)
@@ -267,6 +267,7 @@ TSUKUYOMI follows core principles of:
 2. Define execution sequence with specific actions and outputs
 3. Specify dependencies and personality compatibility
 4. Test module integration with existing framework
+X. I have added a CLAUDE.md file if working within Claude Code
 
 ### Personality Development
 
