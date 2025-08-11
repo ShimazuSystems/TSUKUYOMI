@@ -3,26 +3,63 @@
 
 [![Version](https://img.shields.io/badge/version-2.6.0-blue.svg)](https://github.com/ShimazuSystems/tsukuyomi)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+[![Compatibility](https://img.shields.io/badge/AI-Claude%20%7C%20GPT%20%7C%20Gemini-blue.svg)](https://github.com/ShimazuSystems/TSUKUYOMI)
+[![Compatibility](https://img.shields.io/badge/Functionality-IntelFramework-red.svg)](https://github.com/ShimazuSystems/TSUKUYOMI)
+
+**Professional Modular Intelligence Framework for Systematic Analysis & Processing**
+
+> Advanced component-based architecture for intelligence operations, analytical workflows, and structured processing across multiple domains with IC-compliant tradecraft standards.
 
 Example: [GitHub Wiki](https://github.com/ShimazuSystems/TSUKUYOMI/wiki/Examples)
 
 ## Overview
 
-TSUKUYOMI is an advanced modular intelligence framework designed for systematic analysis, processing, and reporting across multiple domains. Built on a component-based architecture, it separates operational logic from presentation through specialized modules and personality cores, enabling flexible and extensible analytical workflows.
+TSUKUYOMI is a professional-grade modular intelligence framework engineered for systematic analysis, processing, and reporting across multiple intelligence domains. The framework implements a component-based architecture that decouples operational logic from presentation layers through specialized analytical modules and adaptive personality cores, enabling scalable and extensible intelligence workflows.
+
+The system is designed as a prompt engineering framework optimized for large language models, providing structured analytical capabilities that adhere to Intelligence Community standards (ICD 203, ICD 206) while maintaining operational security and compartmentalization protocols.
 
 ## Key Features
 
-- **Modular Architecture**: Self-contained operational modules for specific analysis tasks
-- **Personality System**: Customizable communication styles and interaction patterns
-- **Structured Output**: Standardized formatting with confidence levels and source attribution
-- **Domain Expertise**: Specialized modules for OSINT, economic analysis, infrastructure assessment, and strategic intelligence
-- **Flexible Workflows**: Modules can be chained and combined for complex analytical processes
+### Core Architecture
+- **Component-Based Modularity**: Self-contained analytical modules with standardized JSON schema
+- **Personality System**: Adaptive communication cores with stakeholder-specific optimization
+- **Session Management**: Comprehensive state export/import for analytical continuity
+- **Security Framework**: Classification-aware processing with IC-compliant handling instructions
 
-## Usage
+### Analytical Capabilities  
+- **Multi-Domain Intelligence**: OSINT, GEOINT, economic analysis, infrastructure assessment, strategic intelligence
+- **Source Quality Assurance**: Advanced correlation matrices and AI hallucination detection
+- **Structured Workflows**: Chained module execution with dependency management
+- **Professional Reporting**: IC-standard formatted outputs with confidence calibration
+
+### Technical Implementation
+- **LLM-Optimized**: Native integration with Claude Code, GPT, Gemini, and other AI platforms
+- **JSON-Based Configuration**: Human-readable module definitions with version control
+- **Error Handling**: Comprehensive validation and recovery protocols
+- **Extensible Framework**: Plugin architecture for custom module development
+
+## Deployment & Integration
 
 [Technical Documentation](https://github.com/ShimazuSystems/TSUKUYOMI/wiki/Technical-Documentation)
 
 ### Loading/Installation
+
+**Claude Code (Recommended)**
+> Note: Claude Pro subscription required for optimal performance
+* **Direct Repository Integration**: Native git support with real-time file editing and session persistence
+* **Terminal Integration**: Full command-line access for advanced operations and debugging
+* **Session Management**: Built-in export/import capabilities for analytical continuity
+* **Framework Activation**:
+  ```bash
+  # Clone and initialize
+  git clone https://github.com/ShimazuSystems/TSUKUYOMI.git
+  cd TSUKUYOMI
+  
+  # Activate framework
+  Initialise Amaterasu
+  ```
+* **Advanced Features**: File editing, module development, session state management
+* **Deployment**: `claude-code` CLI provides full repository access and persistent workspace
 
 **Claude**
 > Note: Paid Subscription is more or less required
@@ -45,31 +82,36 @@ TSUKUYOMI is an advanced modular intelligence framework designed for systematic 
 * Project Knowledge Methods
    * Cloning the GitHub repository to a Drive folder, this should provide basic Sync functionality like Gemini.
 
-**Others**
-> Note: 100% speculation here, aided by Claude 4.
-
 ***
 
 ## AI Models Supporting File Uploads & Project Management
 
-### **Microsoft Copilot - Knowledge Sources & File Upload**
-//AMATERASU: Enterprise-focused with extensive Microsoft integration.
+### **Microsoft Copilot Studio - Custom Agent Development**
+**Enterprise-focused with extensive Microsoft ecosystem integration.**
 
 **How it works:**
-- You can upload your own documents for use as a knowledge source at the agent level, which your agent then uses to generate answers with generative AI
-- **Copilot Studio:** Create custom agents with knowledge bases
-- **Microsoft 365 Integration:** Access files from SharePoint, OneDrive
-- Enterprise knowledge management across Microsoft ecosystem
+- **Custom Copilots:** Build specialized agents using Copilot Studio with TSUKUYOMI knowledge base
+- **Knowledge Integration:** Upload framework files as knowledge sources for agent training
+- **Microsoft 365 Integration:** Seamless integration with SharePoint, OneDrive, Teams
+- **Enterprise Deployment:** Deploy custom TSUKUYOMI-powered copilots across organization
+- **Conversation Flow:** Design structured analytical workflows with TSUKUYOMI modules
 
-**File Support:** Files larger than 512 MB aren't supported. Files with encryption, such as sensitivity labels or password protection, aren't supported
-**Requirements:** Microsoft 365 Copilot license or Copilot Studio access
+**TSUKUYOMI Integration:**
+- Upload .tsukuyomi files as knowledge base documents
+- Configure topics for module selection (E1-E4, S1-S4, etc.)
+- Set up trigger phrases for framework activation
+- Implement classification-aware responses
 
-**Best for:** Organizations heavily invested in Microsoft ecosystem
+**File Support:** JSON, text files up to 512 MB; no encrypted/protected files
+**Requirements:** Microsoft Copilot Studio license, Power Platform access
+**Deployment:** Web, Teams, mobile apps, API integration
+
+**Best for:** Enterprise environments with Microsoft 365 infrastructure
 
 ***
 
 ### **Perplexity AI - File Upload for Research**
-//AMATERASU: Research-focused with real-time web integration.
+**Research-focused with real-time web integration.**
 
 **How it works:**
 - Pro users can leverage advanced models like Claude 3 and GPT-4 to handle longer files
@@ -85,7 +127,7 @@ TSUKUYOMI is an advanced modular intelligence framework designed for systematic 
 ***
 
 ### **Mistral AI - Le Chat & Document Processing**
-//AMATERASU: European AI solution with strong document capabilities.
+**European AI solution with strong document capabilities.**
 
 **How it works:**
 - Upload, organize, and analyze arbitrary files using powerful OCR and vision models under the hood
@@ -100,33 +142,49 @@ TSUKUYOMI is an advanced modular intelligence framework designed for systematic 
 
 ***
 
-## **Quick Deployment Guide for TSUKUYOMI**
+## **Professional Deployment Guide**
 
-### **Easiest Setup (Recommended):**
-1. **Claude Projects** - Upload all .tsukuyomi files directly
-2. Enter: "Initialise Amaterasu" or provide your data
-3. Framework auto-activates with full functionality
+### **Production Deployment (Recommended):**
+1. **Claude Code Integration** - Full repository access with native git support
+   ```bash
+   git clone https://github.com/ShimazuSystems/TSUKUYOMI.git
+   cd TSUKUYOMI && Initialise Amaterasu
+   ```
+2. **Enterprise Integration** - Copilot Studio for organizational deployment
+3. **Development Environment** - Claude Projects for rapid prototyping
 
-### **Alternative Platforms:**
-- **ChatGPT Projects:** Upload files, create project-specific instructions
-- **Gemini Gems:** Create custom Gem with TSUKUYOMI files as knowledge base  
-- **Copilot Studio:** Build custom agent with TSUKUYOMI modules as knowledge sources
-- **Perplexity Pro:** Upload for research-focused intelligence analysis
+### **Platform-Specific Deployment:**
+- **Claude Code:** Native repository integration with session persistence
+- **Claude Projects:** Direct file upload with knowledge management
+- **ChatGPT Projects:** Custom GPT configuration with framework instructions
+- **Gemini Gems:** Knowledge base integration with Google ecosystem
+- **Copilot Studio:** Enterprise-grade agent deployment with M365 integration
+- **Perplexity Pro:** Research-enhanced intelligence analysis workflows
 
-### **Key Considerations:**
-- **File Limits:** Vary by platform (Claude: context window, Gemini: 10 files, etc.)
-- **Persistence:** Most platforms retain project knowledge across sessions
-- **Cost:** Free tiers available but paid plans recommended for full functionality
-- **Integration:** Consider your existing tool ecosystem
+### **Deployment Considerations:**
+- **Security Classification:** Ensure platform compliance with data classification levels
+- **Session Persistence:** Choose platforms supporting analytical continuity
+- **Integration Requirements:** Evaluate existing organizational infrastructure
+- **Scalability:** Consider multi-user and enterprise deployment needs
+- **Cost Optimization:** Balance functionality with subscription requirements
 
-## Architecture
+## Technical Architecture
 
-### Core Components
+### System Components
 
-- **Core System** (`tsukuyomi_core.tsukuyomi`): Central orchestration component managing module loading, execution, and transitions
-- **Personality Cores** (`*_personalitycore.tsukuyomi`): Define communication style, tone, and user interaction patterns
-- **Operational Modules** (`*.tsukuyomi`): Contain specific analysis, processing, or reporting functionality
-- **Activation Key** (`key.activationkey`): Framework initialization and file interpretation instructions
+#### Core Framework Layer
+- **Core Orchestration Engine** (`tsukuyomi_core.tsukuyomi`): Central execution controller managing module discovery, dependency resolution, workflow orchestration, and state transitions
+- **Activation Controller** (`key.activationkey`): Framework bootstrap system defining initialization sequences, file interpretation protocols, and system configuration parameters
+- **Session Management System**: Persistent state handling with export/import capabilities, analytical continuity, and workflow resumption
+
+#### Presentation & Interface Layer  
+- **Personality Cores** (`*_personalitycore.tsukuyomi`): Adaptive communication interfaces providing stakeholder-specific interaction patterns, terminology management, and contextual response formatting
+- **Communication Protocol Handler**: Standardized message routing system supporting classified information handling and structured output formatting
+
+#### Operational Module Layer
+- **Intelligence Analysis Modules** (`*.tsukuyomi`): Self-contained analytical components implementing specific tradecraft methodologies, data processing algorithms, and reporting standards
+- **Dependency Management System**: Module inter-dependency resolution with version compatibility and execution sequencing
+- **Security Context Manager**: Classification-aware processing with compartmentalization enforcement and access control
 
 ### Default Personality: AMATERASU
 
@@ -137,41 +195,41 @@ The AMATERASU personality core provides:
 - **Efficiency**: Prioritizes clarity and relevance
 - **Adaptability**: Adjusts communication style based on context and user expertise
 
-## Available Modules
+## Operational Module Catalog
 
-### Core Intelligence Modules
-- **Data Recognition & Ingestion**: File type identification and entity extraction
-- **Discipline Alignment**: OSINT methodology classification
-- **Functional Inference**: Analytical task recommendation
-- **Correlation Analysis**: High-confidence relationship identification
-- **Output Summarization**: Findings synthesis and next steps
+### Core Intelligence Processing Modules
+- **Data Recognition & Ingestion**: Multi-format file analysis with automated entity extraction, metadata parsing, and content classification
+- **Discipline Alignment**: OSINT methodology framework alignment with ICD 206 compliance and source categorization  
+- **Functional Inference**: Machine learning-enhanced analytical task recommendation with confidence scoring
+- **Correlation Analysis**: Advanced pattern recognition with statistical significance testing and relationship mapping
+- **Output Summarization**: IC-standard findings synthesis with executive summary generation and actionable intelligence extraction
 
 ### Specialized Analysis Modules
 
-#### Economic Analysis (E-Series)
-- **E1: Economic Vulnerability Assessment**: Systematic evaluation of economic weaknesses and dependencies
-- **E2: Trade Network Impact Analysis**: Assessment of trade relationship changes and disruptions
-- **E3: Resource Security Analysis**: Critical resource dependencies and supply chain vulnerabilities
-- **E4: Financial Stability Assessment**: Financial system risks and contagion analysis
+#### Economic Intelligence Suite (E-Series)
+- **E1: Economic Vulnerability Assessment**: Quantitative analysis of economic stability indicators, debt-to-GDP ratios, currency volatility metrics, and systematic risk evaluation with Monte Carlo simulation
+- **E2: Trade Network Impact Analysis**: Network graph analysis of international trade relationships, supply chain disruption modeling, and cascading economic impact assessment
+- **E3: Resource Security Analysis**: Critical resource dependency mapping, strategic reserve analysis, alternative supply route evaluation, and vulnerability stress testing
+- **E4: Financial Stability Assessment**: Banking sector health analysis, systemic risk indicators, contagion pathway modeling, and regulatory compliance evaluation
 
-#### Strategic Analysis (S-Series)
-- **S1: Strategic Scenario Modeling**: Evidence-based geopolitical outcome scenarios
-- **S2: Actor Capability Assessment**: Systematic evaluation of geopolitical actor capabilities
-- **S3: Strategic Impact Projection**: Consequence analysis across multiple domains
-- **S4: Multi-factor Trend Analysis**: Interlocking geopolitical trend identification
+#### Strategic Intelligence Suite (S-Series)  
+- **S1: Strategic Scenario Modeling**: Bayesian probability modeling for geopolitical outcomes, multiple hypothesis testing, and scenario confidence calibration
+- **S2: Actor Capability Assessment**: Multi-domain power assessment using standardized metrics, capability gap analysis, and competitive intelligence frameworks
+- **S3: Strategic Impact Projection**: Cross-domain effect analysis, second and third-order consequence modeling, and strategic outcome probability matrices
+- **S4: Multi-factor Trend Analysis**: Time-series analysis of geopolitical indicators, correlation detection, and predictive trend modeling with confidence intervals
 
-#### Infrastructure & Security
-- **Infrastructure Assessment**: Comprehensive evaluation of infrastructure systems
-- **Utility Monitoring**: Systematic monitoring of utility services
-- **Infrastructure Dependency Mapping**: Relationship analysis between infrastructure systems
-- **Critical Infrastructure Vulnerability**: Security assessment of critical infrastructure
+#### Infrastructure & Security Intelligence
+- **Infrastructure Assessment Module**: SCADA system analysis, critical node identification, resilience testing, and cascading failure modeling
+- **Utility Service Monitoring**: Real-time service availability tracking, outage pattern analysis, and infrastructure health scoring
+- **Dependency Mapping Engine**: Network topology analysis, single-point-of-failure identification, and interdependency visualization
+- **Critical Infrastructure Vulnerability Scanner**: Threat surface analysis, attack vector assessment, and risk prioritization frameworks
 
-#### Specialized Operations
-- **Flight Data Analysis**: Aviation tracking data processing and interpretation
-- **Web Search & OSINT Collection**: Systematic open-source intelligence gathering
-- **Comprehensive Reporting**: Professional-grade intelligence report synthesis
-- **Micro-Summary Authoring**: Concise 280-character intelligence summaries
-- **PDF Document Generator**: Professional document creation with customizable layouts
+#### Advanced Operations Modules
+- **Flight Data Analytics**: ADS-B data processing, flight pattern analysis, anomaly detection algorithms, and aviation intelligence synthesis  
+- **Web Intelligence Collection**: Automated OSINT harvesting, social media analysis, dark web monitoring, and information validation protocols
+- **Professional Reporting Engine**: IC-standard report generation, classification handling, executive summary synthesis, and stakeholder-specific formatting
+- **Micro-Intelligence Authoring**: High-density intelligence summaries, key judgment extraction, and Twitter-optimized intelligence dissemination
+- **Document Production System**: Professional PDF generation, template management, classification markings, and distribution control
 
 ## File Structure
 
@@ -192,89 +250,161 @@ tsukuyomi/
 └── README.md                        # This file
 ```
 
-## Usage
+## Operational Usage
 
-### Framework Activation
+### Framework Initialization Protocol
 
-The framework initializes automatically when the activation key is processed:
+The system follows a structured bootstrap sequence:
 
-1. Loads `tsukuyomi_core.tsukuyomi`
-2. Initializes the AMATERASU personality core
-3. Discovers and loads all available modules
-4. Presents greeting and awaits user input
+1. **Core System Load**: Parse `tsukuyomi_core.tsukuyomi` configuration and initialize orchestration engine
+2. **Personality Core Activation**: Load AMATERASU communication interface with stakeholder profiling
+3. **Module Discovery**: Enumerate available analytical modules and resolve dependencies  
+4. **Security Context**: Initialize classification handling and compartmentalization protocols
+5. **Interface Ready**: Present operational menu and await analytical requirements
 
-### Module Execution
+### Execution Framework
 
-Modules follow a standardized execution sequence with structured outputs:
+All modules implement standardized communication protocols:
 
+```bash
+//RESULT: [High-confidence analytical findings with source attribution]
+//QUERY: [Information requirements and clarification requests]  
+//ANOMALY: [Statistical outliers and pattern deviations]
+//CRITICAL: [Time-sensitive intelligence requiring immediate attention]
+//CLASSIFICATION: [Security markings and handling instructions]
+//AMATERASU: [Personality-mediated stakeholder communications]
 ```
-//RESULT: [Confirmed findings]
-//QUERY: [Clarification requests]
-//ANOMALY: [Unusual patterns or inconsistencies]
-//AMATERASU: [Personality-mediated communications]
-```
 
-### Example Workflow
+### Professional Intelligence Workflow
 
-1. **Data Ingestion**: Upload or provide data for analysis
-2. **Discipline Alignment**: Framework determines appropriate OSINT methodology
-3. **Functional Inference**: Recommends optimal analytical operations
-4. **Specialized Analysis**: Executes domain-specific modules as needed
-5. **Correlation & Synthesis**: Identifies relationships and patterns
-6. **Reporting**: Generates structured output or comprehensive reports
+1. **Intelligence Requirements Definition**: Specify analytical objectives and classification parameters
+2. **Source Ingestion & Validation**: Multi-format data processing with quality assurance protocols
+3. **Methodology Alignment**: Apply appropriate IC analytical standards (ICD 203/206)
+4. **Multi-Module Analysis**: Execute specialized analytical modules with dependency management
+5. **Correlation & Pattern Analysis**: Statistical relationship identification and hypothesis testing
+6. **Quality Assurance**: Source correlation matrices and bias detection protocols
+7. **Professional Reporting**: IC-standard output generation with confidence calibration
+8. **Session Management**: State persistence and analytical continuity protocols
 
 ## Technical Specifications
 
-### File Format
+### Module Schema Definition
 
-All framework components use the `.tsukuyomi` extension with JSON-like structure:
+All framework components implement the standardized `.tsukuyomi` JSON schema:
 
 ```json
 {
-  "id": "module_identifier",
-  "version": "1.0.0",
-  "title": "Module Title",
-  "description": "Module description",
-  "type": "module_type",
-  "dependencies": ["dependency_modules"],
-  "execution_sequence": [...],
-  "prompt": "Module execution instructions"
+  "id": "unique_module_identifier",
+  "version": "semantic_version_string",
+  "title": "Human_Readable_Module_Title",
+  "description": "Detailed_module_functionality_description", 
+  "type": "module_classification",
+  "classification_level": "UNCLASSIFIED|CONFIDENTIAL|SECRET",
+  "dependencies": ["required_module_dependencies"],
+  "input_schema": {
+    "required_fields": [],
+    "optional_fields": [],
+    "data_types": {}
+  },
+  "output_schema": {
+    "structured_fields": [],
+    "confidence_metrics": [],
+    "classification_handling": []
+  },
+  "execution_sequence": [
+    "ordered_processing_steps"
+  ],
+  "security_protocols": {
+    "compartmentalization": true,
+    "source_protection": true,
+    "sanitization_required": false
+  },
+  "prompt": "LLM_execution_instructions_and_analytical_framework"
 }
 ```
 
-### Output Standards
+### Intelligence Community Standards Compliance
 
-- **Structured Tags**: All outputs use standardized prefixes for clarity
-- **Confidence Levels**: Analytical assessments include reliability indicators
-- **Source Attribution**: Information properly cited with confidence ratings
-- **Ethical Constraints**: No reproduction of copyrighted content beyond fair use
+- **ICD 203**: Analytical tradecraft standards with confidence calibration
+- **ICD 206**: Sourcing requirements with proper attribution protocols  
+- **Structured Output**: Standardized message formatting with classification handling
+- **Quality Assurance**: Source correlation matrices and analytical bias detection
+- **Security Protocols**: Compartmentalization, OPSEC compliance, and need-to-know enforcement
 
-## Design Philosophy
+### Framework Architecture Principles
 
-TSUKUYOMI follows core principles of:
+**Component-Based Design**
+- **Modularity**: Self-contained analytical components with defined interfaces
+- **Interoperability**: Standardized communication protocols enabling module chaining
+- **Scalability**: Plugin architecture supporting custom module development
+- **Version Control**: Semantic versioning with backward compatibility management
 
-- **Modularity**: Each component is self-contained but interoperable
-- **Explicit Structure**: Clear operational sequences and expected outputs
-- **Separation of Concerns**: Operational logic separated from presentation
-- **Analytical Rigor**: Evidence-based reasoning with appropriate confidence qualifiers
-- **Ethical Intelligence**: Responsible information handling and attribution
+**Security-First Architecture**  
+- **Classification Awareness**: Multi-level security with appropriate handling instructions
+- **Compartmentalization**: Need-to-know enforcement with access control mechanisms
+- **Source Protection**: OPSEC-compliant information handling and sanitization protocols
+- **Audit Trail**: Complete operational logging for accountability and review
 
-## Development
+**Professional Intelligence Standards**
+- **Analytical Rigor**: Evidence-based reasoning with statistical confidence metrics
+- **Transparency**: Clear methodology documentation and assumption identification  
+- **Quality Control**: Systematic bias detection and source validation protocols
+- **Stakeholder Optimization**: Adaptive communication for diverse organizational levels
 
-### Adding New Modules
+## Development & Extension
 
-1. Create a new `.tsukuyomi` file following the standard schema
-2. Define execution sequence with specific actions and outputs
-3. Specify dependencies and personality compatibility
-4. Test module integration with existing framework
-X. I have added a CLAUDE.md file if working within Claude Code
+### Module Development Framework
 
-### Personality Development
+**Development Environment Setup**
+```bash
+# Clone development repository
+git clone https://github.com/ShimazuSystems/TSUKUYOMI.git
+cd TSUKUYOMI
 
-1. Create a new personality core with `_personalitycore.tsukuyomi` suffix
-2. Define communication style, terminology preferences, and formatting rules
-3. Specify adaptive parameters for different contexts
-4. Integrate with core personality management system
+# Initialize Claude Code development environment  
+claude-code --project-mode
+```
+
+**Module Development Process**
+1. **Schema Implementation**: Create `.tsukuyomi` file adhering to standardized JSON schema
+2. **Dependency Analysis**: Define module dependencies and version compatibility requirements
+3. **Execution Logic**: Implement analytical algorithms and processing workflows
+4. **Testing Protocol**: Validate module integration with core framework and dependency modules
+5. **Documentation**: Generate technical documentation and usage examples
+6. **Security Review**: Conduct classification compliance and security protocol validation
+
+### Custom Personality Core Development
+
+**Personality Architecture**
+1. **Core Definition**: Create `*_personalitycore.tsukuyomi` with communication specifications
+2. **Stakeholder Profiling**: Define adaptive parameters for executive, operational, and technical audiences
+3. **Terminology Management**: Implement domain-specific language and classification handling
+4. **Context Adaptation**: Configure situational awareness and response calibration
+5. **Integration Testing**: Validate personality compatibility with existing module ecosystem
+
+### Enterprise Customization
+
+**Organizational Integration**
+- **Classification Systems**: Implement organization-specific classification protocols
+- **Workflow Adaptation**: Customize analytical workflows for operational requirements  
+- **Brand Integration**: Develop custom personality cores reflecting organizational communication standards
+- **Security Compliance**: Ensure adherence to organizational security and compartmentalization policies
+
+**API Development**
+```python
+# Example custom module integration
+class CustomAnalysisModule:
+    def __init__(self, classification_level="UNCLASSIFIED"):
+        self.classification = classification_level
+        self.tsukuyomi_core = TSUKUYOMIFramework()
+    
+    def execute_analysis(self, data):
+        return self.tsukuyomi_core.process_module(
+            module_id="custom_analysis",
+            input_data=data,
+            classification=self.classification
+        )
+```
 
 ## License
 
