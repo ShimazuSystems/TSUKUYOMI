@@ -408,10 +408,6 @@ class CustomAnalysisModule:
         )
 ```
 
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
 ## Contributing
 
 Contributions are welcome! Please read our contributing guidelines and code of conduct before submitting pull requests.
@@ -419,6 +415,37 @@ Contributions are welcome! Please read our contributing guidelines and code of c
 ## Support
 
 For support, documentation, or questions about the TSUKUYOMI framework, please open an issue in this repository.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Disclaimer
+
+This software is provided for **EDUCATIONAL AND RESEARCH PURPOSES ONLY**. By using, modifying, or distributing this software, you acknowledge and agree to the following terms:
+
+### Usage Restrictions
+- This framework is designed for **legitimate intelligence analysis and research** only
+- Users are **solely responsible** for ensuring compliance with all applicable laws and regulations
+- **NOT intended for malicious, illegal, or unauthorized activities**
+- Users must obtain proper authorization before analyzing any sensitive or classified information
+
+### Liability Limitations
+- The author(s) and contributors **DISCLAIM ALL LIABILITY** for any misuse of this software
+- **NO WARRANTY** of any kind, express or implied, including but not limited to merchantability or fitness for a particular purpose
+- Users assume **FULL RESPONSIBILITY** for all consequences of using this software
+- The author(s) are **NOT LIABLE** for any damages, losses, or legal consequences arising from use
+
+### Professional Responsibility
+- Users in intelligence, security, or analytical roles must follow their organization's policies and legal obligations
+- Compliance with classification handling, data protection, and operational security requirements is the **USER'S RESPONSIBILITY**
+- Any analytical outputs must be validated through appropriate professional channels
+
+### Distribution Notice
+- Redistributions must include this disclaimer in its entirety
+- Modifications to the framework do not transfer liability to original authors
+
+**BY USING THIS SOFTWARE, YOU ACKNOWLEDGE THAT YOU HAVE READ, UNDERSTOOD, AND AGREE TO BE BOUND BY THESE TERMS.**
 
 ---
 
