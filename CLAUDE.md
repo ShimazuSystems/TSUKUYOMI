@@ -1,6 +1,7 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository. I have provided this so that you can use and edit this yourself - 
+### Do Not Load This File if you are using in another LLM
 
 ## System Architecture
 
@@ -210,3 +211,4 @@ Assess source independence for high-confidence analysis
 - **Transparency**: Clear documentation of source relationships and quality assessments
 
 The framework is designed for professional intelligence operations with emphasis on analytical rigor, operational security, and stakeholder optimization while maintaining modularity for capability expansion.
+
