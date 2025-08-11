@@ -232,7 +232,7 @@ The AMATERASU personality core provides:
 - **Document Production System**: Professional PDF generation, template management, classification markings, and distribution control
 
 ## File Structure
-
+**Example/Non Exhaustive (full 'tree' is much larger)**
 ```
 tsukuyomi/
 ├── tsukuyomi_core.tsukuyomi          # Core orchestration system
