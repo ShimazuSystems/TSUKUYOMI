@@ -1,0 +1,378 @@
+{
+  "id": "source_correlation_matrix",
+  "version": "1.0.0",
+  "title": "Intelligence Source Correlation Matrix & Bias Detection System",
+  "description": "Advanced source relationship tracking and bias detection system for AI-enhanced intelligence operations, identifying confirmation bias, source independence issues, and potential hallucinations",
+  "type": "quality_assurance",
+  "dependencies": ["data_recognition_ingestion"],
+  "personality_compatibility": {
+    "required_capabilities": ["analytical_rigor", "bias_detection", "source_evaluation", "statistical_analysis"],
+    "preferred_personality": "amaterasu",
+    "personality_override_allowed": false
+  },
+  "security_requirements": {
+    "source_protection": "maximum",
+    "method_sanitization": "enforced",
+    "classification_awareness": "mandatory",
+    "audit_trail": "comprehensive"
+  },
+  "input_requirements": [
+    {
+      "name": "source_data",
+      "type": "array",
+      "description": "Intelligence sources and their attributed information",
+      "required": true
+    },
+    {
+      "name": "analysis_context",
+      "type": "object", 
+      "description": "Current analytical context and hypothesis framework",
+      "required": true
+    },
+    {
+      "name": "correlation_parameters",
+      "type": "object",
+      "description": "Correlation analysis configuration and thresholds",
+      "required": false,
+      "default": {
+        "independence_threshold": 0.7,
+        "bias_detection_sensitivity": "standard",
+        "hallucination_flags": true
+      }
+    }
+  ],
+  "output_schema": {
+    "format": "correlation_analysis",
+    "standard_tags": ["//RESULT", "//CORRELATION", "//BIAS_ALERT", "//INDEPENDENCE", "//QUALITY"],
+    "fields": [
+      {
+        "name": "source_matrix",
+        "description": "Visual correlation matrix showing source relationships",
+        "type": "object"
+      },
+      {
+        "name": "independence_assessment",
+        "description": "Analysis of source independence and potential overlap",
+        "type": "object"
+      },
+      {
+        "name": "bias_detection",
+        "description": "Identified confirmation bias and analytical blind spots",
+        "type": "object"
+      },
+      {
+        "name": "quality_indicators", 
+        "description": "Source reliability and potential hallucination flags",
+        "type": "object"
+      },
+      {
+        "name": "recommendations",
+        "description": "Analytical recommendations for source diversification",
+        "type": "array"
+      }
+    ]
+  },
+  "correlation_analysis_framework": {
+    "source_categorization": {
+      "primary_sources": {
+        "human_sources": {
+          "direct_witnesses": "First-hand observation or participation",
+          "expert_testimony": "Subject matter expert analysis",
+          "insider_information": "Privileged access reporting",
+          "field_reporting": "On-scene correspondent reporting"
+        },
+        "documentary_sources": {
+          "official_documents": "Government, organizational, or institutional records",
+          "leaked_materials": "Unauthorized disclosure of internal documents", 
+          "academic_research": "Peer-reviewed studies and analysis",
+          "technical_specifications": "Engineering, scientific, or technical documentation"
+        },
+        "observational_sources": {
+          "satellite_imagery": "Overhead imagery and geospatial intelligence",
+          "sensor_data": "Technical measurements and monitoring",
+          "communications_intercepts": "Signal intelligence and monitoring",
+          "financial_records": "Transaction data and economic indicators"
+        }
+      },
+      "secondary_sources": {
+        "media_reporting": {
+          "mainstream_media": "Traditional news organizations",
+          "specialized_publications": "Industry or domain-specific reporting",
+          "social_media": "User-generated content and social platforms",
+          "blog_analysis": "Personal commentary and analysis"
+        },
+        "aggregated_sources": {
+          "intelligence_reports": "Analytical products from other agencies",
+          "research_compilations": "Academic or think tank analysis",
+          "database_queries": "Structured data extraction",
+          "ai_generated_content": "LLM-produced analysis or summaries"
+        }
+      },
+      "derived_sources": {
+        "analytical_products": "Previously completed intelligence assessments",
+        "model_outputs": "Statistical or predictive model results", 
+        "synthesis_reports": "Multi-source analytical fusion",
+        "historical_precedents": "Past case studies and analogs"
+      }
+    },
+    "relationship_mapping": {
+      "direct_relationships": {
+        "same_source": "Multiple reports from identical source",
+        "source_network": "Sources within same organization/network",
+        "reporting_chain": "Source A reports to Source B hierarchy",
+        "shared_access": "Sources with access to same information"
+      },
+      "indirect_relationships": {
+        "common_methodology": "Sources using similar collection methods",
+        "geographic_proximity": "Sources operating in same region",
+        "temporal_clustering": "Sources reporting in same timeframe",
+        "topic_specialization": "Sources focused on same subject matter"
+      },
+      "potential_contamination": {
+        "information_laundering": "Same information attributed to multiple sources",
+        "circular_reporting": "Source A cites Source B which cites Source A",
+        "echo_chambers": "Sources reinforcing same narrative without independence",
+        "ai_hallucination_propagation": "False information spread through AI systems"
+      }
+    },
+    "bias_detection_algorithms": {
+      "confirmation_bias_indicators": {
+        "selective_sourcing": {
+          "description": "Preference for sources supporting existing hypotheses",
+          "detection_method": "Analyze source selection patterns vs hypothesis alignment",
+          "threshold": "Sources supporting hypothesis >80% without contradictory sources"
+        },
+        "cherry_picking": {
+          "description": "Using only portions of sources that support conclusions",
+          "detection_method": "Compare cited portions to full source context",
+          "threshold": "Cited content represents <30% of source with contradictory information ignored"
+        },
+        "overconfidence": {
+          "description": "Excessive confidence despite limited source diversity",
+          "detection_method": "Assess confidence level vs source independence score",
+          "threshold": "High confidence (>80%) with low source independence (<60%)"
+        }
+      },
+      "source_independence_metrics": {
+        "network_analysis": {
+          "clustering_coefficient": "Measure of source interconnectedness",
+          "path_analysis": "Shortest paths between sources in network",
+          "centrality_measures": "Identification of key source nodes",
+          "community_detection": "Identification of source groupings"
+        },
+        "temporal_analysis": {
+          "reporting_synchronization": "Sources reporting at similar times",
+          "information_cascade_detection": "Sequential reporting following initial source",
+          "timeline_correlation": "Correlation of reporting timelines",
+          "lag_analysis": "Time delays between source reports"
+        },
+        "content_similarity": {
+          "semantic_analysis": "Similarity in language and framing",
+          "fact_overlap": "Shared specific details or claims",
+          "narrative_alignment": "Similar story structure or conclusions",
+          "terminology_matching": "Use of identical specialized terms"
+        }
+      },
+      "ai_hallucination_detection": {
+        "consistency_checking": {
+          "internal_consistency": "Check for self-contradictory statements",
+          "factual_verification": "Cross-reference against known facts",
+          "plausibility_assessment": "Evaluate logical coherence",
+          "detail_granularity": "Assess appropriate level of specific details"
+        },
+        "source_attribution_analysis": {
+          "citation_verification": "Verify attributed sources actually exist",
+          "quote_accuracy": "Check accuracy of attributed quotes",
+          "context_preservation": "Ensure quoted material maintains original context",
+          "chain_of_custody": "Verify information transmission path"
+        },
+        "llm_artifact_detection": {
+          "linguistic_patterns": "Identify characteristic AI language patterns",
+          "confidence_expressions": "Detect inappropriate certainty markers",
+          "hallucination_signatures": "Known patterns of AI-generated false information",
+          "model_specific_biases": "Detection of known model-specific issues"
+        }
+      }
+    },
+    "correlation_matrix_structure": {
+      "visual_representation": {
+        "matrix_format": "Grid showing source-to-source relationships",
+        "correlation_strength": "Color-coded correlation coefficients (0.0-1.0)",
+        "independence_indicators": "Visual markers for independent sources",
+        "bias_warnings": "Alert symbols for potential bias issues"
+      },
+      "quantitative_metrics": {
+        "correlation_coefficient": "Statistical measure of source relationship strength",
+        "independence_score": "Composite measure of source independence",
+        "bias_risk_rating": "Assessment of confirmation bias potential", 
+        "quality_confidence": "Overall source quality and reliability measure"
+      },
+      "analytical_annotations": {
+        "relationship_explanations": "Detailed description of identified relationships",
+        "bias_justifications": "Explanation of detected bias indicators",
+        "recommendation_basis": "Rationale for source diversification recommendations",
+        "confidence_assessment": "Analyst confidence in correlation findings"
+      }
+    }
+  },
+  "quality_assurance_protocols": {
+    "source_validation": {
+      "existence_verification": "Confirm attributed sources actually exist",
+      "access_authentication": "Verify source had access to reported information", 
+      "consistency_checking": "Ensure source reporting is internally consistent",
+      "reliability_assessment": "Historical accuracy and credibility evaluation"
+    },
+    "relationship_verification": {
+      "connection_validation": "Confirm identified relationships are accurate",
+      "independence_testing": "Verify claimed source independence",
+      "contamination_detection": "Identify information sharing between sources",
+      "network_mapping": "Chart complete source relationship networks"
+    },
+    "bias_mitigation": {
+      "diversification_recommendations": "Suggest additional source categories",
+      "contrary_evidence_requirements": "Mandate seeking contradictory information",
+      "analytical_red_teaming": "Challenge existing conclusions and assumptions",
+      "methodological_transparency": "Document analytical decision-making process"
+    }
+  },
+  "execution_sequence": [
+    {
+      "step": 1,
+      "operation": "Source Inventory and Classification",
+      "actions": [
+        "Catalog all sources used in current analysis",
+        "Classify sources by type, origin, and access method",
+        "Identify AI-generated or AI-enhanced content",
+        "Document source attribution and reliability ratings",
+        "Establish baseline source quality metrics"
+      ],
+      "output_on_completion": "//CORRELATION: Source inventory complete. Total sources: [COUNT]. Categories: [TYPES]"
+    },
+    {
+      "step": 2,
+      "operation": "Relationship Mapping and Network Analysis",
+      "actions": [
+        "Identify direct relationships between sources",
+        "Map indirect connections and shared characteristics",
+        "Analyze source network structure and clustering",
+        "Detect potential information contamination paths",
+        "Calculate network centrality and independence measures"
+      ],
+      "output_on_completion": "//CORRELATION: Source network mapped. Independence score: [SCORE]. Clusters identified: [COUNT]"
+    },
+    {
+      "step": 3,
+      "operation": "Bias Detection and Pattern Analysis",
+      "actions": [
+        "Analyze source selection patterns for confirmation bias",
+        "Detect cherry-picking and selective citation",
+        "Identify overconfidence relative to source diversity",
+        "Assess hypothesis alignment vs source independence",
+        "Flag potential echo chamber effects"
+      ],
+      "condition": {
+        "if": "bias_indicators_detected",
+        "then": "//BIAS_ALERT: Confirmation bias indicators detected. Review recommended.",
+        "else": "//CORRELATION: No significant bias indicators identified"
+      }
+    },
+    {
+      "step": 4,
+      "operation": "AI Hallucination and Quality Assessment",
+      "actions": [
+        "Screen AI-generated content for hallucination indicators",
+        "Verify source attributions and citations",
+        "Check factual consistency against known information",
+        "Assess plausibility and logical coherence",
+        "Flag suspicious AI-generated content"
+      ],
+      "condition": {
+        "if": "hallucination_indicators_detected", 
+        "then": "//QUALITY: AI hallucination indicators detected. Verification required.",
+        "else": "//CORRELATION: AI-generated content quality acceptable"
+      }
+    },
+    {
+      "step": 5,
+      "operation": "Correlation Matrix Generation",
+      "actions": [
+        "Generate visual correlation matrix display",
+        "Calculate quantitative correlation coefficients",
+        "Apply color coding for relationship strength",
+        "Add bias and quality warning indicators",
+        "Create matrix legend and interpretation guide"
+      ],
+      "output_on_completion": "//RESULT: Source correlation matrix generated. Matrix size: [DIMENSIONS]"
+    },
+    {
+      "step": 6,
+      "operation": "Analysis and Recommendations",
+      "actions": [
+        "Assess overall source independence and quality",
+        "Identify gaps in source diversity and coverage",
+        "Generate recommendations for source diversification",
+        "Suggest additional verification requirements",
+        "Provide analytical confidence adjustment recommendations"
+      ],
+      "output_on_completion": "//CORRELATION: Analysis complete. Recommendations: [COUNT]. Confidence adjustment: [DIRECTION]"
+    }
+  ],
+  "error_handling": {
+    "insufficient_sources": {
+      "detection": "Fewer than 3 sources available for correlation analysis",
+      "response": "Provide analysis with limitations clearly stated",
+      "recommendation": "Strongly recommend additional source collection"
+    },
+    "source_verification_failures": {
+      "detection": "Unable to verify source existence or access",
+      "response": "Flag unverifiable sources for manual review",
+      "recommendation": "Exclude unverifiable sources from high-confidence assessments"
+    },
+    "ai_contamination": {
+      "detection": "High probability of AI hallucination detected",
+      "response": "Quarantine suspected content for verification",
+      "recommendation": "Require human verification before including in analysis"
+    }
+  },
+  "visualization_framework": {
+    "matrix_display": {
+      "grid_structure": "Sources on both axes with correlation values at intersections",
+      "color_scheme": {
+        "high_correlation": "Red (>0.8) - Strong relationship/potential bias",
+        "moderate_correlation": "Yellow (0.4-0.8) - Moderate relationship", 
+        "low_correlation": "Green (<0.4) - Good independence",
+        "no_data": "Gray - Insufficient data for correlation"
+      },
+      "symbols": {
+        "bias_warning": "⚠️ - Potential confirmation bias",
+        "independence_verified": "✓ - Confirmed independent source",
+        "ai_generated": "🤖 - AI-generated or AI-enhanced content",
+        "verification_required": "❓ - Requires additional verification"
+      }
+    },
+    "summary_statistics": {
+      "overall_independence_score": "Composite measure (0-100)",
+      "bias_risk_level": "Low/Medium/High based on detected indicators",
+      "source_diversity_index": "Measure of source type and origin diversity",
+      "verification_completeness": "Percentage of sources fully verified"
+    }
+  },
+  "usage_examples": {
+    "standard_analysis": {
+      "command": "Generate source correlation matrix for current analysis",
+      "context": "Analyst wants to check source independence before finalizing assessment",
+      "expected_output": "Visual matrix with independence scores and bias warnings"
+    },
+    "bias_detection": {
+      "command": "Check for confirmation bias in source selection",
+      "context": "Quality assurance review of analytical conclusions",
+      "expected_output": "Bias detection report with specific recommendations"
+    },
+    "ai_verification": {
+      "command": "Verify AI-generated content for hallucinations", 
+      "context": "Analysis includes LLM-generated research or summaries",
+      "expected_output": "AI content verification report with quality flags"
+    }
+  },
+  "prompt": "You are the TSUKUYOMI Source Correlation Matrix & Bias Detection System, responsible for maintaining analytical rigor through comprehensive source relationship analysis and bias detection in AI-enhanced intelligence operations.\n\nYour primary functions include:\n\n1. **Source Relationship Mapping**: Systematically identify and analyze relationships between intelligence sources, including direct connections, indirect associations, and potential contamination paths.\n\n2. **Bias Detection**: Detect confirmation bias, cherry-picking, overconfidence, and analytical blind spots through sophisticated pattern analysis and statistical methods.\n\n3. **AI Hallucination Detection**: Identify potential hallucinations, false attributions, and quality issues in AI-generated content through consistency checking and artifact detection.\n\n4. **Independence Assessment**: Calculate source independence scores and identify echo chambers, circular reporting, and information laundering.\n\n5. **Quality Assurance**: Provide comprehensive source quality metrics, verification status, and analytical confidence adjustments.\n\n6. **Visual Analytics**: Generate intuitive correlation matrices with color-coded relationship strengths and bias warning indicators.\n\nFor each analysis:\n- Inventory and classify all sources by type and origin\n- Map source networks and relationship structures\n- Detect bias patterns and analytical vulnerabilities\n- Screen AI content for hallucination indicators\n- Generate visual correlation matrix with quantitative metrics\n- Provide specific recommendations for source diversification\n\nMaintain the highest standards of:\n- Analytical objectivity and bias mitigation\n- Source protection and operational security\n- Statistical rigor and methodological transparency\n- Quality assurance and verification protocols\n- Professional intelligence tradecraft\n\nYour analysis must enable analysts to make informed decisions about source reliability, analytical confidence levels, and the need for additional collection or verification while protecting sensitive sources and methods."
+}

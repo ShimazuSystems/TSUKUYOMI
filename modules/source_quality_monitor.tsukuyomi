@@ -1,0 +1,287 @@
+{
+  "id": "source_quality_monitor",
+  "version": "1.0.0",
+  "title": "Continuous Source Quality Monitoring & Alert System",
+  "description": "Real-time monitoring system for source quality degradation, reliability changes, and emerging bias patterns in ongoing analytical operations",
+  "type": "continuous_quality_assurance",
+  "dependencies": ["source_correlation_matrix", "data_recognition_ingestion"],
+  "personality_compatibility": {
+    "required_capabilities": ["continuous_monitoring", "alert_generation", "trend_analysis"],
+    "preferred_personality": "amaterasu", 
+    "personality_override_allowed": false
+  },
+  "security_requirements": {
+    "source_protection": "maximum",
+    "monitoring_audit": "comprehensive",
+    "alert_classification": "appropriate",
+    "privacy_preservation": "strict"
+  },
+  "input_requirements": [
+    {
+      "name": "active_sources",
+      "type": "array",
+      "description": "Currently active sources being monitored",
+      "required": true
+    },
+    {
+      "name": "monitoring_parameters",
+      "type": "object",
+      "description": "Quality monitoring thresholds and alert criteria",
+      "required": false,
+      "default": {
+        "reliability_threshold": 0.6,
+        "bias_alert_sensitivity": "medium",
+        "trend_analysis_window": "30_days"
+      }
+    }
+  ],
+  "output_schema": {
+    "format": "monitoring_alerts",
+    "standard_tags": ["//MONITOR", "//QUALITY_ALERT", "//TREND", "//DEGRADATION", "//IMPROVEMENT"],
+    "fields": [
+      {
+        "name": "quality_trends",
+        "description": "Source quality changes over time",
+        "type": "object"
+      },
+      {
+        "name": "alert_summary",
+        "description": "Active quality alerts and warnings",
+        "type": "array"
+      },
+      {
+        "name": "source_rankings",
+        "description": "Current source reliability rankings",
+        "type": "object"
+      },
+      {
+        "name": "recommendations",
+        "description": "Quality improvement recommendations",
+        "type": "array"
+      }
+    ]
+  },
+  "monitoring_framework": {
+    "quality_metrics": {
+      "accuracy_tracking": {
+        "prediction_accuracy": "Track accuracy of source predictions over time",
+        "fact_verification": "Monitor rate of factual errors in source reporting",
+        "consistency_measures": "Track internal consistency of source reporting",
+        "update_reliability": "Monitor how often sources correct previous reports"
+      },
+      "timeliness_assessment": {
+        "reporting_speed": "Track how quickly sources report on events",
+        "information_currency": "Monitor age of information being reported",
+        "update_frequency": "Track how often sources provide updates",
+        "deadline_performance": "Monitor source performance against time requirements"
+      },
+      "completeness_evaluation": {
+        "information_breadth": "Assess comprehensiveness of source coverage",
+        "detail_sufficiency": "Monitor level of detail in source reporting",
+        "context_provision": "Track how well sources provide background context",
+        "gap_identification": "Monitor source ability to identify information gaps"
+      }
+    },
+    "bias_monitoring": {
+      "temporal_bias_detection": {
+        "consistency_over_time": "Monitor changes in source bias patterns",
+        "event_reaction_patterns": "Track how sources respond to different event types",
+        "seasonal_variations": "Detect cyclical changes in source reliability",
+        "long_term_trends": "Identify gradual bias development over time"
+      },
+      "comparative_bias_analysis": {
+        "peer_source_comparison": "Compare source performance to similar sources",
+        "cross_validation": "Monitor agreement rates with independent sources",
+        "contradiction_tracking": "Track frequency of source contradictions",
+        "consensus_deviation": "Monitor when sources deviate from expert consensus"
+      },
+      "contextual_bias_factors": {
+        "topic_sensitivity": "Monitor bias variations by subject matter",
+        "geographic_bias": "Track regional bias patterns in reporting",
+        "temporal_context": "Monitor bias changes during specific time periods",
+        "stakeholder_influence": "Detect potential external influence on reporting"
+      }
+    },
+    "degradation_detection": {
+      "quality_decline_indicators": {
+        "accuracy_degradation": "Decreasing accuracy over time",
+        "reliability_erosion": "Increasing inconsistency in reporting",
+        "bias_amplification": "Growing bias in source perspectives",
+        "timeliness_deterioration": "Slowing response times or outdated information"
+      },
+      "early_warning_systems": {
+        "statistical_anomalies": "Detect unusual patterns in source metrics",
+        "trend_analysis": "Identify negative trends before they become critical",
+        "peer_comparison_alerts": "Alert when source performance lags peers",
+        "threshold_violations": "Alert when sources fall below quality thresholds"
+      },
+      "root_cause_analysis": {
+        "access_limitations": "Monitor changes in source access to information",
+        "methodology_changes": "Detect changes in source collection methods",
+        "external_pressures": "Identify potential external influences on sources",
+        "resource_constraints": "Monitor impact of resource limitations on quality"
+      }
+    }
+  },
+  "alert_system": {
+    "alert_classifications": {
+      "critical_alerts": {
+        "source_compromise": "Indicators of source security compromise",
+        "major_reliability_loss": "Significant drop in source reliability",
+        "systematic_bias_introduction": "New systematic bias patterns detected",
+        "information_integrity_failure": "Major factual errors or fabrications"
+      },
+      "warning_alerts": {
+        "quality_degradation": "Gradual decline in source quality metrics",
+        "bias_trend_emergence": "Early indicators of developing bias",
+        "timeliness_issues": "Increasing delays in source reporting",
+        "completeness_reduction": "Decreasing comprehensiveness of reporting"
+      },
+      "informational_alerts": {
+        "methodology_changes": "Changes in source collection or reporting methods",
+        "access_modifications": "Changes in source access to information",
+        "performance_improvements": "Positive changes in source quality",
+        "comparative_rankings": "Changes in source rankings relative to peers"
+      }
+    },
+    "alert_protocols": {
+      "immediate_response": {
+        "critical_alert_escalation": "Immediate notification to senior analysts",
+        "source_quarantine": "Temporary exclusion from high-confidence analysis",
+        "verification_requirements": "Mandatory independent verification",
+        "documentation_protocols": "Comprehensive incident documentation"
+      },
+      "monitoring_adjustments": {
+        "increased_scrutiny": "Enhanced monitoring of flagged sources",
+        "verification_frequency": "Increased fact-checking requirements",
+        "bias_correction": "Application of bias adjustment factors",
+        "alternative_sourcing": "Recommendation for additional sources"
+      },
+      "recovery_protocols": {
+        "rehabilitation_criteria": "Requirements for source quality recovery",
+        "gradual_reintegration": "Phased return to full analytical integration",
+        "ongoing_monitoring": "Continued enhanced monitoring post-recovery",
+        "lessons_learned": "Documentation of quality improvement measures"
+      }
+    }
+  },
+  "continuous_monitoring_operations": {
+    "real_time_assessment": {
+      "incoming_information": "Quality assessment of new information as received",
+      "consistency_checking": "Real-time comparison with historical performance",
+      "anomaly_detection": "Immediate identification of unusual patterns",
+      "cross_reference_validation": "Automatic verification against other sources"
+    },
+    "periodic_evaluation": {
+      "daily_quality_summaries": "Daily consolidation of source performance",
+      "weekly_trend_analysis": "Weekly assessment of quality trends",
+      "monthly_comprehensive_review": "Detailed monthly source evaluation",
+      "quarterly_strategic_assessment": "Strategic review of source portfolio"
+    },
+    "adaptive_thresholds": {
+      "dynamic_threshold_adjustment": "Automatic adjustment based on operational context",
+      "context_sensitive_scoring": "Quality scoring adapted to analytical requirements",
+      "priority_weighted_assessment": "Quality evaluation weighted by source importance",
+      "stakeholder_requirement_alignment": "Quality standards aligned to user needs"
+    }
+  },
+  "execution_sequence": [
+    {
+      "step": 1,
+      "operation": "Monitoring System Initialization",
+      "actions": [
+        "Initialize continuous monitoring for all active sources",
+        "Establish baseline quality metrics and thresholds",
+        "Configure alert parameters and notification protocols",
+        "Set up trend analysis and statistical monitoring",
+        "Initialize source quality database and logging"
+      ],
+      "output_on_completion": "//MONITOR: Quality monitoring initialized. Sources tracked: [COUNT]. Baselines established."
+    },
+    {
+      "step": 2,
+      "operation": "Real-Time Quality Assessment",
+      "actions": [
+        "Continuously assess incoming information quality",
+        "Compare current performance against historical baselines",
+        "Detect anomalies and unusual patterns",
+        "Update source reliability scores in real-time",
+        "Generate immediate alerts for critical issues"
+      ],
+      "output_on_completion": "//MONITOR: Real-time assessment active. Quality scores updated continuously."
+    },
+    {
+      "step": 3,
+      "operation": "Trend Analysis and Degradation Detection",
+      "actions": [
+        "Analyze quality trends over specified time windows",
+        "Identify patterns of quality degradation or improvement",
+        "Calculate trend significance and projection",
+        "Compare trends against peer sources and benchmarks",
+        "Generate predictive alerts for potential issues"
+      ],
+      "condition": {
+        "if": "degradation_trends_detected",
+        "then": "//QUALITY_ALERT: Quality degradation trends identified. Review required.",
+        "else": "//MONITOR: Source quality trends within acceptable parameters"
+      }
+    },
+    {
+      "step": 4,
+      "operation": "Bias Pattern Monitoring",
+      "actions": [
+        "Monitor for emerging bias patterns and changes",
+        "Analyze bias consistency over time and context",
+        "Compare bias patterns against peer sources",
+        "Identify potential external influences on bias",
+        "Generate bias-related alerts and recommendations"
+      ],
+      "condition": {
+        "if": "new_bias_patterns_detected",
+        "then": "//QUALITY_ALERT: New bias patterns detected in source reporting.",
+        "else": "//MONITOR: No significant bias pattern changes detected"
+      }
+    },
+    {
+      "step": 5,
+      "operation": "Alert Generation and Prioritization",
+      "actions": [
+        "Consolidate all identified quality issues",
+        "Prioritize alerts based on severity and impact",
+        "Generate appropriate notifications for stakeholders",
+        "Update source status and usage recommendations",
+        "Document all quality incidents and responses"
+      ],
+      "output_on_completion": "//MONITOR: Quality monitoring cycle complete. Alerts generated: [COUNT]"
+    }
+  ],
+  "integration_protocols": {
+    "correlation_matrix_integration": {
+      "shared_source_tracking": "Coordinate source monitoring with correlation analysis",
+      "bias_detection_sync": "Synchronize bias detection across both systems",
+      "quality_metric_sharing": "Share quality assessments between modules",
+      "alert_coordination": "Coordinate alerts to avoid duplication"
+    },
+    "analytical_workflow_integration": {
+      "confidence_adjustment": "Automatically adjust analytical confidence based on source quality",
+      "source_recommendation": "Recommend source usage based on quality scores",
+      "verification_triggering": "Trigger additional verification for degraded sources",
+      "quality_reporting": "Include quality assessments in analytical products"
+    }
+  },
+  "quality_improvement_recommendations": {
+    "source_development": {
+      "alternative_sources": "Identify and develop alternative sources for critical topics",
+      "source_diversification": "Recommend source portfolio diversification",
+      "quality_enhancement": "Suggest methods for improving existing source quality",
+      "reliability_verification": "Recommend additional verification methods"
+    },
+    "analytical_adjustments": {
+      "confidence_calibration": "Adjust analytical confidence based on source quality",
+      "bias_compensation": "Apply bias correction factors in analysis",
+      "verification_requirements": "Increase verification for degraded sources",
+      "source_weighting": "Adjust source weighting in multi-source analysis"
+    }
+  },
+  "prompt": "You are the TSUKUYOMI Continuous Source Quality Monitoring & Alert System, responsible for maintaining real-time awareness of source quality, reliability changes, and emerging bias patterns in ongoing analytical operations.\n\nYour primary functions include:\n\n1. **Real-Time Quality Monitoring**: Continuously assess source performance across accuracy, timeliness, completeness, and reliability metrics with immediate anomaly detection.\n\n2. **Trend Analysis**: Identify quality degradation patterns, improvement trends, and long-term changes in source reliability and bias characteristics.\n\n3. **Alert Generation**: Provide timely alerts for critical quality issues, bias pattern emergence, and source degradation with appropriate prioritization and escalation.\n\n4. **Bias Pattern Monitoring**: Continuously monitor for emerging bias patterns, temporal consistency changes, and external influence indicators.\n\n5. **Quality Prediction**: Use statistical analysis to predict potential source quality issues before they become critical problems.\n\n6. **Integration Support**: Coordinate with source correlation matrix analysis and provide quality inputs for analytical confidence adjustments.\n\nFor continuous monitoring operations:\n- Initialize comprehensive monitoring systems for all active sources\n- Conduct real-time quality assessment of incoming information\n- Perform trend analysis and degradation detection\n- Monitor bias patterns and external influence indicators\n- Generate prioritized alerts with appropriate escalation\n- Provide quality-based recommendations for analytical operations\n\nMaintain the highest standards of:\n- Continuous vigilance and proactive issue identification\n- Statistical rigor in trend analysis and prediction\n- Appropriate alert prioritization and stakeholder notification\n- Source protection and operational security\n- Professional intelligence quality assurance standards\n\nYour monitoring must enable analysts to maintain awareness of source quality changes, make informed decisions about source usage, and adjust analytical confidence appropriately while maintaining operational security and source protection."
+}

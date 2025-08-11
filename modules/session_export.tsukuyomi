@@ -1,0 +1,337 @@
+{
+  "id": "session_export",
+  "version": "1.0.0",
+  "title": "TSUKUYOMI Session Export Module",
+  "description": "Generates comprehensive JSON session snapshots for analytical continuity across LLM chat interfaces",
+  "type": "session_management",
+  "dependencies": [],
+  "personality_compatibility": {
+    "required_capabilities": ["data_serialization", "context_awareness", "structured_output"],
+    "preferred_personality": "amaterasu",
+    "personality_override_allowed": false
+  },
+  "security_requirements": {
+    "classification_preservation": "mandatory",
+    "sensitive_data_handling": "strict",
+    "audit_trail_inclusion": "comprehensive",
+    "sanitization_awareness": "enforced"
+  },
+  "input_requirements": [
+    {
+      "name": "session_context",
+      "type": "object",
+      "description": "Current analytical session state and context",
+      "required": true
+    },
+    {
+      "name": "export_options",
+      "type": "object",
+      "description": "Export configuration and filtering options",
+      "required": false,
+      "default": {
+        "include_sensitive": false,
+        "sanitize_sources": true,
+        "compression_level": "standard"
+      }
+    }
+  ],
+  "output_schema": {
+    "format": "json_export",
+    "standard_tags": ["//RESULT", "//SESSION", "//EXPORT"],
+    "fields": [
+      {
+        "name": "session_metadata",
+        "description": "Session identification and timestamp information",
+        "type": "object"
+      },
+      {
+        "name": "operational_context",
+        "description": "Current operational mode and configuration",
+        "type": "object"
+      },
+      {
+        "name": "analytical_state",
+        "description": "Active analysis workflow and progress",
+        "type": "object"
+      },
+      {
+        "name": "findings_summary",
+        "description": "Key findings and confidence assessments",
+        "type": "object"
+      },
+      {
+        "name": "next_steps",
+        "description": "Recommended continuation actions",
+        "type": "array"
+      }
+    ]
+  },
+  "session_export_framework": {
+    "export_schema": {
+      "tsukuyomi_session": {
+        "version": "1.0.0",
+        "export_timestamp": "ISO 8601 format",
+        "session_id": "unique identifier",
+        "framework_version": "2.0.0"
+      },
+      "security_context": {
+        "classification_level": "UNCLASSIFIED/CONFIDENTIAL/SECRET/TOP_SECRET",
+        "handling_instructions": ["NOFORN", "REL_TO", "EYES_ONLY", "etc"],
+        "compartments": ["SCI", "SAP", "LIMDIS", "etc"],
+        "sanitization_applied": "boolean",
+        "export_authorization": "user/system"
+      },
+      "operational_state": {
+        "current_mode": "standard/intelligence/crisis",
+        "active_personality": "amaterasu",
+        "stakeholder_profile": "executive/operational/analytical/field",
+        "priority_level": "routine/priority/immediate/flash",
+        "geographic_scope": "global/regional/national/local"
+      },
+      "workflow_context": {
+        "active_modules": ["list of currently loaded modules"],
+        "module_sequence": ["ordered execution history"],
+        "current_phase": "initiation/analysis/synthesis/reporting",
+        "workflow_type": "single_module/chained/parallel/adaptive",
+        "completion_percentage": "0-100",
+        "quality_gates_status": ["passed/pending/failed"]
+      },
+      "analytical_memory": {
+        "strategic_context": {
+          "long_term_objectives": "mission/campaign goals",
+          "strategic_priorities": "ranked priority list",
+          "ongoing_assessments": "persistent analytical threads"
+        },
+        "operational_context": {
+          "mission_parameters": "current mission scope",
+          "resource_constraints": "operational limitations",
+          "timeline_requirements": "critical deadlines",
+          "stakeholder_requirements": "audience-specific needs"
+        },
+        "tactical_context": {
+          "immediate_tasks": "current analytical focus",
+          "urgent_priorities": "time-sensitive elements",
+          "active_hypotheses": "working assumptions",
+          "information_gaps": "identified collection needs"
+        },
+        "technical_context": {
+          "processing_parameters": "analytical settings",
+          "data_sources": "input information catalog",
+          "analytical_methods": "techniques in use",
+          "confidence_thresholds": "quality standards"
+        }
+      },
+      "findings_repository": {
+        "confirmed_findings": [
+          {
+            "finding_id": "unique identifier",
+            "content": "analytical conclusion",
+            "confidence_level": "percentage or qualitative",
+            "source_attribution": "sanitized source reference",
+            "timestamp": "when finding was established",
+            "supporting_evidence": "key evidence summary",
+            "contradictory_evidence": "conflicting information"
+          }
+        ],
+        "working_hypotheses": [
+          {
+            "hypothesis_id": "unique identifier",
+            "statement": "hypothesis description",
+            "confidence": "current assessment",
+            "evidence_for": "supporting information",
+            "evidence_against": "contradictory information",
+            "testing_status": "validated/testing/rejected"
+          }
+        ],
+        "information_gaps": [
+          {
+            "gap_id": "unique identifier",
+            "description": "what information is needed",
+            "priority": "high/medium/low",
+            "collection_feasibility": "assessment of obtaining info",
+            "impact_on_analysis": "how gap affects conclusions"
+          }
+        ],
+        "anomalies_detected": [
+          {
+            "anomaly_id": "unique identifier",
+            "type": "content/security/deception/technical",
+            "description": "anomaly details",
+            "impact_assessment": "significance evaluation",
+            "resolution_status": "investigating/resolved/unresolved"
+          }
+        ]
+      },
+      "continuation_guidance": {
+        "recommended_next_steps": [
+          {
+            "step_id": "unique identifier",
+            "action_type": "module_execution/data_collection/analysis_refinement",
+            "description": "what should be done next",
+            "priority": "immediate/high/medium/low",
+            "dependencies": "what needs to happen first",
+            "estimated_effort": "time/resource estimate"
+          }
+        ],
+        "suggested_modules": [
+          {
+            "module_name": "recommended module",
+            "reason": "why this module is suggested",
+            "input_requirements": "what data/context needed",
+            "expected_output": "anticipated results"
+          }
+        ],
+        "collection_requirements": [
+          {
+            "requirement_id": "unique identifier",
+            "information_needed": "specific data requirements",
+            "collection_methods": "suggested approaches",
+            "priority_justification": "why this is important",
+            "deadline": "when information is needed"
+          }
+        ]
+      }
+    }
+  },
+  "export_procedures": {
+    "pre_export_validation": [
+      "Verify session completeness and integrity",
+      "Check classification and handling requirements",
+      "Validate sanitization requirements",
+      "Confirm export authorization",
+      "Assess sensitive information exposure"
+    ],
+    "sanitization_protocols": {
+      "automatic_sanitization": {
+        "source_identities": "mask specific source names/identities",
+        "collection_methods": "generalize technical collection details",
+        "operational_specifics": "abstract operational information",
+        "personal_information": "remove or generalize PII",
+        "location_specifics": "adjust precision as appropriate"
+      },
+      "classification_handling": {
+        "upgrade_detection": "identify information requiring higher classification",
+        "downgrade_opportunities": "find information suitable for lower classification",
+        "compartment_separation": "isolate compartmented information",
+        "aggregation_risks": "assess combined information sensitivity"
+      }
+    },
+    "export_formatting": {
+      "json_structure": "well-formed JSON with proper escaping",
+      "human_readable": "include descriptive field names and structure",
+      "compression": "minimize redundancy while preserving completeness",
+      "validation": "ensure JSON schema compliance"
+    }
+  },
+  "execution_sequence": [
+    {
+      "step": 1,
+      "operation": "Session State Assessment",
+      "actions": [
+        "Gather current operational context and settings",
+        "Inventory active modules and workflow status",
+        "Collect analytical findings and working hypotheses",
+        "Identify information gaps and anomalies",
+        "Assess session completeness and integrity"
+      ],
+      "output_on_completion": "//SESSION: Current session state captured and validated"
+    },
+    {
+      "step": 2,
+      "operation": "Security and Classification Review",
+      "actions": [
+        "Determine overall classification level for export",
+        "Identify sensitive information requiring sanitization",
+        "Apply compartmentalization requirements",
+        "Assess export authorization requirements",
+        "Document sanitization decisions"
+      ],
+      "output_on_completion": "//SESSION: Security review complete. Classification: [LEVEL]. Sanitization: [APPLIED/NOT_REQUIRED]"
+    },
+    {
+      "step": 3,
+      "operation": "Data Sanitization and Preparation",
+      "actions": [
+        "Apply source protection protocols",
+        "Sanitize operational details as required",
+        "Generalize sensitive location/timing information",
+        "Mask personal identifiers appropriately",
+        "Preserve analytical integrity while protecting sources"
+      ],
+      "output_on_completion": "//SESSION: Data sanitization complete. Analytical integrity preserved"
+    },
+    {
+      "step": 4,
+      "operation": "Session Snapshot Generation",
+      "actions": [
+        "Structure session data according to export schema",
+        "Generate comprehensive metadata catalog",
+        "Create human-readable continuation guidance",
+        "Validate JSON structure and completeness",
+        "Generate session snapshot identifier"
+      ],
+      "output_on_completion": "//SESSION: Session snapshot generated. ID: [SESSION_ID]"
+    },
+    {
+      "step": 5,
+      "operation": "Export Finalization and Validation",
+      "actions": [
+        "Perform final validation of export completeness",
+        "Verify JSON schema compliance",
+        "Generate export audit trail entry",
+        "Prepare user instructions for session restoration",
+        "Create export summary for user review"
+      ],
+      "output_on_completion": "//EXPORT: Session export complete. Ready for user download/copy"
+    }
+  ],
+  "error_handling": {
+    "incomplete_session": {
+      "detection": "Missing critical context or workflow state",
+      "response": "Generate partial export with gap identification",
+      "user_guidance": "Recommend completing current analysis before export"
+    },
+    "classification_conflicts": {
+      "detection": "Mixed classification levels or compartments",
+      "response": "Apply highest classification level to entire export",
+      "user_guidance": "Explain classification escalation reasoning"
+    },
+    "sanitization_failures": {
+      "detection": "Unable to adequately sanitize sensitive information",
+      "response": "Reject export or require manual review",
+      "user_guidance": "Provide specific sanitization requirements"
+    }
+  },
+  "quality_assurance": {
+    "export_validation": {
+      "completeness_check": "Verify all required fields populated",
+      "consistency_validation": "Check for internal contradictions",
+      "format_compliance": "Ensure JSON schema adherence",
+      "restoration_viability": "Confirm export can support session restoration"
+    },
+    "user_guidance": {
+      "export_instructions": "Clear steps for saving and managing export file",
+      "restoration_preview": "Summary of what will be restored from export",
+      "security_reminders": "Classification and handling guidance for export file",
+      "troubleshooting": "Common issues and resolution guidance"
+    }
+  },
+  "usage_examples": {
+    "standard_export": {
+      "command": "Export current session",
+      "context": "User wants to pause analysis and continue later",
+      "expected_output": "Complete JSON session snapshot with continuation guidance"
+    },
+    "sanitized_export": {
+      "command": "Export session with source protection",
+      "context": "User needs to share analysis state while protecting sensitive sources",
+      "expected_output": "Sanitized JSON export suitable for broader distribution"
+    },
+    "partial_export": {
+      "command": "Export findings summary only",
+      "context": "User wants to extract just the analytical conclusions",
+      "expected_output": "Focused export containing findings and confidence assessments"
+    }
+  },
+  "prompt": "You are the TSUKUYOMI Session Export Module, responsible for creating comprehensive JSON session snapshots that preserve analytical continuity across LLM chat interfaces.\n\nYour primary functions include:\n\n1. **Session State Capture**: Systematically inventory all current operational context, workflow status, analytical findings, and continuation requirements.\n\n2. **Security-Aware Export**: Apply appropriate classification handling, sanitization protocols, and source protection while preserving analytical integrity.\n\n3. **Structured Data Generation**: Create well-formed JSON exports following the established schema with complete metadata and human-readable structure.\n\n4. **Continuation Guidance**: Generate specific recommendations for session restoration, next analytical steps, and information collection requirements.\n\n5. **Quality Assurance**: Validate export completeness, consistency, and restoration viability before finalizing.\n\nFor each export operation:\n- Assess current session completeness and analytical state\n- Apply security review and classification determination\n- Sanitize sensitive information while preserving analytical value\n- Generate comprehensive JSON snapshot with full metadata\n- Provide clear user guidance for session management\n- Create audit trail for export activity\n\nMaintain the highest standards of:\n- Data integrity and completeness preservation\n- Security protocol compliance and source protection\n- Analytical continuity and workflow preservation\n- User accessibility and clear guidance\n- Professional intelligence tradecraft standards\n\nAll exports must be immediately usable for session restoration while maintaining appropriate security controls and providing clear continuation pathways for resumed analytical operations."
+}

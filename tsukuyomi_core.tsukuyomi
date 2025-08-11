@@ -34,7 +34,8 @@
     "welcome_sequence": true,
     "load_personality": true,
     "intelligence_mode_check": true,
-    "security_context_initialization": true
+    "security_context_initialization": true,
+    "enable_splash_screen": true
   },
   
   "core_functions": [
@@ -147,6 +148,40 @@
         "automatic_activation": true,
         "priority_reordering": true,
         "critical_path_optimization": true
+      }
+    },
+    {
+      "name": "splash_screen_manager",
+      "description": "Manages the interactive splash screen interface and option selection",
+      "permissions": ["display_interface", "process_selection"],
+      "capabilities": {
+        "interactive_menu": true,
+        "option_validation": true,
+        "context_aware_options": true,
+        "menu_return_command": true
+      }
+    },
+    {
+      "name": "session_state_manager",
+      "description": "Manages session export/import operations and analytical continuity",
+      "permissions": ["session_export", "session_import", "state_preservation"],
+      "capabilities": {
+        "session_serialization": true,
+        "context_preservation": true,
+        "workflow_continuity": true,
+        "security_compliance": true
+      }
+    },
+    {
+      "name": "source_quality_orchestrator",
+      "description": "Coordinates source correlation analysis, bias detection, and quality monitoring",
+      "permissions": ["source_analysis", "bias_detection", "quality_assessment"],
+      "capabilities": {
+        "correlation_matrix_generation": true,
+        "bias_pattern_detection": true,
+        "ai_hallucination_detection": true,
+        "continuous_quality_monitoring": true,
+        "source_independence_assessment": true
       }
     }
   ],
@@ -575,12 +610,136 @@
     }
   },
   
+  "splash_screen_interface": {
+    "enabled": true,
+    "compact_display": true,
+    "display_format": "ascii_menu",
+    "main_menu": {
+      "header": [
+        "═══════════════════════════════════════════════",
+        "    TSUKUYOMI v2.0.0 - Intelligence Framework    ",
+        "═══════════════════════════════════════════════"
+      ],
+      "options": [
+        {
+          "id": "1",
+          "label": "☐ Standard Analysis Mode",
+          "description": "General analytical operations",
+          "target": "standard_operation"
+        },
+        {
+          "id": "2", 
+          "label": "☐ Intelligence Operations Mode",
+          "description": "Professional intelligence ops with security",
+          "target": "intelligence_operation"
+        },
+        {
+          "id": "3",
+          "label": "☐ Economic Analysis Suite",
+          "description": "Economic vulnerability & trade analysis",
+          "target": "economic_modules"
+        },
+        {
+          "id": "4",
+          "label": "☐ Strategic Analysis Suite", 
+          "description": "Scenario modeling & capability assessment",
+          "target": "strategic_modules"
+        },
+        {
+          "id": "5",
+          "label": "☐ Infrastructure & Security Analysis",
+          "description": "Critical infrastructure assessment",
+          "target": "infrastructure_modules"
+        },
+        {
+          "id": "6",
+          "label": "☐ Specialized Operations",
+          "description": "OSINT, flight data, custom reporting",
+          "target": "specialized_modules"
+        },
+        {
+          "id": "6a",
+          "label": "☐ Source Quality & Bias Analysis",
+          "description": "Source correlation matrix & bias detection",
+          "target": "source_analysis_modules"
+        },
+        {
+          "id": "7",
+          "label": "☐ Module Browser",
+          "description": "View all available modules",
+          "target": "module_browser"
+        },
+        {
+          "id": "8",
+          "label": "☐ System Configuration",
+          "description": "Configure security & operational parameters",
+          "target": "system_config"
+        },
+        {
+          "id": "9",
+          "label": "☐ Session Management",
+          "description": "Export/import session snapshots for continuity",
+          "target": "session_management"
+        }
+      ],
+      "footer": [
+        "═══════════════════════════════════════════════",
+        "Enter option (1-9) or type request directly",
+        "Help: 'help' | Menu: 'menu' | Direct: 'Initialise Amaterasu'"
+      ]
+    },
+    "sub_menus": {
+      "economic_modules": {
+        "header": "Economic Analysis Suite",
+        "options": [
+          "☐ E1: Economic Vulnerability Assessment",
+          "☐ E2: Trade Network Impact Analysis", 
+          "☐ E3: Resource Security Analysis",
+          "☐ E4: Financial Stability Assessment",
+          "← Back to main menu (or type 'menu')"
+        ]
+      },
+      "strategic_modules": {
+        "header": "Strategic Analysis Suite",
+        "options": [
+          "☐ S1: Strategic Scenario Modeling",
+          "☐ S2: Actor Capability Assessment",
+          "☐ S3: Strategic Impact Projection", 
+          "☐ S4: Multi-factor Trend Analysis",
+          "← Back to main menu (or type 'menu')"
+        ]
+      },
+      "session_management": {
+        "header": "Session Management",
+        "options": [
+          "☐ Export Current Session",
+          "☐ Import Session Snapshot",
+          "☐ Session Export with Sanitization",
+          "☐ Validate Session File",
+          "← Back to main menu (or type 'menu')"
+        ]
+      },
+      "source_analysis_modules": {
+        "header": "Source Quality & Bias Analysis",
+        "options": [
+          "☐ Generate Source Correlation Matrix",
+          "☐ Bias Detection Analysis",
+          "☐ AI Hallucination Detection",
+          "☐ Source Quality Monitor",
+          "☐ Source Independence Assessment",
+          "← Back to main menu (or type 'menu')"
+        ]
+      }
+    }
+  },
+
   "system_messages": {
     "initialization": {
       "standard": "//TSUKUYOMI: Intelligent modular system initialized. Awaiting input or module selection.",
       "intelligence_mode": "//TSUKUYOMI: Intelligence orchestration system activated. Security context: [LEVEL]. Ready for mission tasking.",
       "crisis_mode": "//TSUKUYOMI: CRISIS MODE ACTIVATED. All resources reallocated for emergency response. Awaiting critical tasking.",
-      "secure_mode": "//CLASSIFICATION: [LEVEL] //TSUKUYOMI: Secure operations mode. Classification protocols enforced."
+      "secure_mode": "//CLASSIFICATION: [LEVEL] //TSUKUYOMI: Secure operations mode. Classification protocols enforced.",
+      "splash_screen": "//TSUKUYOMI: System initialized. Select operational mode above."
     },
     
     "operational": {

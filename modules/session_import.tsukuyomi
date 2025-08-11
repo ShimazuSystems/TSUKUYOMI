@@ -1,0 +1,284 @@
+{
+  "id": "session_import",
+  "version": "1.0.0",
+  "title": "TSUKUYOMI Session Import Module",
+  "description": "Restores analytical sessions from JSON snapshots, reconstructing operational context and workflow state for seamless continuation",
+  "type": "session_management",
+  "dependencies": ["session_export"],
+  "personality_compatibility": {
+    "required_capabilities": ["data_parsing", "context_reconstruction", "state_management"],
+    "preferred_personality": "amaterasu",
+    "personality_override_allowed": false
+  },
+  "security_requirements": {
+    "classification_validation": "mandatory",
+    "import_authorization": "required",
+    "context_verification": "comprehensive",
+    "integrity_checking": "enforced"
+  },
+  "input_requirements": [
+    {
+      "name": "session_data",
+      "type": "json_object",
+      "description": "TSUKUYOMI session snapshot in standard JSON format",
+      "required": true
+    },
+    {
+      "name": "import_options",
+      "type": "object", 
+      "description": "Import configuration and validation settings",
+      "required": false,
+      "default": {
+        "validate_integrity": true,
+        "preserve_classification": true,
+        "resume_workflow": true
+      }
+    }
+  ],
+  "output_schema": {
+    "format": "context_restoration",
+    "standard_tags": ["//RESULT", "//SESSION", "//IMPORT", "//RESTORED"],
+    "fields": [
+      {
+        "name": "import_validation",
+        "description": "Session data integrity and compatibility assessment",
+        "type": "object"
+      },
+      {
+        "name": "context_restoration",
+        "description": "Reconstructed operational context and settings",
+        "type": "object"
+      },
+      {
+        "name": "workflow_status",
+        "description": "Restored analytical workflow state and progress",
+        "type": "object"
+      },
+      {
+        "name": "continuation_plan",
+        "description": "Recommended next steps and actions",
+        "type": "array"
+      }
+    ]
+  },
+  "session_import_framework": {
+    "validation_schema": {
+      "format_validation": {
+        "json_structure": "Well-formed JSON with proper schema compliance",
+        "required_fields": ["tsukuyomi_session", "security_context", "operational_state"],
+        "version_compatibility": "Framework version 2.0.0 and compatible versions",
+        "field_completeness": "All critical fields populated with valid data"
+      },
+      "security_validation": {
+        "classification_consistency": "Classification levels properly marked and consistent",
+        "handling_instructions": "Valid and current handling caveats",
+        "compartment_verification": "Proper compartmentalization maintained",
+        "sanitization_status": "Sanitization flags properly documented"
+      },
+      "integrity_validation": {
+        "session_completeness": "All required session components present",
+        "data_consistency": "No internal contradictions or conflicts", 
+        "timestamp_validity": "Export timestamps within reasonable bounds",
+        "workflow_coherence": "Workflow state logically consistent"
+      }
+    },
+    "restoration_procedures": {
+      "context_reconstruction": {
+        "operational_state": {
+          "current_mode": "Restore operational mode (standard/intelligence/crisis)",
+          "personality_settings": "Reload AMATERASU personality configuration",
+          "stakeholder_profile": "Restore audience-specific communication settings",
+          "priority_level": "Restore urgency and priority context",
+          "geographic_scope": "Restore analytical focus area"
+        },
+        "workflow_state": {
+          "active_modules": "Reload previously active analytical modules",
+          "execution_history": "Restore module execution sequence",
+          "current_phase": "Resume at appropriate workflow phase",
+          "completion_status": "Restore progress tracking",
+          "quality_gates": "Restore quality checkpoint status"
+        },
+        "analytical_memory": {
+          "strategic_context": "Restore long-term objectives and campaigns",
+          "operational_context": "Restore mission parameters and constraints",
+          "tactical_context": "Restore immediate tasks and priorities", 
+          "technical_context": "Restore processing parameters and methods"
+        }
+      },
+      "findings_restoration": {
+        "confirmed_findings": {
+          "content_restoration": "Restore analytical conclusions with full context",
+          "confidence_levels": "Restore confidence assessments and rationale",
+          "source_attribution": "Restore sanitized source references",
+          "evidence_tracking": "Restore supporting and contradictory evidence"
+        },
+        "working_hypotheses": {
+          "hypothesis_status": "Restore hypothesis validation states",
+          "evidence_compilation": "Restore evidence for/against hypotheses",
+          "testing_progress": "Restore hypothesis testing status",
+          "confidence_tracking": "Restore confidence evolution"
+        },
+        "gap_identification": {
+          "information_gaps": "Restore identified collection requirements",
+          "priority_assessment": "Restore gap priority rankings",
+          "collection_feasibility": "Restore feasibility assessments",
+          "impact_analysis": "Restore gap impact on analytical conclusions"
+        }
+      }
+    },
+    "continuation_planning": {
+      "workflow_resumption": {
+        "next_step_identification": "Determine appropriate resumption point",
+        "module_preparation": "Prepare required modules for continuation",
+        "data_readiness": "Assess data availability for next steps",
+        "quality_checkpoint": "Verify readiness for continued analysis"
+      },
+      "progress_assessment": {
+        "completion_evaluation": "Assess overall analytical progress",
+        "milestone_tracking": "Identify completed and pending milestones",
+        "timeline_adjustment": "Adjust timelines based on session gap",
+        "resource_requirements": "Identify resources needed for continuation"
+      },
+      "stakeholder_notification": {
+        "resumption_alert": "Notify relevant stakeholders of session resumption",
+        "progress_update": "Provide current status update",
+        "timeline_communication": "Communicate revised completion estimates",
+        "requirement_confirmation": "Confirm continued relevance of requirements"
+      }
+    }
+  },
+  "import_validation_procedures": {
+    "pre_import_checks": [
+      "Validate JSON format and structure",
+      "Verify TSUKUYOMI session schema compliance", 
+      "Check framework version compatibility",
+      "Assess security classification requirements",
+      "Confirm import authorization"
+    ],
+    "security_verification": [
+      "Validate classification markings and handling",
+      "Verify compartmentalization requirements",
+      "Check sanitization status and requirements",
+      "Assess aggregation risks from import",
+      "Confirm current security context compatibility"
+    ],
+    "data_integrity_checks": [
+      "Verify session completeness and consistency",
+      "Check for data corruption or truncation",
+      "Validate timestamps and chronological order",
+      "Assess workflow state logical consistency",
+      "Verify findings and evidence linkages"
+    ]
+  },
+  "execution_sequence": [
+    {
+      "step": 1,
+      "operation": "Import Validation and Security Review",
+      "actions": [
+        "Parse JSON structure and validate schema compliance",
+        "Verify TSUKUYOMI session format and version compatibility",
+        "Review classification levels and handling requirements",
+        "Assess security context and import authorization",
+        "Check for data integrity and completeness"
+      ],
+      "output_on_completion": "//IMPORT: Session validation complete. Format: [VALID/INVALID]. Security: [CLEARED/RESTRICTED]"
+    },
+    {
+      "step": 2,
+      "operation": "Operational Context Reconstruction",
+      "actions": [
+        "Restore operational mode and priority settings",
+        "Reload personality configuration and stakeholder profile",
+        "Reconstruct geographic scope and analytical focus",
+        "Restore security context and classification handling",
+        "Initialize workflow management with imported state"
+      ],
+      "output_on_completion": "//RESTORED: Operational context reconstructed. Mode: [MODE]. Classification: [LEVEL]"
+    },
+    {
+      "step": 3,
+      "operation": "Analytical State Restoration",
+      "actions": [
+        "Restore confirmed findings with confidence levels",
+        "Reload working hypotheses and testing status",
+        "Reconstruct information gaps and collection requirements",
+        "Restore anomaly detections and resolution status",
+        "Rebuild analytical memory hierarchies"
+      ],
+      "output_on_completion": "//RESTORED: Analytical state reconstructed. Findings: [COUNT]. Hypotheses: [COUNT]"
+    },
+    {
+      "step": 4,
+      "operation": "Workflow State Reconstruction", 
+      "actions": [
+        "Restore active module configuration and state",
+        "Rebuild module execution history and sequence",
+        "Reconstruct current phase and completion status",
+        "Restore quality gate status and checkpoints",
+        "Prepare workflow engine for continuation"
+      ],
+      "output_on_completion": "//RESTORED: Workflow state reconstructed. Phase: [CURRENT]. Progress: [PERCENTAGE]%"
+    },
+    {
+      "step": 5,
+      "operation": "Continuation Planning and Resumption",
+      "actions": [
+        "Analyze recommended next steps from export",
+        "Assess current context for continuation viability",
+        "Prepare suggested modules for workflow resumption",
+        "Generate updated continuation guidance",
+        "Initialize session for resumed operations"
+      ],
+      "output_on_completion": "//SESSION: Import complete. Session restored. Ready for continued analysis."
+    }
+  ],
+  "error_handling": {
+    "format_errors": {
+      "invalid_json": "Provide JSON formatting guidance and validation tools",
+      "schema_mismatch": "Identify specific schema compliance issues",
+      "version_incompatibility": "Explain version differences and conversion options"
+    },
+    "security_violations": {
+      "classification_mismatch": "Require security review before import",
+      "compartment_violations": "Restrict import to authorized compartments",
+      "sanitization_concerns": "Flag potential information exposure risks"
+    },
+    "data_integrity_issues": {
+      "incomplete_sessions": "Identify missing components and impact",
+      "corrupted_data": "Attempt partial restoration with gap identification",
+      "inconsistent_state": "Flag inconsistencies and request clarification"
+    }
+  },
+  "quality_assurance": {
+    "restoration_verification": {
+      "completeness_check": "Verify all importable data successfully restored",
+      "consistency_validation": "Check for internal consistency post-import",
+      "functionality_test": "Verify workflow engine ready for continuation",
+      "security_compliance": "Confirm security protocols properly restored"
+    },
+    "continuation_readiness": {
+      "workflow_viability": "Assess readiness for analytical continuation",
+      "data_sufficiency": "Verify adequate context for next steps", 
+      "module_availability": "Confirm required modules accessible",
+      "stakeholder_alignment": "Verify continued relevance of requirements"
+    }
+  },
+  "usage_examples": {
+    "standard_import": {
+      "command": "Import session from [JSON_DATA]",
+      "context": "User returning to continue paused analysis",
+      "expected_output": "Full session restoration with workflow resumption"
+    },
+    "selective_import": {
+      "command": "Import findings only from [JSON_DATA]", 
+      "context": "User wants to reference previous analysis results",
+      "expected_output": "Findings and conclusions imported without full workflow"
+    },
+    "collaborative_import": {
+      "command": "Import shared session from colleague",
+      "context": "Analyst taking over analysis from another team member",
+      "expected_output": "Full context restoration with handoff documentation"
+    }
+  },
+  "prompt": "You are the TSUKUYOMI Session Import Module, responsible for reconstructing analytical sessions from JSON snapshots and restoring complete operational context for seamless analytical continuation.\n\nYour primary functions include:\n\n1. **Import Validation**: Thoroughly validate JSON session snapshots for format compliance, security requirements, and data integrity before processing.\n\n2. **Context Reconstruction**: Systematically restore operational settings, workflow state, analytical memory, and all session components from imported data.\n\n3. **Security Compliance**: Maintain strict adherence to classification requirements, compartmentalization, and security protocols during import operations.\n\n4. **Workflow Restoration**: Rebuild complete analytical workflow state enabling seamless continuation from the exact point of previous session export.\n\n5. **Continuation Planning**: Generate updated guidance for analytical continuation based on imported state and current operational context.\n\nFor each import operation:\n- Validate JSON format and TSUKUYOMI schema compliance\n- Verify security classification and authorization requirements\n- Reconstruct complete operational and analytical context\n- Restore workflow state and progression tracking\n- Prepare framework for seamless analytical continuation\n- Generate comprehensive restoration report\n\nMaintain the highest standards of:\n- Data integrity and complete context restoration\n- Security protocol compliance and proper handling\n- Workflow continuity and seamless resumption\n- Quality assurance and validation thoroughness\n- Professional intelligence tradecraft preservation\n\nAll imports must result in fully functional session restoration enabling immediate continuation of analytical operations with complete context preservation and appropriate security controls."
+}
